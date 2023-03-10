@@ -1,4 +1,4 @@
-module github.com/sirjager/go_rpcs
+module github.com/sirjager/rpcs
 
 go 1.20
 
