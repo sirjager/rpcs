@@ -19,8 +19,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='rpc-signup.auth.proto',
   package='auth',
   syntax='proto3',
-  serialized_options=_b('Z github.com/sirjager/go_rpcs/auth'),
-  serialized_pb=_b('\n\x15rpc-signup.auth.proto\x12\x04\x61uth\x1a\x0fuser.auth.proto\"k\n\x11\x41uthSignupRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x11\n\tfirstname\x18\x04 \x01(\t\x12\x10\n\x08lastname\x18\x05 \x01(\t\"2\n\x12\x41uthSignupResponse\x12\x1c\n\x04user\x18\x01 \x01(\x0b\x32\x0e.auth.AuthUserB\"Z github.com/sirjager/go_rpcs/authb\x06proto3')
+  serialized_options=_b('Z\035github.com/sirjager/rpcs/auth'),
+  serialized_pb=_b('\n\x15rpc-signup.auth.proto\x12\x04\x61uth\x1a\x0fuser.auth.proto\"k\n\x11\x41uthSignupRequest\x12\r\n\x05\x65mail\x18\x01 \x01(\t\x12\x10\n\x08username\x18\x02 \x01(\t\x12\x10\n\x08password\x18\x03 \x01(\t\x12\x11\n\tfirstname\x18\x04 \x01(\t\x12\x10\n\x08lastname\x18\x05 \x01(\t\"2\n\x12\x41uthSignupResponse\x12\x1c\n\x04user\x18\x01 \x01(\x0b\x32\x0e.auth.AuthUserB\x1fZ\x1dgithub.com/sirjager/rpcs/authb\x06proto3')
   ,
   dependencies=[user_dot_auth__pb2.DESCRIPTOR,])
 

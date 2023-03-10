@@ -8,7 +8,6 @@ package auth
 
 import (
 	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2/options"
-	auth "github.com/sirjager/go_rpcs/auth"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -200,7 +199,7 @@ var file_service_auth_proto_rawDesc = []byte{
 var file_service_auth_proto_goTypes = []interface{}{
 	(*AuthWelcomeRequest)(nil),                   // 0: auth.AuthWelcomeRequest
 	(*AuthHealthRequest)(nil),                    // 1: auth.AuthHealthRequest
-	(*auth.AuthSignupRequest)(nil),               // 2: auth.AuthSignupRequest
+	(*AuthSignupRequest)(nil),                    // 2: auth.AuthSignupRequest
 	(*AuthSigninRequest)(nil),                    // 3: auth.AuthSigninRequest
 	(*AuthSignoutRequest)(nil),                   // 4: auth.AuthSignoutRequest
 	(*AuthRefreshTokenRequest)(nil),              // 5: auth.AuthRefreshTokenRequest
@@ -213,7 +212,7 @@ var file_service_auth_proto_goTypes = []interface{}{
 	(*AuthUserRequest)(nil),                      // 12: auth.AuthUserRequest
 	(*AuthWelcomeResponse)(nil),                  // 13: auth.AuthWelcomeResponse
 	(*AuthHealthResponse)(nil),                   // 14: auth.AuthHealthResponse
-	(*auth.AuthSignupResponse)(nil),              // 15: auth.AuthSignupResponse
+	(*AuthSignupResponse)(nil),                   // 15: auth.AuthSignupResponse
 	(*AuthSigninResponse)(nil),                   // 16: auth.AuthSigninResponse
 	(*AuthSignoutResponse)(nil),                  // 17: auth.AuthSignoutResponse
 	(*AuthRefreshTokenResponse)(nil),             // 18: auth.AuthRefreshTokenResponse
@@ -266,6 +265,7 @@ func file_service_auth_proto_init() {
 	}
 	file_rpc_welcome_auth_proto_init()
 	file_rpc_health_auth_proto_init()
+	file_rpc_signup_auth_proto_init()
 	file_rpc_signin_auth_proto_init()
 	file_rpc_signout_auth_proto_init()
 	file_rpc_refresh_auth_proto_init()

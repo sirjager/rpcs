@@ -15,7 +15,6 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
-	auth_0 "github.com/sirjager/go_rpcs/auth"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
@@ -69,7 +68,7 @@ func local_request_Auth_AuthHealth_0(ctx context.Context, marshaler runtime.Mars
 }
 
 func request_Auth_AuthSignup_0(ctx context.Context, marshaler runtime.Marshaler, client AuthClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq auth_0.AuthSignupRequest
+	var protoReq AuthSignupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -86,7 +85,7 @@ func request_Auth_AuthSignup_0(ctx context.Context, marshaler runtime.Marshaler,
 }
 
 func local_request_Auth_AuthSignup_0(ctx context.Context, marshaler runtime.Marshaler, server AuthServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq auth_0.AuthSignupRequest
+	var protoReq AuthSignupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)

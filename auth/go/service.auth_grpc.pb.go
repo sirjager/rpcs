@@ -8,7 +8,6 @@ package auth
 
 import (
 	context "context"
-	auth "github.com/sirjager/go_rpcs/auth"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -28,7 +27,7 @@ type AuthClient interface {
 	// ------------------------------------------------------------ Signup
 	AuthHealth(ctx context.Context, in *AuthHealthRequest, opts ...grpc.CallOption) (*AuthHealthResponse, error)
 	// ------------------------------------------------------------ Signup
-	AuthSignup(ctx context.Context, in *auth.AuthSignupRequest, opts ...grpc.CallOption) (*auth.AuthSignupResponse, error)
+	AuthSignup(ctx context.Context, in *AuthSignupRequest, opts ...grpc.CallOption) (*AuthSignupResponse, error)
 	// ------------------------------------------------------------ Signin
 	AuthSignin(ctx context.Context, in *AuthSigninRequest, opts ...grpc.CallOption) (*AuthSigninResponse, error)
 	// ------------------------------------------------------------ Signout
@@ -79,8 +78,8 @@ func (c *authClient) AuthHealth(ctx context.Context, in *AuthHealthRequest, opts
 	return out, nil
 }
 
-func (c *authClient) AuthSignup(ctx context.Context, in *auth.AuthSignupRequest, opts ...grpc.CallOption) (*auth.AuthSignupResponse, error) {
-	out := new(auth.AuthSignupResponse)
+func (c *authClient) AuthSignup(ctx context.Context, in *AuthSignupRequest, opts ...grpc.CallOption) (*AuthSignupResponse, error) {
+	out := new(AuthSignupResponse)
 	err := c.cc.Invoke(ctx, "/auth.Auth/AuthSignup", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -187,7 +186,7 @@ type AuthServer interface {
 	// ------------------------------------------------------------ Signup
 	AuthHealth(context.Context, *AuthHealthRequest) (*AuthHealthResponse, error)
 	// ------------------------------------------------------------ Signup
-	AuthSignup(context.Context, *auth.AuthSignupRequest) (*auth.AuthSignupResponse, error)
+	AuthSignup(context.Context, *AuthSignupRequest) (*AuthSignupResponse, error)
 	// ------------------------------------------------------------ Signin
 	AuthSignin(context.Context, *AuthSigninRequest) (*AuthSigninResponse, error)
 	// ------------------------------------------------------------ Signout
@@ -223,7 +222,7 @@ func (UnimplementedAuthServer) AuthWelcome(context.Context, *AuthWelcomeRequest)
 func (UnimplementedAuthServer) AuthHealth(context.Context, *AuthHealthRequest) (*AuthHealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthHealth not implemented")
 }
-func (UnimplementedAuthServer) AuthSignup(context.Context, *auth.AuthSignupRequest) (*auth.AuthSignupResponse, error) {
+func (UnimplementedAuthServer) AuthSignup(context.Context, *AuthSignupRequest) (*AuthSignupResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthSignup not implemented")
 }
 func (UnimplementedAuthServer) AuthSignin(context.Context, *AuthSigninRequest) (*AuthSigninResponse, error) {
@@ -306,7 +305,7 @@ func _Auth_AuthHealth_Handler(srv interface{}, ctx context.Context, dec func(int
 }
 
 func _Auth_AuthSignup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(auth.AuthSignupRequest)
+	in := new(AuthSignupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -318,7 +317,7 @@ func _Auth_AuthSignup_Handler(srv interface{}, ctx context.Context, dec func(int
 		FullMethod: "/auth.Auth/AuthSignup",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthServer).AuthSignup(ctx, req.(*auth.AuthSignupRequest))
+		return srv.(AuthServer).AuthSignup(ctx, req.(*AuthSignupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
