@@ -4,14 +4,8 @@ import * as payload_tokens_pb from './payload.tokens_pb';
 
 
 export class TokensCreateRequest extends jspb.Message {
-  getData(): string;
-  setData(value: string): TokensCreateRequest;
-
-  getBuilder(): string;
-  setBuilder(value: string): TokensCreateRequest;
-
-  getSecs(): number;
-  setSecs(value: number): TokensCreateRequest;
+  getPayload(): string;
+  setPayload(value: string): TokensCreateRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TokensCreateRequest.AsObject;
@@ -23,9 +17,7 @@ export class TokensCreateRequest extends jspb.Message {
 
 export namespace TokensCreateRequest {
   export type AsObject = {
-    data: string,
-    builder: string,
-    secs: number,
+    payload: string,
   }
 }
 

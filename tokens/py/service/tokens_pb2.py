@@ -25,7 +25,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tokens',
   syntax='proto3',
   serialized_options=_b('Z\037github.com/sirjager/rpcs/tokens\222A?\022=\n\nTokens Api\"*\n\013Ankur Kumar\022\033https://github.com/sirjager2\0030.2'),
-  serialized_pb=_b('\n\x14service.tokens.proto\x12\x06tokens\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x17rpc-health.tokens.proto\x1a\x18rpc-welcome.tokens.proto\x1a\x17rpc-create.tokens.proto\x1a\x17rpc-verify.tokens.proto2\xfa\x04\n\x06Tokens\x12\x8d\x01\n\rTokensWelcome\x12\x1c.tokens.TokensWelcomeRequest\x1a\x1d.tokens.TokensWelcomeResponse\"?\x82\xd3\xe4\x93\x02\x03\x12\x01/\x92\x41\x33\n\x06System\x12\x0fWelcome Message\x1a\x18returs a welcome message\x12\xa6\x01\n\x0cTokensHealth\x12\x1b.tokens.TokensHealthRequest\x1a\x1c.tokens.TokensHealthResponse\"[\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/health\x92\x41\x46\n\x06System\x12\nApi Health\x1a\x30use this route to check if api is working or not\x12\x99\x01\n\x0cTokensCreate\x12\x1b.tokens.TokensCreateRequest\x1a\x1c.tokens.TokensCreateResponse\"N\x82\xd3\xe4\x93\x02\x0f\"\n/v1/create:\x01*\x92\x41\x36\n\x06Tokens\x12\x0c\x43reate Token\x1a\x1euse this route to create token\x12\x9a\x01\n\x0cTokensVerify\x12\x1b.tokens.TokensVerifyRequest\x1a\x1c.tokens.TokensVerifyResponse\"O\x82\xd3\xe4\x93\x02\x0f\"\n/v1/verify:\x01*\x92\x41\x37\n\x06Tokens\x12\x0cVerify Token\x1a\x1fuse this router to verify tokenBcZ\x1fgithub.com/sirjager/rpcs/tokens\x92\x41?\x12=\n\nTokens Api\"*\n\x0b\x41nkur Kumar\x12\x1bhttps://github.com/sirjager2\x03\x30.2b\x06proto3')
+  serialized_pb=_b('\n\x14service.tokens.proto\x12\x06tokens\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x17rpc-health.tokens.proto\x1a\x18rpc-welcome.tokens.proto\x1a\x17rpc-create.tokens.proto\x1a\x17rpc-verify.tokens.proto2\xf7\x04\n\x06Tokens\x12\x8d\x01\n\rTokensWelcome\x12\x1c.tokens.TokensWelcomeRequest\x1a\x1d.tokens.TokensWelcomeResponse\"?\x82\xd3\xe4\x93\x02\x03\x12\x01/\x92\x41\x33\n\x06System\x12\x0fWelcome Message\x1a\x18returs a welcome message\x12\xa3\x01\n\x0cTokensHealth\x12\x1b.tokens.TokensHealthRequest\x1a\x1c.tokens.TokensHealthResponse\"X\x82\xd3\xe4\x93\x02\t\x12\x07/health\x92\x41\x46\n\x06System\x12\nApi Health\x1a\x30use this route to check if api is working or not\x12\x99\x01\n\x0cTokensCreate\x12\x1b.tokens.TokensCreateRequest\x1a\x1c.tokens.TokensCreateResponse\"N\x82\xd3\xe4\x93\x02\x0f\"\n/v1/create:\x01*\x92\x41\x36\n\x06Tokens\x12\x0c\x43reate Token\x1a\x1euse this route to create token\x12\x9a\x01\n\x0cTokensVerify\x12\x1b.tokens.TokensVerifyRequest\x1a\x1c.tokens.TokensVerifyResponse\"O\x82\xd3\xe4\x93\x02\x0f\"\n/v1/verify:\x01*\x92\x41\x37\n\x06Tokens\x12\x0cVerify Token\x1a\x1fuse this router to verify tokenBcZ\x1fgithub.com/sirjager/rpcs/tokens\x92\x41?\x12=\n\nTokens Api\"*\n\x0b\x41nkur Kumar\x12\x1bhttps://github.com/sirjager2\x03\x30.2b\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,protoc__gen__openapiv2_dot_options_dot_annotations__pb2.DESCRIPTOR,rpc__health_dot_tokens__pb2.DESCRIPTOR,rpc__welcome_dot_tokens__pb2.DESCRIPTOR,rpc__create_dot_tokens__pb2.DESCRIPTOR,rpc__verify_dot_tokens__pb2.DESCRIPTOR,])
 
@@ -43,7 +43,7 @@ _TOKENS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=212,
-  serialized_end=846,
+  serialized_end=843,
   methods=[
   _descriptor.MethodDescriptor(
     name='TokensWelcome',
@@ -61,7 +61,7 @@ _TOKENS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=rpc__health_dot_tokens__pb2._TOKENSHEALTHREQUEST,
     output_type=rpc__health_dot_tokens__pb2._TOKENSHEALTHRESPONSE,
-    serialized_options=_b('\202\323\344\223\002\014\022\n/v1/health\222AF\n\006System\022\nApi Health\0320use this route to check if api is working or not'),
+    serialized_options=_b('\202\323\344\223\002\t\022\007/health\222AF\n\006System\022\nApi Health\0320use this route to check if api is working or not'),
   ),
   _descriptor.MethodDescriptor(
     name='TokensCreate',

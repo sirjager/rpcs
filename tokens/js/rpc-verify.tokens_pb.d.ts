@@ -8,9 +8,6 @@ export class TokensVerifyRequest extends jspb.Message {
   getToken(): string;
   setToken(value: string): TokensVerifyRequest;
 
-  getBuilder(): string;
-  setBuilder(value: string): TokensVerifyRequest;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): TokensVerifyRequest.AsObject;
   static toObject(includeInstance: boolean, msg: TokensVerifyRequest): TokensVerifyRequest.AsObject;
@@ -22,7 +19,6 @@ export class TokensVerifyRequest extends jspb.Message {
 export namespace TokensVerifyRequest {
   export type AsObject = {
     token: string,
-    builder: string,
   }
 }
 
