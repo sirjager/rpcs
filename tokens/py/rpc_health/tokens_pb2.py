@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='tokens',
   syntax='proto3',
   serialized_options=_b('Z\037github.com/sirjager/rpcs/tokens'),
-  serialized_pb=_b('\n\x17rpc-health.tokens.proto\x12\x06tokens\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\x15\n\x13TokensHealthRequest\"\xd0\x01\n\x14TokensHealthResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x0e\n\x06unsafe\x18\x02 \x01(\x08\x12\x11\n\tprotected\x18\x03 \x01(\x08\x12)\n\x06uptime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x07started\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\ttimestamp\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB!Z\x1fgithub.com/sirjager/rpcs/tokensb\x06proto3')
+  serialized_pb=_b('\n\x17rpc-health.tokens.proto\x12\x06tokens\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\x15\n\x13TokensHealthRequest\"\xc0\x01\n\x14TokensHealthResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12\x11\n\tprotected\x18\x03 \x01(\x08\x12)\n\x06uptime\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x07started\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\ttimestamp\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB!Z\x1fgithub.com/sirjager/rpcs/tokensb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,])
 
@@ -67,35 +67,28 @@ _TOKENSHEALTHRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='unsafe', full_name='tokens.TokensHealthResponse.unsafe', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='protected', full_name='tokens.TokensHealthResponse.protected', index=2,
+      name='protected', full_name='tokens.TokensHealthResponse.protected', index=1,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='uptime', full_name='tokens.TokensHealthResponse.uptime', index=3,
+      name='uptime', full_name='tokens.TokensHealthResponse.uptime', index=2,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='started', full_name='tokens.TokensHealthResponse.started', index=4,
+      name='started', full_name='tokens.TokensHealthResponse.started', index=3,
       number=5, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='timestamp', full_name='tokens.TokensHealthResponse.timestamp', index=5,
+      name='timestamp', full_name='tokens.TokensHealthResponse.timestamp', index=4,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -114,7 +107,7 @@ _TOKENSHEALTHRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=124,
-  serialized_end=332,
+  serialized_end=316,
 )
 
 _TOKENSHEALTHRESPONSE.fields_by_name['uptime'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION

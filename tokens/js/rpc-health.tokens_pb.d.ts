@@ -22,9 +22,6 @@ export class TokensHealthResponse extends jspb.Message {
   getStatus(): string;
   setStatus(value: string): TokensHealthResponse;
 
-  getUnsafe(): boolean;
-  setUnsafe(value: boolean): TokensHealthResponse;
-
   getProtected(): boolean;
   setProtected(value: boolean): TokensHealthResponse;
 
@@ -54,7 +51,6 @@ export class TokensHealthResponse extends jspb.Message {
 export namespace TokensHealthResponse {
   export type AsObject = {
     status: string,
-    unsafe: boolean,
     pb_protected: boolean,
     uptime?: google_protobuf_duration_pb.Duration.AsObject,
     started?: google_protobuf_timestamp_pb.Timestamp.AsObject,
