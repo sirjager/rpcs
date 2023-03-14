@@ -270,122 +270,122 @@ proto.utils.UtilsPromiseClient.prototype.utilsUserAgents =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.utils.UtilsUserAgentsGroupsRequest,
- *   !proto.utils.UtilsUserAgentsGroupsResponse>}
+ *   !proto.utils.UtilsUserAgentsPoolRequest,
+ *   !proto.utils.UtilsUserAgentsPoolResponse>}
  */
-const methodDescriptor_Utils_UtilsUserAgentsGroups = new grpc.web.MethodDescriptor(
-  '/utils.Utils/UtilsUserAgentsGroups',
+const methodDescriptor_Utils_UtilsUserAgentsPool = new grpc.web.MethodDescriptor(
+  '/utils.Utils/UtilsUserAgentsPool',
   grpc.web.MethodType.UNARY,
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupsRequest,
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupsResponse,
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolRequest,
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolResponse,
   /**
-   * @param {!proto.utils.UtilsUserAgentsGroupsRequest} request
+   * @param {!proto.utils.UtilsUserAgentsPoolRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupsResponse.deserializeBinary
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.utils.UtilsUserAgentsGroupsRequest} request The
+ * @param {!proto.utils.UtilsUserAgentsPoolRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.utils.UtilsUserAgentsGroupsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.utils.UtilsUserAgentsPoolResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.utils.UtilsUserAgentsGroupsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.utils.UtilsUserAgentsPoolResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.utils.UtilsClient.prototype.utilsUserAgentsGroups =
+proto.utils.UtilsClient.prototype.utilsUserAgentsPool =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/utils.Utils/UtilsUserAgentsGroups',
+      '/utils.Utils/UtilsUserAgentsPool',
       request,
       metadata || {},
-      methodDescriptor_Utils_UtilsUserAgentsGroups,
+      methodDescriptor_Utils_UtilsUserAgentsPool,
       callback);
 };
 
 
 /**
- * @param {!proto.utils.UtilsUserAgentsGroupsRequest} request The
+ * @param {!proto.utils.UtilsUserAgentsPoolRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.utils.UtilsUserAgentsGroupsResponse>}
+ * @return {!Promise<!proto.utils.UtilsUserAgentsPoolResponse>}
  *     Promise that resolves to the response
  */
-proto.utils.UtilsPromiseClient.prototype.utilsUserAgentsGroups =
+proto.utils.UtilsPromiseClient.prototype.utilsUserAgentsPool =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/utils.Utils/UtilsUserAgentsGroups',
+      '/utils.Utils/UtilsUserAgentsPool',
       request,
       metadata || {},
-      methodDescriptor_Utils_UtilsUserAgentsGroups);
+      methodDescriptor_Utils_UtilsUserAgentsPool);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.utils.UtilsUserAgentsGroupNamesRequest,
- *   !proto.utils.UtilsUserAgentsGroupNamesResponse>}
+ *   !proto.utils.UtilsUserAgentsPoolNamesRequest,
+ *   !proto.utils.UtilsUserAgentsPoolNamesResponse>}
  */
-const methodDescriptor_Utils_UtilsUserAgentsGroupNames = new grpc.web.MethodDescriptor(
-  '/utils.Utils/UtilsUserAgentsGroupNames',
+const methodDescriptor_Utils_UtilsUserAgentsPoolNames = new grpc.web.MethodDescriptor(
+  '/utils.Utils/UtilsUserAgentsPoolNames',
   grpc.web.MethodType.UNARY,
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesRequest,
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesResponse,
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesRequest,
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse,
   /**
-   * @param {!proto.utils.UtilsUserAgentsGroupNamesRequest} request
+   * @param {!proto.utils.UtilsUserAgentsPoolNamesRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesResponse.deserializeBinary
+  rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.utils.UtilsUserAgentsGroupNamesRequest} request The
+ * @param {!proto.utils.UtilsUserAgentsPoolNamesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.utils.UtilsUserAgentsGroupNamesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.utils.UtilsUserAgentsPoolNamesResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.utils.UtilsUserAgentsGroupNamesResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.utils.UtilsUserAgentsPoolNamesResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.utils.UtilsClient.prototype.utilsUserAgentsGroupNames =
+proto.utils.UtilsClient.prototype.utilsUserAgentsPoolNames =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/utils.Utils/UtilsUserAgentsGroupNames',
+      '/utils.Utils/UtilsUserAgentsPoolNames',
       request,
       metadata || {},
-      methodDescriptor_Utils_UtilsUserAgentsGroupNames,
+      methodDescriptor_Utils_UtilsUserAgentsPoolNames,
       callback);
 };
 
 
 /**
- * @param {!proto.utils.UtilsUserAgentsGroupNamesRequest} request The
+ * @param {!proto.utils.UtilsUserAgentsPoolNamesRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.utils.UtilsUserAgentsGroupNamesResponse>}
+ * @return {!Promise<!proto.utils.UtilsUserAgentsPoolNamesResponse>}
  *     Promise that resolves to the response
  */
-proto.utils.UtilsPromiseClient.prototype.utilsUserAgentsGroupNames =
+proto.utils.UtilsPromiseClient.prototype.utilsUserAgentsPoolNames =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/utils.Utils/UtilsUserAgentsGroupNames',
+      '/utils.Utils/UtilsUserAgentsPoolNames',
       request,
       metadata || {},
-      methodDescriptor_Utils_UtilsUserAgentsGroupNames);
+      methodDescriptor_Utils_UtilsUserAgentsPoolNames);
 };
 
 

@@ -75,18 +75,17 @@ func (x *UtilsUserAgent) GetInfo() string {
 	return ""
 }
 
-type UtilsUserAgentGroup struct {
+type UtilsUserAgentPool struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name   string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Agents []*UtilsUserAgent      `protobuf:"bytes,2,rep,name=agents,proto3" json:"agents,omitempty"`
-	Groups []*UtilsUserAgentGroup `protobuf:"bytes,3,rep,name=groups,proto3" json:"groups,omitempty"`
+	Name       string            `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	UserAgents []*UtilsUserAgent `protobuf:"bytes,2,rep,name=userAgents,proto3" json:"userAgents,omitempty"`
 }
 
-func (x *UtilsUserAgentGroup) Reset() {
-	*x = UtilsUserAgentGroup{}
+func (x *UtilsUserAgentPool) Reset() {
+	*x = UtilsUserAgentPool{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_useragent_utils_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -94,13 +93,13 @@ func (x *UtilsUserAgentGroup) Reset() {
 	}
 }
 
-func (x *UtilsUserAgentGroup) String() string {
+func (x *UtilsUserAgentPool) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UtilsUserAgentGroup) ProtoMessage() {}
+func (*UtilsUserAgentPool) ProtoMessage() {}
 
-func (x *UtilsUserAgentGroup) ProtoReflect() protoreflect.Message {
+func (x *UtilsUserAgentPool) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_useragent_utils_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -112,28 +111,21 @@ func (x *UtilsUserAgentGroup) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UtilsUserAgentGroup.ProtoReflect.Descriptor instead.
-func (*UtilsUserAgentGroup) Descriptor() ([]byte, []int) {
+// Deprecated: Use UtilsUserAgentPool.ProtoReflect.Descriptor instead.
+func (*UtilsUserAgentPool) Descriptor() ([]byte, []int) {
 	return file_rpc_useragent_utils_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *UtilsUserAgentGroup) GetName() string {
+func (x *UtilsUserAgentPool) GetName() string {
 	if x != nil {
 		return x.Name
 	}
 	return ""
 }
 
-func (x *UtilsUserAgentGroup) GetAgents() []*UtilsUserAgent {
+func (x *UtilsUserAgentPool) GetUserAgents() []*UtilsUserAgent {
 	if x != nil {
-		return x.Agents
-	}
-	return nil
-}
-
-func (x *UtilsUserAgentGroup) GetGroups() []*UtilsUserAgentGroup {
-	if x != nil {
-		return x.Groups
+		return x.UserAgents
 	}
 	return nil
 }
@@ -223,14 +215,14 @@ func (x *UtilsUserAgentsResponse) GetMessage() string {
 	return ""
 }
 
-type UtilsUserAgentsGroupNamesRequest struct {
+type UtilsUserAgentsPoolNamesRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *UtilsUserAgentsGroupNamesRequest) Reset() {
-	*x = UtilsUserAgentsGroupNamesRequest{}
+func (x *UtilsUserAgentsPoolNamesRequest) Reset() {
+	*x = UtilsUserAgentsPoolNamesRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_useragent_utils_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -238,13 +230,13 @@ func (x *UtilsUserAgentsGroupNamesRequest) Reset() {
 	}
 }
 
-func (x *UtilsUserAgentsGroupNamesRequest) String() string {
+func (x *UtilsUserAgentsPoolNamesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UtilsUserAgentsGroupNamesRequest) ProtoMessage() {}
+func (*UtilsUserAgentsPoolNamesRequest) ProtoMessage() {}
 
-func (x *UtilsUserAgentsGroupNamesRequest) ProtoReflect() protoreflect.Message {
+func (x *UtilsUserAgentsPoolNamesRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_useragent_utils_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -256,21 +248,21 @@ func (x *UtilsUserAgentsGroupNamesRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UtilsUserAgentsGroupNamesRequest.ProtoReflect.Descriptor instead.
-func (*UtilsUserAgentsGroupNamesRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UtilsUserAgentsPoolNamesRequest.ProtoReflect.Descriptor instead.
+func (*UtilsUserAgentsPoolNamesRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_useragent_utils_proto_rawDescGZIP(), []int{4}
 }
 
-type UtilsUserAgentsGroupNamesResponse struct {
+type UtilsUserAgentsPoolNamesResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Groups []string `protobuf:"bytes,1,rep,name=groups,proto3" json:"groups,omitempty"`
+	Pools []string `protobuf:"bytes,1,rep,name=pools,proto3" json:"pools,omitempty"`
 }
 
-func (x *UtilsUserAgentsGroupNamesResponse) Reset() {
-	*x = UtilsUserAgentsGroupNamesResponse{}
+func (x *UtilsUserAgentsPoolNamesResponse) Reset() {
+	*x = UtilsUserAgentsPoolNamesResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_useragent_utils_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -278,13 +270,13 @@ func (x *UtilsUserAgentsGroupNamesResponse) Reset() {
 	}
 }
 
-func (x *UtilsUserAgentsGroupNamesResponse) String() string {
+func (x *UtilsUserAgentsPoolNamesResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UtilsUserAgentsGroupNamesResponse) ProtoMessage() {}
+func (*UtilsUserAgentsPoolNamesResponse) ProtoMessage() {}
 
-func (x *UtilsUserAgentsGroupNamesResponse) ProtoReflect() protoreflect.Message {
+func (x *UtilsUserAgentsPoolNamesResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_useragent_utils_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -296,28 +288,28 @@ func (x *UtilsUserAgentsGroupNamesResponse) ProtoReflect() protoreflect.Message 
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UtilsUserAgentsGroupNamesResponse.ProtoReflect.Descriptor instead.
-func (*UtilsUserAgentsGroupNamesResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use UtilsUserAgentsPoolNamesResponse.ProtoReflect.Descriptor instead.
+func (*UtilsUserAgentsPoolNamesResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_useragent_utils_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *UtilsUserAgentsGroupNamesResponse) GetGroups() []string {
+func (x *UtilsUserAgentsPoolNamesResponse) GetPools() []string {
 	if x != nil {
-		return x.Groups
+		return x.Pools
 	}
 	return nil
 }
 
-type UtilsUserAgentsGroupsRequest struct {
+type UtilsUserAgentsPoolRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Group string `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	Pool string `protobuf:"bytes,1,opt,name=pool,proto3" json:"pool,omitempty"`
 }
 
-func (x *UtilsUserAgentsGroupsRequest) Reset() {
-	*x = UtilsUserAgentsGroupsRequest{}
+func (x *UtilsUserAgentsPoolRequest) Reset() {
+	*x = UtilsUserAgentsPoolRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_useragent_utils_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -325,13 +317,13 @@ func (x *UtilsUserAgentsGroupsRequest) Reset() {
 	}
 }
 
-func (x *UtilsUserAgentsGroupsRequest) String() string {
+func (x *UtilsUserAgentsPoolRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UtilsUserAgentsGroupsRequest) ProtoMessage() {}
+func (*UtilsUserAgentsPoolRequest) ProtoMessage() {}
 
-func (x *UtilsUserAgentsGroupsRequest) ProtoReflect() protoreflect.Message {
+func (x *UtilsUserAgentsPoolRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_useragent_utils_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -343,28 +335,28 @@ func (x *UtilsUserAgentsGroupsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UtilsUserAgentsGroupsRequest.ProtoReflect.Descriptor instead.
-func (*UtilsUserAgentsGroupsRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UtilsUserAgentsPoolRequest.ProtoReflect.Descriptor instead.
+func (*UtilsUserAgentsPoolRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_useragent_utils_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UtilsUserAgentsGroupsRequest) GetGroup() string {
+func (x *UtilsUserAgentsPoolRequest) GetPool() string {
 	if x != nil {
-		return x.Group
+		return x.Pool
 	}
 	return ""
 }
 
-type UtilsUserAgentsGroupsResponse struct {
+type UtilsUserAgentsPoolResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Group *UtilsUserAgentGroup `protobuf:"bytes,1,opt,name=group,proto3" json:"group,omitempty"`
+	Pool *UtilsUserAgentPool `protobuf:"bytes,1,opt,name=pool,proto3" json:"pool,omitempty"`
 }
 
-func (x *UtilsUserAgentsGroupsResponse) Reset() {
-	*x = UtilsUserAgentsGroupsResponse{}
+func (x *UtilsUserAgentsPoolResponse) Reset() {
+	*x = UtilsUserAgentsPoolResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_useragent_utils_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -372,13 +364,13 @@ func (x *UtilsUserAgentsGroupsResponse) Reset() {
 	}
 }
 
-func (x *UtilsUserAgentsGroupsResponse) String() string {
+func (x *UtilsUserAgentsPoolResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UtilsUserAgentsGroupsResponse) ProtoMessage() {}
+func (*UtilsUserAgentsPoolResponse) ProtoMessage() {}
 
-func (x *UtilsUserAgentsGroupsResponse) ProtoReflect() protoreflect.Message {
+func (x *UtilsUserAgentsPoolResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_useragent_utils_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -390,14 +382,14 @@ func (x *UtilsUserAgentsGroupsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UtilsUserAgentsGroupsResponse.ProtoReflect.Descriptor instead.
-func (*UtilsUserAgentsGroupsResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use UtilsUserAgentsPoolResponse.ProtoReflect.Descriptor instead.
+func (*UtilsUserAgentsPoolResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_useragent_utils_proto_rawDescGZIP(), []int{7}
 }
 
-func (x *UtilsUserAgentsGroupsResponse) GetGroup() *UtilsUserAgentGroup {
+func (x *UtilsUserAgentsPoolResponse) GetPool() *UtilsUserAgentPool {
 	if x != nil {
-		return x.Group
+		return x.Pool
 	}
 	return nil
 }
@@ -410,38 +402,34 @@ var file_rpc_useragent_utils_proto_rawDesc = []byte{
 	0x6c, 0x73, 0x22, 0x34, 0x0a, 0x0e, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41,
 	0x67, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x75, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
 	0x52, 0x02, 0x75, 0x61, 0x12, 0x12, 0x0a, 0x04, 0x69, 0x6e, 0x66, 0x6f, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x04, 0x69, 0x6e, 0x66, 0x6f, 0x22, 0x8c, 0x01, 0x0a, 0x13, 0x55, 0x74, 0x69,
-	0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70,
-	0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x6e, 0x61, 0x6d, 0x65, 0x12, 0x2d, 0x0a, 0x06, 0x61, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x18, 0x02,
-	0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x75, 0x74, 0x69, 0x6c, 0x73, 0x2e, 0x55, 0x74, 0x69,
-	0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52, 0x06, 0x61, 0x67, 0x65,
-	0x6e, 0x74, 0x73, 0x12, 0x32, 0x0a, 0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x18, 0x03, 0x20,
-	0x03, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x75, 0x74, 0x69, 0x6c, 0x73, 0x2e, 0x55, 0x74, 0x69, 0x6c,
-	0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52,
-	0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x22, 0x18, 0x0a, 0x16, 0x55, 0x74, 0x69, 0x6c, 0x73,
-	0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x22, 0x33, 0x0a, 0x17, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67,
-	0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d,
-	0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x22, 0x0a, 0x20, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55,
-	0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x4e, 0x61,
-	0x6d, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3b, 0x0a, 0x21, 0x55, 0x74,
-	0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x47, 0x72, 0x6f,
-	0x75, 0x70, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x16, 0x0a, 0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52,
-	0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x22, 0x34, 0x0a, 0x1c, 0x55, 0x74, 0x69, 0x6c, 0x73,
-	0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x22, 0x51, 0x0a,
-	0x1d, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73,
-	0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30,
-	0x0a, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e,
-	0x75, 0x74, 0x69, 0x6c, 0x73, 0x2e, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41,
-	0x67, 0x65, 0x6e, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70,
-	0x42, 0x20, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73,
-	0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x75, 0x74, 0x69,
-	0x6c, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x28, 0x09, 0x52, 0x04, 0x69, 0x6e, 0x66, 0x6f, 0x22, 0x5f, 0x0a, 0x12, 0x55, 0x74, 0x69, 0x6c,
+	0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x50, 0x6f, 0x6f, 0x6c, 0x12, 0x12,
+	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
+	0x6d, 0x65, 0x12, 0x35, 0x0a, 0x0a, 0x75, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73,
+	0x18, 0x02, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x75, 0x74, 0x69, 0x6c, 0x73, 0x2e, 0x55,
+	0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x52, 0x0a, 0x75,
+	0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x22, 0x18, 0x0a, 0x16, 0x55, 0x74, 0x69,
+	0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x33, 0x0a, 0x17, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72,
+	0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18,
+	0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x21, 0x0a, 0x1f, 0x55, 0x74, 0x69, 0x6c,
+	0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x6f, 0x6f, 0x6c, 0x4e,
+	0x61, 0x6d, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x38, 0x0a, 0x20, 0x55,
+	0x74, 0x69, 0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x6f,
+	0x6f, 0x6c, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x14, 0x0a, 0x05, 0x70, 0x6f, 0x6f, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05,
+	0x70, 0x6f, 0x6f, 0x6c, 0x73, 0x22, 0x30, 0x0a, 0x1a, 0x55, 0x74, 0x69, 0x6c, 0x73, 0x55, 0x73,
+	0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x6f, 0x6f, 0x6c, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x70, 0x6f, 0x6f, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x70, 0x6f, 0x6f, 0x6c, 0x22, 0x4c, 0x0a, 0x1b, 0x55, 0x74, 0x69, 0x6c, 0x73,
+	0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x73, 0x50, 0x6f, 0x6f, 0x6c, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2d, 0x0a, 0x04, 0x70, 0x6f, 0x6f, 0x6c, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x19, 0x2e, 0x75, 0x74, 0x69, 0x6c, 0x73, 0x2e, 0x55, 0x74, 0x69,
+	0x6c, 0x73, 0x55, 0x73, 0x65, 0x72, 0x41, 0x67, 0x65, 0x6e, 0x74, 0x50, 0x6f, 0x6f, 0x6c, 0x52,
+	0x04, 0x70, 0x6f, 0x6f, 0x6c, 0x42, 0x20, 0x5a, 0x1e, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63,
+	0x73, 0x2f, 0x75, 0x74, 0x69, 0x6c, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -458,24 +446,23 @@ func file_rpc_useragent_utils_proto_rawDescGZIP() []byte {
 
 var file_rpc_useragent_utils_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_rpc_useragent_utils_proto_goTypes = []interface{}{
-	(*UtilsUserAgent)(nil),                    // 0: utils.UtilsUserAgent
-	(*UtilsUserAgentGroup)(nil),               // 1: utils.UtilsUserAgentGroup
-	(*UtilsUserAgentsRequest)(nil),            // 2: utils.UtilsUserAgentsRequest
-	(*UtilsUserAgentsResponse)(nil),           // 3: utils.UtilsUserAgentsResponse
-	(*UtilsUserAgentsGroupNamesRequest)(nil),  // 4: utils.UtilsUserAgentsGroupNamesRequest
-	(*UtilsUserAgentsGroupNamesResponse)(nil), // 5: utils.UtilsUserAgentsGroupNamesResponse
-	(*UtilsUserAgentsGroupsRequest)(nil),      // 6: utils.UtilsUserAgentsGroupsRequest
-	(*UtilsUserAgentsGroupsResponse)(nil),     // 7: utils.UtilsUserAgentsGroupsResponse
+	(*UtilsUserAgent)(nil),                   // 0: utils.UtilsUserAgent
+	(*UtilsUserAgentPool)(nil),               // 1: utils.UtilsUserAgentPool
+	(*UtilsUserAgentsRequest)(nil),           // 2: utils.UtilsUserAgentsRequest
+	(*UtilsUserAgentsResponse)(nil),          // 3: utils.UtilsUserAgentsResponse
+	(*UtilsUserAgentsPoolNamesRequest)(nil),  // 4: utils.UtilsUserAgentsPoolNamesRequest
+	(*UtilsUserAgentsPoolNamesResponse)(nil), // 5: utils.UtilsUserAgentsPoolNamesResponse
+	(*UtilsUserAgentsPoolRequest)(nil),       // 6: utils.UtilsUserAgentsPoolRequest
+	(*UtilsUserAgentsPoolResponse)(nil),      // 7: utils.UtilsUserAgentsPoolResponse
 }
 var file_rpc_useragent_utils_proto_depIdxs = []int32{
-	0, // 0: utils.UtilsUserAgentGroup.agents:type_name -> utils.UtilsUserAgent
-	1, // 1: utils.UtilsUserAgentGroup.groups:type_name -> utils.UtilsUserAgentGroup
-	1, // 2: utils.UtilsUserAgentsGroupsResponse.group:type_name -> utils.UtilsUserAgentGroup
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0, // 0: utils.UtilsUserAgentPool.userAgents:type_name -> utils.UtilsUserAgent
+	1, // 1: utils.UtilsUserAgentsPoolResponse.pool:type_name -> utils.UtilsUserAgentPool
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_rpc_useragent_utils_proto_init() }
@@ -497,7 +484,7 @@ func file_rpc_useragent_utils_proto_init() {
 			}
 		}
 		file_rpc_useragent_utils_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UtilsUserAgentGroup); i {
+			switch v := v.(*UtilsUserAgentPool); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -533,7 +520,7 @@ func file_rpc_useragent_utils_proto_init() {
 			}
 		}
 		file_rpc_useragent_utils_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UtilsUserAgentsGroupNamesRequest); i {
+			switch v := v.(*UtilsUserAgentsPoolNamesRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -545,7 +532,7 @@ func file_rpc_useragent_utils_proto_init() {
 			}
 		}
 		file_rpc_useragent_utils_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UtilsUserAgentsGroupNamesResponse); i {
+			switch v := v.(*UtilsUserAgentsPoolNamesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -557,7 +544,7 @@ func file_rpc_useragent_utils_proto_init() {
 			}
 		}
 		file_rpc_useragent_utils_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UtilsUserAgentsGroupsRequest); i {
+			switch v := v.(*UtilsUserAgentsPoolRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -569,7 +556,7 @@ func file_rpc_useragent_utils_proto_init() {
 			}
 		}
 		file_rpc_useragent_utils_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UtilsUserAgentsGroupsResponse); i {
+			switch v := v.(*UtilsUserAgentsPoolResponse); i {
 			case 0:
 				return &v.state
 			case 1:

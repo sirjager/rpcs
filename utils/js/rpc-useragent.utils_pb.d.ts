@@ -24,33 +24,27 @@ export namespace UtilsUserAgent {
   }
 }
 
-export class UtilsUserAgentGroup extends jspb.Message {
+export class UtilsUserAgentPool extends jspb.Message {
   getName(): string;
-  setName(value: string): UtilsUserAgentGroup;
+  setName(value: string): UtilsUserAgentPool;
 
-  getAgentsList(): Array<UtilsUserAgent>;
-  setAgentsList(value: Array<UtilsUserAgent>): UtilsUserAgentGroup;
-  clearAgentsList(): UtilsUserAgentGroup;
-  addAgents(value?: UtilsUserAgent, index?: number): UtilsUserAgent;
-
-  getGroupsList(): Array<UtilsUserAgentGroup>;
-  setGroupsList(value: Array<UtilsUserAgentGroup>): UtilsUserAgentGroup;
-  clearGroupsList(): UtilsUserAgentGroup;
-  addGroups(value?: UtilsUserAgentGroup, index?: number): UtilsUserAgentGroup;
+  getUseragentsList(): Array<UtilsUserAgent>;
+  setUseragentsList(value: Array<UtilsUserAgent>): UtilsUserAgentPool;
+  clearUseragentsList(): UtilsUserAgentPool;
+  addUseragents(value?: UtilsUserAgent, index?: number): UtilsUserAgent;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UtilsUserAgentGroup.AsObject;
-  static toObject(includeInstance: boolean, msg: UtilsUserAgentGroup): UtilsUserAgentGroup.AsObject;
-  static serializeBinaryToWriter(message: UtilsUserAgentGroup, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentGroup;
-  static deserializeBinaryFromReader(message: UtilsUserAgentGroup, reader: jspb.BinaryReader): UtilsUserAgentGroup;
+  toObject(includeInstance?: boolean): UtilsUserAgentPool.AsObject;
+  static toObject(includeInstance: boolean, msg: UtilsUserAgentPool): UtilsUserAgentPool.AsObject;
+  static serializeBinaryToWriter(message: UtilsUserAgentPool, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentPool;
+  static deserializeBinaryFromReader(message: UtilsUserAgentPool, reader: jspb.BinaryReader): UtilsUserAgentPool;
 }
 
-export namespace UtilsUserAgentGroup {
+export namespace UtilsUserAgentPool {
   export type AsObject = {
     name: string,
-    agentsList: Array<UtilsUserAgent.AsObject>,
-    groupsList: Array<UtilsUserAgentGroup.AsObject>,
+    useragentsList: Array<UtilsUserAgent.AsObject>,
   }
 }
 
@@ -86,75 +80,75 @@ export namespace UtilsUserAgentsResponse {
   }
 }
 
-export class UtilsUserAgentsGroupNamesRequest extends jspb.Message {
+export class UtilsUserAgentsPoolNamesRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UtilsUserAgentsGroupNamesRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UtilsUserAgentsGroupNamesRequest): UtilsUserAgentsGroupNamesRequest.AsObject;
-  static serializeBinaryToWriter(message: UtilsUserAgentsGroupNamesRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsGroupNamesRequest;
-  static deserializeBinaryFromReader(message: UtilsUserAgentsGroupNamesRequest, reader: jspb.BinaryReader): UtilsUserAgentsGroupNamesRequest;
+  toObject(includeInstance?: boolean): UtilsUserAgentsPoolNamesRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UtilsUserAgentsPoolNamesRequest): UtilsUserAgentsPoolNamesRequest.AsObject;
+  static serializeBinaryToWriter(message: UtilsUserAgentsPoolNamesRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsPoolNamesRequest;
+  static deserializeBinaryFromReader(message: UtilsUserAgentsPoolNamesRequest, reader: jspb.BinaryReader): UtilsUserAgentsPoolNamesRequest;
 }
 
-export namespace UtilsUserAgentsGroupNamesRequest {
+export namespace UtilsUserAgentsPoolNamesRequest {
   export type AsObject = {
   }
 }
 
-export class UtilsUserAgentsGroupNamesResponse extends jspb.Message {
-  getGroupsList(): Array<string>;
-  setGroupsList(value: Array<string>): UtilsUserAgentsGroupNamesResponse;
-  clearGroupsList(): UtilsUserAgentsGroupNamesResponse;
-  addGroups(value: string, index?: number): UtilsUserAgentsGroupNamesResponse;
+export class UtilsUserAgentsPoolNamesResponse extends jspb.Message {
+  getPoolsList(): Array<string>;
+  setPoolsList(value: Array<string>): UtilsUserAgentsPoolNamesResponse;
+  clearPoolsList(): UtilsUserAgentsPoolNamesResponse;
+  addPools(value: string, index?: number): UtilsUserAgentsPoolNamesResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UtilsUserAgentsGroupNamesResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UtilsUserAgentsGroupNamesResponse): UtilsUserAgentsGroupNamesResponse.AsObject;
-  static serializeBinaryToWriter(message: UtilsUserAgentsGroupNamesResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsGroupNamesResponse;
-  static deserializeBinaryFromReader(message: UtilsUserAgentsGroupNamesResponse, reader: jspb.BinaryReader): UtilsUserAgentsGroupNamesResponse;
+  toObject(includeInstance?: boolean): UtilsUserAgentsPoolNamesResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UtilsUserAgentsPoolNamesResponse): UtilsUserAgentsPoolNamesResponse.AsObject;
+  static serializeBinaryToWriter(message: UtilsUserAgentsPoolNamesResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsPoolNamesResponse;
+  static deserializeBinaryFromReader(message: UtilsUserAgentsPoolNamesResponse, reader: jspb.BinaryReader): UtilsUserAgentsPoolNamesResponse;
 }
 
-export namespace UtilsUserAgentsGroupNamesResponse {
+export namespace UtilsUserAgentsPoolNamesResponse {
   export type AsObject = {
-    groupsList: Array<string>,
+    poolsList: Array<string>,
   }
 }
 
-export class UtilsUserAgentsGroupsRequest extends jspb.Message {
-  getGroup(): string;
-  setGroup(value: string): UtilsUserAgentsGroupsRequest;
+export class UtilsUserAgentsPoolRequest extends jspb.Message {
+  getPool(): string;
+  setPool(value: string): UtilsUserAgentsPoolRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UtilsUserAgentsGroupsRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UtilsUserAgentsGroupsRequest): UtilsUserAgentsGroupsRequest.AsObject;
-  static serializeBinaryToWriter(message: UtilsUserAgentsGroupsRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsGroupsRequest;
-  static deserializeBinaryFromReader(message: UtilsUserAgentsGroupsRequest, reader: jspb.BinaryReader): UtilsUserAgentsGroupsRequest;
+  toObject(includeInstance?: boolean): UtilsUserAgentsPoolRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: UtilsUserAgentsPoolRequest): UtilsUserAgentsPoolRequest.AsObject;
+  static serializeBinaryToWriter(message: UtilsUserAgentsPoolRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsPoolRequest;
+  static deserializeBinaryFromReader(message: UtilsUserAgentsPoolRequest, reader: jspb.BinaryReader): UtilsUserAgentsPoolRequest;
 }
 
-export namespace UtilsUserAgentsGroupsRequest {
+export namespace UtilsUserAgentsPoolRequest {
   export type AsObject = {
-    group: string,
+    pool: string,
   }
 }
 
-export class UtilsUserAgentsGroupsResponse extends jspb.Message {
-  getGroup(): UtilsUserAgentGroup | undefined;
-  setGroup(value?: UtilsUserAgentGroup): UtilsUserAgentsGroupsResponse;
-  hasGroup(): boolean;
-  clearGroup(): UtilsUserAgentsGroupsResponse;
+export class UtilsUserAgentsPoolResponse extends jspb.Message {
+  getPool(): UtilsUserAgentPool | undefined;
+  setPool(value?: UtilsUserAgentPool): UtilsUserAgentsPoolResponse;
+  hasPool(): boolean;
+  clearPool(): UtilsUserAgentsPoolResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UtilsUserAgentsGroupsResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UtilsUserAgentsGroupsResponse): UtilsUserAgentsGroupsResponse.AsObject;
-  static serializeBinaryToWriter(message: UtilsUserAgentsGroupsResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsGroupsResponse;
-  static deserializeBinaryFromReader(message: UtilsUserAgentsGroupsResponse, reader: jspb.BinaryReader): UtilsUserAgentsGroupsResponse;
+  toObject(includeInstance?: boolean): UtilsUserAgentsPoolResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: UtilsUserAgentsPoolResponse): UtilsUserAgentsPoolResponse.AsObject;
+  static serializeBinaryToWriter(message: UtilsUserAgentsPoolResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): UtilsUserAgentsPoolResponse;
+  static deserializeBinaryFromReader(message: UtilsUserAgentsPoolResponse, reader: jspb.BinaryReader): UtilsUserAgentsPoolResponse;
 }
 
-export namespace UtilsUserAgentsGroupsResponse {
+export namespace UtilsUserAgentsPoolResponse {
   export type AsObject = {
-    group?: UtilsUserAgentGroup.AsObject,
+    pool?: UtilsUserAgentPool.AsObject,
   }
 }
 

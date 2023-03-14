@@ -19,11 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Utils_UtilsWelcome_FullMethodName              = "/utils.Utils/UtilsWelcome"
-	Utils_UtilsHealth_FullMethodName               = "/utils.Utils/UtilsHealth"
-	Utils_UtilsUserAgents_FullMethodName           = "/utils.Utils/UtilsUserAgents"
-	Utils_UtilsUserAgentsGroups_FullMethodName     = "/utils.Utils/UtilsUserAgentsGroups"
-	Utils_UtilsUserAgentsGroupNames_FullMethodName = "/utils.Utils/UtilsUserAgentsGroupNames"
+	Utils_UtilsWelcome_FullMethodName             = "/utils.Utils/UtilsWelcome"
+	Utils_UtilsHealth_FullMethodName              = "/utils.Utils/UtilsHealth"
+	Utils_UtilsUserAgents_FullMethodName          = "/utils.Utils/UtilsUserAgents"
+	Utils_UtilsUserAgentsPool_FullMethodName      = "/utils.Utils/UtilsUserAgentsPool"
+	Utils_UtilsUserAgentsPoolNames_FullMethodName = "/utils.Utils/UtilsUserAgentsPoolNames"
 )
 
 // UtilsClient is the client API for Utils service.
@@ -35,8 +35,8 @@ type UtilsClient interface {
 	UtilsHealth(ctx context.Context, in *UtilsHealthRequest, opts ...grpc.CallOption) (*UtilsHealthResponse, error)
 	// UserAgents
 	UtilsUserAgents(ctx context.Context, in *UtilsUserAgentsRequest, opts ...grpc.CallOption) (*UtilsUserAgentsResponse, error)
-	UtilsUserAgentsGroups(ctx context.Context, in *UtilsUserAgentsGroupsRequest, opts ...grpc.CallOption) (*UtilsUserAgentsGroupsResponse, error)
-	UtilsUserAgentsGroupNames(ctx context.Context, in *UtilsUserAgentsGroupNamesRequest, opts ...grpc.CallOption) (*UtilsUserAgentsGroupNamesResponse, error)
+	UtilsUserAgentsPool(ctx context.Context, in *UtilsUserAgentsPoolRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolResponse, error)
+	UtilsUserAgentsPoolNames(ctx context.Context, in *UtilsUserAgentsPoolNamesRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolNamesResponse, error)
 }
 
 type utilsClient struct {
@@ -74,18 +74,18 @@ func (c *utilsClient) UtilsUserAgents(ctx context.Context, in *UtilsUserAgentsRe
 	return out, nil
 }
 
-func (c *utilsClient) UtilsUserAgentsGroups(ctx context.Context, in *UtilsUserAgentsGroupsRequest, opts ...grpc.CallOption) (*UtilsUserAgentsGroupsResponse, error) {
-	out := new(UtilsUserAgentsGroupsResponse)
-	err := c.cc.Invoke(ctx, Utils_UtilsUserAgentsGroups_FullMethodName, in, out, opts...)
+func (c *utilsClient) UtilsUserAgentsPool(ctx context.Context, in *UtilsUserAgentsPoolRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolResponse, error) {
+	out := new(UtilsUserAgentsPoolResponse)
+	err := c.cc.Invoke(ctx, Utils_UtilsUserAgentsPool_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *utilsClient) UtilsUserAgentsGroupNames(ctx context.Context, in *UtilsUserAgentsGroupNamesRequest, opts ...grpc.CallOption) (*UtilsUserAgentsGroupNamesResponse, error) {
-	out := new(UtilsUserAgentsGroupNamesResponse)
-	err := c.cc.Invoke(ctx, Utils_UtilsUserAgentsGroupNames_FullMethodName, in, out, opts...)
+func (c *utilsClient) UtilsUserAgentsPoolNames(ctx context.Context, in *UtilsUserAgentsPoolNamesRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolNamesResponse, error) {
+	out := new(UtilsUserAgentsPoolNamesResponse)
+	err := c.cc.Invoke(ctx, Utils_UtilsUserAgentsPoolNames_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -101,8 +101,8 @@ type UtilsServer interface {
 	UtilsHealth(context.Context, *UtilsHealthRequest) (*UtilsHealthResponse, error)
 	// UserAgents
 	UtilsUserAgents(context.Context, *UtilsUserAgentsRequest) (*UtilsUserAgentsResponse, error)
-	UtilsUserAgentsGroups(context.Context, *UtilsUserAgentsGroupsRequest) (*UtilsUserAgentsGroupsResponse, error)
-	UtilsUserAgentsGroupNames(context.Context, *UtilsUserAgentsGroupNamesRequest) (*UtilsUserAgentsGroupNamesResponse, error)
+	UtilsUserAgentsPool(context.Context, *UtilsUserAgentsPoolRequest) (*UtilsUserAgentsPoolResponse, error)
+	UtilsUserAgentsPoolNames(context.Context, *UtilsUserAgentsPoolNamesRequest) (*UtilsUserAgentsPoolNamesResponse, error)
 	mustEmbedUnimplementedUtilsServer()
 }
 
@@ -119,11 +119,11 @@ func (UnimplementedUtilsServer) UtilsHealth(context.Context, *UtilsHealthRequest
 func (UnimplementedUtilsServer) UtilsUserAgents(context.Context, *UtilsUserAgentsRequest) (*UtilsUserAgentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgents not implemented")
 }
-func (UnimplementedUtilsServer) UtilsUserAgentsGroups(context.Context, *UtilsUserAgentsGroupsRequest) (*UtilsUserAgentsGroupsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgentsGroups not implemented")
+func (UnimplementedUtilsServer) UtilsUserAgentsPool(context.Context, *UtilsUserAgentsPoolRequest) (*UtilsUserAgentsPoolResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgentsPool not implemented")
 }
-func (UnimplementedUtilsServer) UtilsUserAgentsGroupNames(context.Context, *UtilsUserAgentsGroupNamesRequest) (*UtilsUserAgentsGroupNamesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgentsGroupNames not implemented")
+func (UnimplementedUtilsServer) UtilsUserAgentsPoolNames(context.Context, *UtilsUserAgentsPoolNamesRequest) (*UtilsUserAgentsPoolNamesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgentsPoolNames not implemented")
 }
 func (UnimplementedUtilsServer) mustEmbedUnimplementedUtilsServer() {}
 
@@ -192,38 +192,38 @@ func _Utils_UtilsUserAgents_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Utils_UtilsUserAgentsGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UtilsUserAgentsGroupsRequest)
+func _Utils_UtilsUserAgentsPool_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsUserAgentsPoolRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilsServer).UtilsUserAgentsGroups(ctx, in)
+		return srv.(UtilsServer).UtilsUserAgentsPool(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Utils_UtilsUserAgentsGroups_FullMethodName,
+		FullMethod: Utils_UtilsUserAgentsPool_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServer).UtilsUserAgentsGroups(ctx, req.(*UtilsUserAgentsGroupsRequest))
+		return srv.(UtilsServer).UtilsUserAgentsPool(ctx, req.(*UtilsUserAgentsPoolRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Utils_UtilsUserAgentsGroupNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UtilsUserAgentsGroupNamesRequest)
+func _Utils_UtilsUserAgentsPoolNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsUserAgentsPoolNamesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UtilsServer).UtilsUserAgentsGroupNames(ctx, in)
+		return srv.(UtilsServer).UtilsUserAgentsPoolNames(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Utils_UtilsUserAgentsGroupNames_FullMethodName,
+		FullMethod: Utils_UtilsUserAgentsPoolNames_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UtilsServer).UtilsUserAgentsGroupNames(ctx, req.(*UtilsUserAgentsGroupNamesRequest))
+		return srv.(UtilsServer).UtilsUserAgentsPoolNames(ctx, req.(*UtilsUserAgentsPoolNamesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -248,12 +248,12 @@ var Utils_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Utils_UtilsUserAgents_Handler,
 		},
 		{
-			MethodName: "UtilsUserAgentsGroups",
-			Handler:    _Utils_UtilsUserAgentsGroups_Handler,
+			MethodName: "UtilsUserAgentsPool",
+			Handler:    _Utils_UtilsUserAgentsPool_Handler,
 		},
 		{
-			MethodName: "UtilsUserAgentsGroupNames",
-			Handler:    _Utils_UtilsUserAgentsGroupNames_Handler,
+			MethodName: "UtilsUserAgentsPoolNames",
+			Handler:    _Utils_UtilsUserAgentsPoolNames_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

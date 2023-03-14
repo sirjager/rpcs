@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19rpc-useragent.utils.proto\x12\x05utils\"*\n\x0eUtilsUserAgent\x12\n\n\x02ua\x18\x01 \x01(\t\x12\x0c\n\x04info\x18\x02 \x01(\t\"v\n\x13UtilsUserAgentGroup\x12\x0c\n\x04name\x18\x01 \x01(\t\x12%\n\x06\x61gents\x18\x02 \x03(\x0b\x32\x15.utils.UtilsUserAgent\x12*\n\x06groups\x18\x03 \x03(\x0b\x32\x1a.utils.UtilsUserAgentGroup\"\x18\n\x16UtilsUserAgentsRequest\"*\n\x17UtilsUserAgentsResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\"\n UtilsUserAgentsGroupNamesRequest\"3\n!UtilsUserAgentsGroupNamesResponse\x12\x0e\n\x06groups\x18\x01 \x03(\t\"-\n\x1cUtilsUserAgentsGroupsRequest\x12\r\n\x05group\x18\x01 \x01(\t\"J\n\x1dUtilsUserAgentsGroupsResponse\x12)\n\x05group\x18\x01 \x01(\x0b\x32\x1a.utils.UtilsUserAgentGroupB Z\x1egithub.com/sirjager/rpcs/utilsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19rpc-useragent.utils.proto\x12\x05utils\"*\n\x0eUtilsUserAgent\x12\n\n\x02ua\x18\x01 \x01(\t\x12\x0c\n\x04info\x18\x02 \x01(\t\"M\n\x12UtilsUserAgentPool\x12\x0c\n\x04name\x18\x01 \x01(\t\x12)\n\nuserAgents\x18\x02 \x03(\x0b\x32\x15.utils.UtilsUserAgent\"\x18\n\x16UtilsUserAgentsRequest\"*\n\x17UtilsUserAgentsResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"!\n\x1fUtilsUserAgentsPoolNamesRequest\"1\n UtilsUserAgentsPoolNamesResponse\x12\r\n\x05pools\x18\x01 \x03(\t\"*\n\x1aUtilsUserAgentsPoolRequest\x12\x0c\n\x04pool\x18\x01 \x01(\t\"F\n\x1bUtilsUserAgentsPoolResponse\x12\'\n\x04pool\x18\x01 \x01(\x0b\x32\x19.utils.UtilsUserAgentPoolB Z\x1egithub.com/sirjager/rpcs/utilsb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_useragent.utils_pb2', globals())
@@ -23,18 +23,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'Z\036github.com/sirjager/rpcs/utils'
   _UTILSUSERAGENT._serialized_start=36
   _UTILSUSERAGENT._serialized_end=78
-  _UTILSUSERAGENTGROUP._serialized_start=80
-  _UTILSUSERAGENTGROUP._serialized_end=198
-  _UTILSUSERAGENTSREQUEST._serialized_start=200
-  _UTILSUSERAGENTSREQUEST._serialized_end=224
-  _UTILSUSERAGENTSRESPONSE._serialized_start=226
-  _UTILSUSERAGENTSRESPONSE._serialized_end=268
-  _UTILSUSERAGENTSGROUPNAMESREQUEST._serialized_start=270
-  _UTILSUSERAGENTSGROUPNAMESREQUEST._serialized_end=304
-  _UTILSUSERAGENTSGROUPNAMESRESPONSE._serialized_start=306
-  _UTILSUSERAGENTSGROUPNAMESRESPONSE._serialized_end=357
-  _UTILSUSERAGENTSGROUPSREQUEST._serialized_start=359
-  _UTILSUSERAGENTSGROUPSREQUEST._serialized_end=404
-  _UTILSUSERAGENTSGROUPSRESPONSE._serialized_start=406
-  _UTILSUSERAGENTSGROUPSRESPONSE._serialized_end=480
+  _UTILSUSERAGENTPOOL._serialized_start=80
+  _UTILSUSERAGENTPOOL._serialized_end=157
+  _UTILSUSERAGENTSREQUEST._serialized_start=159
+  _UTILSUSERAGENTSREQUEST._serialized_end=183
+  _UTILSUSERAGENTSRESPONSE._serialized_start=185
+  _UTILSUSERAGENTSRESPONSE._serialized_end=227
+  _UTILSUSERAGENTSPOOLNAMESREQUEST._serialized_start=229
+  _UTILSUSERAGENTSPOOLNAMESREQUEST._serialized_end=262
+  _UTILSUSERAGENTSPOOLNAMESRESPONSE._serialized_start=264
+  _UTILSUSERAGENTSPOOLNAMESRESPONSE._serialized_end=313
+  _UTILSUSERAGENTSPOOLREQUEST._serialized_start=315
+  _UTILSUSERAGENTSPOOLREQUEST._serialized_end=357
+  _UTILSUSERAGENTSPOOLRESPONSE._serialized_start=359
+  _UTILSUSERAGENTSPOOLRESPONSE._serialized_end=429
 # @@protoc_insertion_point(module_scope)

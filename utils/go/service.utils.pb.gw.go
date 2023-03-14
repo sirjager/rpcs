@@ -85,8 +85,8 @@ func local_request_Utils_UtilsUserAgents_0(ctx context.Context, marshaler runtim
 
 }
 
-func request_Utils_UtilsUserAgentsGroups_0(ctx context.Context, marshaler runtime.Marshaler, client UtilsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UtilsUserAgentsGroupsRequest
+func request_Utils_UtilsUserAgentsPool_0(ctx context.Context, marshaler runtime.Marshaler, client UtilsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsUserAgentsPoolRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -96,23 +96,23 @@ func request_Utils_UtilsUserAgentsGroups_0(ctx context.Context, marshaler runtim
 		_   = err
 	)
 
-	val, ok = pathParams["group"]
+	val, ok = pathParams["pool"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "group")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "pool")
 	}
 
-	protoReq.Group, err = runtime.String(val)
+	protoReq.Pool, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "group", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "pool", err)
 	}
 
-	msg, err := client.UtilsUserAgentsGroups(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.UtilsUserAgentsPool(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Utils_UtilsUserAgentsGroups_0(ctx context.Context, marshaler runtime.Marshaler, server UtilsServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UtilsUserAgentsGroupsRequest
+func local_request_Utils_UtilsUserAgentsPool_0(ctx context.Context, marshaler runtime.Marshaler, server UtilsServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsUserAgentsPoolRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -122,35 +122,35 @@ func local_request_Utils_UtilsUserAgentsGroups_0(ctx context.Context, marshaler 
 		_   = err
 	)
 
-	val, ok = pathParams["group"]
+	val, ok = pathParams["pool"]
 	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "group")
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "pool")
 	}
 
-	protoReq.Group, err = runtime.String(val)
+	protoReq.Pool, err = runtime.String(val)
 	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "group", err)
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "pool", err)
 	}
 
-	msg, err := server.UtilsUserAgentsGroups(ctx, &protoReq)
+	msg, err := server.UtilsUserAgentsPool(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_Utils_UtilsUserAgentsGroupNames_0(ctx context.Context, marshaler runtime.Marshaler, client UtilsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UtilsUserAgentsGroupNamesRequest
+func request_Utils_UtilsUserAgentsPoolNames_0(ctx context.Context, marshaler runtime.Marshaler, client UtilsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsUserAgentsPoolNamesRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := client.UtilsUserAgentsGroupNames(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.UtilsUserAgentsPoolNames(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_Utils_UtilsUserAgentsGroupNames_0(ctx context.Context, marshaler runtime.Marshaler, server UtilsServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq UtilsUserAgentsGroupNamesRequest
+func local_request_Utils_UtilsUserAgentsPoolNames_0(ctx context.Context, marshaler runtime.Marshaler, server UtilsServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsUserAgentsPoolNamesRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := server.UtilsUserAgentsGroupNames(ctx, &protoReq)
+	msg, err := server.UtilsUserAgentsPoolNames(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -236,7 +236,7 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 
 	})
 
-	mux.Handle("GET", pattern_Utils_UtilsUserAgentsGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Utils_UtilsUserAgentsPool_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -244,12 +244,12 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsGroups", runtime.WithHTTPPathPattern("/v1/user-agents/{group}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsPool", runtime.WithHTTPPathPattern("/v1/user-agents/{pool}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Utils_UtilsUserAgentsGroups_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Utils_UtilsUserAgentsPool_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -257,11 +257,11 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 			return
 		}
 
-		forward_Utils_UtilsUserAgentsGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Utils_UtilsUserAgentsPool_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Utils_UtilsUserAgentsGroupNames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Utils_UtilsUserAgentsPoolNames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -269,12 +269,12 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsGroupNames", runtime.WithHTTPPathPattern("/v1/user-agents/groups"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsPoolNames", runtime.WithHTTPPathPattern("/v1/user-agents/pools"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Utils_UtilsUserAgentsGroupNames_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Utils_UtilsUserAgentsPoolNames_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -282,7 +282,7 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 			return
 		}
 
-		forward_Utils_UtilsUserAgentsGroupNames_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Utils_UtilsUserAgentsPoolNames_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -393,47 +393,47 @@ func RegisterUtilsHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 
 	})
 
-	mux.Handle("GET", pattern_Utils_UtilsUserAgentsGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Utils_UtilsUserAgentsPool_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsGroups", runtime.WithHTTPPathPattern("/v1/user-agents/{group}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsPool", runtime.WithHTTPPathPattern("/v1/user-agents/{pool}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Utils_UtilsUserAgentsGroups_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Utils_UtilsUserAgentsPool_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Utils_UtilsUserAgentsGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Utils_UtilsUserAgentsPool_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Utils_UtilsUserAgentsGroupNames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Utils_UtilsUserAgentsPoolNames_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsGroupNames", runtime.WithHTTPPathPattern("/v1/user-agents/groups"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/utils.Utils/UtilsUserAgentsPoolNames", runtime.WithHTTPPathPattern("/v1/user-agents/pools"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Utils_UtilsUserAgentsGroupNames_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Utils_UtilsUserAgentsPoolNames_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Utils_UtilsUserAgentsGroupNames_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Utils_UtilsUserAgentsPoolNames_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -447,9 +447,9 @@ var (
 
 	pattern_Utils_UtilsUserAgents_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "user-agents"}, ""))
 
-	pattern_Utils_UtilsUserAgentsGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "user-agents", "group"}, ""))
+	pattern_Utils_UtilsUserAgentsPool_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "user-agents", "pool"}, ""))
 
-	pattern_Utils_UtilsUserAgentsGroupNames_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "user-agents", "groups"}, ""))
+	pattern_Utils_UtilsUserAgentsPoolNames_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "user-agents", "pools"}, ""))
 )
 
 var (
@@ -459,7 +459,7 @@ var (
 
 	forward_Utils_UtilsUserAgents_0 = runtime.ForwardResponseMessage
 
-	forward_Utils_UtilsUserAgentsGroups_0 = runtime.ForwardResponseMessage
+	forward_Utils_UtilsUserAgentsPool_0 = runtime.ForwardResponseMessage
 
-	forward_Utils_UtilsUserAgentsGroupNames_0 = runtime.ForwardResponseMessage
+	forward_Utils_UtilsUserAgentsPoolNames_0 = runtime.ForwardResponseMessage
 )

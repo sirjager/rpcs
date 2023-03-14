@@ -31,15 +31,15 @@ class UtilsStub(object):
                 request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsRequest.SerializeToString,
                 response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsResponse.FromString,
                 )
-        self.UtilsUserAgentsGroups = channel.unary_unary(
-                '/utils.Utils/UtilsUserAgentsGroups',
-                request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsRequest.SerializeToString,
-                response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsResponse.FromString,
+        self.UtilsUserAgentsPool = channel.unary_unary(
+                '/utils.Utils/UtilsUserAgentsPool',
+                request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolRequest.SerializeToString,
+                response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolResponse.FromString,
                 )
-        self.UtilsUserAgentsGroupNames = channel.unary_unary(
-                '/utils.Utils/UtilsUserAgentsGroupNames',
-                request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesRequest.SerializeToString,
-                response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesResponse.FromString,
+        self.UtilsUserAgentsPoolNames = channel.unary_unary(
+                '/utils.Utils/UtilsUserAgentsPoolNames',
+                request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.SerializeToString,
+                response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.FromString,
                 )
 
 
@@ -66,13 +66,13 @@ class UtilsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UtilsUserAgentsGroups(self, request, context):
+    def UtilsUserAgentsPool(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UtilsUserAgentsGroupNames(self, request, context):
+    def UtilsUserAgentsPoolNames(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -96,15 +96,15 @@ def add_UtilsServicer_to_server(servicer, server):
                     request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsRequest.FromString,
                     response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsResponse.SerializeToString,
             ),
-            'UtilsUserAgentsGroups': grpc.unary_unary_rpc_method_handler(
-                    servicer.UtilsUserAgentsGroups,
-                    request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsRequest.FromString,
-                    response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsResponse.SerializeToString,
+            'UtilsUserAgentsPool': grpc.unary_unary_rpc_method_handler(
+                    servicer.UtilsUserAgentsPool,
+                    request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolRequest.FromString,
+                    response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolResponse.SerializeToString,
             ),
-            'UtilsUserAgentsGroupNames': grpc.unary_unary_rpc_method_handler(
-                    servicer.UtilsUserAgentsGroupNames,
-                    request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesRequest.FromString,
-                    response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesResponse.SerializeToString,
+            'UtilsUserAgentsPoolNames': grpc.unary_unary_rpc_method_handler(
+                    servicer.UtilsUserAgentsPoolNames,
+                    request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.FromString,
+                    response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -168,7 +168,7 @@ class Utils(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UtilsUserAgentsGroups(request,
+    def UtilsUserAgentsPool(request,
             target,
             options=(),
             channel_credentials=None,
@@ -178,14 +178,14 @@ class Utils(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsUserAgentsGroups',
-            rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsRequest.SerializeToString,
-            rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsUserAgentsPool',
+            rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolRequest.SerializeToString,
+            rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UtilsUserAgentsGroupNames(request,
+    def UtilsUserAgentsPoolNames(request,
             target,
             options=(),
             channel_credentials=None,
@@ -195,8 +195,8 @@ class Utils(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsUserAgentsGroupNames',
-            rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesRequest.SerializeToString,
-            rpc__useragent_dot_utils__pb2.UtilsUserAgentsGroupNamesResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsUserAgentsPoolNames',
+            rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.SerializeToString,
+            rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -31,19 +31,19 @@ export class UtilsClient {
                response: rpc$useragent_utils_pb.UtilsUserAgentsResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsResponse>;
 
-  utilsUserAgentsGroups(
-    request: rpc$useragent_utils_pb.UtilsUserAgentsGroupsRequest,
+  utilsUserAgentsPool(
+    request: rpc$useragent_utils_pb.UtilsUserAgentsPoolRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$useragent_utils_pb.UtilsUserAgentsGroupsResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsGroupsResponse>;
+               response: rpc$useragent_utils_pb.UtilsUserAgentsPoolResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsPoolResponse>;
 
-  utilsUserAgentsGroupNames(
-    request: rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesRequest,
+  utilsUserAgentsPoolNames(
+    request: rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesResponse>;
+               response: rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse>;
 
 }
 
@@ -67,15 +67,15 @@ export class UtilsPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsResponse>;
 
-  utilsUserAgentsGroups(
-    request: rpc$useragent_utils_pb.UtilsUserAgentsGroupsRequest,
+  utilsUserAgentsPool(
+    request: rpc$useragent_utils_pb.UtilsUserAgentsPoolRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsGroupsResponse>;
+  ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsPoolResponse>;
 
-  utilsUserAgentsGroupNames(
-    request: rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesRequest,
+  utilsUserAgentsPoolNames(
+    request: rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsGroupNamesResponse>;
+  ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse>;
 
 }
 
