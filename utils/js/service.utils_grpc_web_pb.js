@@ -29,6 +29,8 @@ var rpc$health_utils_pb = require('./rpc-health.utils_pb.js')
 var rpc$welcome_utils_pb = require('./rpc-welcome.utils_pb.js')
 
 var rpc$useragent_utils_pb = require('./rpc-useragent.utils_pb.js')
+
+var rpc$proxies_utils_pb = require('./rpc-proxies.utils_pb.js')
 const proto = {};
 proto.utils = require('./service.utils_pb.js');
 
@@ -386,6 +388,67 @@ proto.utils.UtilsPromiseClient.prototype.utilsUserAgentsPoolNames =
       request,
       metadata || {},
       methodDescriptor_Utils_UtilsUserAgentsPoolNames);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.utils.UtilsProxiesRequest,
+ *   !proto.utils.UtilsProxiesResponse>}
+ */
+const methodDescriptor_Utils_UtilsProxies = new grpc.web.MethodDescriptor(
+  '/utils.Utils/UtilsProxies',
+  grpc.web.MethodType.UNARY,
+  rpc$proxies_utils_pb.UtilsProxiesRequest,
+  rpc$proxies_utils_pb.UtilsProxiesResponse,
+  /**
+   * @param {!proto.utils.UtilsProxiesRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$proxies_utils_pb.UtilsProxiesResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.utils.UtilsProxiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.utils.UtilsProxiesResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.utils.UtilsProxiesResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.utils.UtilsClient.prototype.utilsProxies =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/utils.Utils/UtilsProxies',
+      request,
+      metadata || {},
+      methodDescriptor_Utils_UtilsProxies,
+      callback);
+};
+
+
+/**
+ * @param {!proto.utils.UtilsProxiesRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.utils.UtilsProxiesResponse>}
+ *     Promise that resolves to the response
+ */
+proto.utils.UtilsPromiseClient.prototype.utilsProxies =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/utils.Utils/UtilsProxies',
+      request,
+      metadata || {},
+      methodDescriptor_Utils_UtilsProxies);
 };
 
 

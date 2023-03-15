@@ -3,6 +3,7 @@
 import grpc
 
 from rpc_health import utils_pb2 as rpc__health_dot_utils__pb2
+from rpc_proxies import utils_pb2 as rpc__proxies_dot_utils__pb2
 from rpc_useragent import utils_pb2 as rpc__useragent_dot_utils__pb2
 from rpc_welcome import utils_pb2 as rpc__welcome_dot_utils__pb2
 
@@ -41,6 +42,11 @@ class UtilsStub(object):
                 request_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.SerializeToString,
                 response_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.FromString,
                 )
+        self.UtilsProxies = channel.unary_unary(
+                '/utils.Utils/UtilsProxies',
+                request_serializer=rpc__proxies_dot_utils__pb2.UtilsProxiesRequest.SerializeToString,
+                response_deserializer=rpc__proxies_dot_utils__pb2.UtilsProxiesResponse.FromString,
+                )
 
 
 class UtilsServicer(object):
@@ -78,6 +84,15 @@ class UtilsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UtilsProxies(self, request, context):
+        """----------------------------------------------------------------------------------------
+        Proxy Route
+        ----------------------------------------------------------------------------------------
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UtilsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -105,6 +120,11 @@ def add_UtilsServicer_to_server(servicer, server):
                     servicer.UtilsUserAgentsPoolNames,
                     request_deserializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.FromString,
                     response_serializer=rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.SerializeToString,
+            ),
+            'UtilsProxies': grpc.unary_unary_rpc_method_handler(
+                    servicer.UtilsProxies,
+                    request_deserializer=rpc__proxies_dot_utils__pb2.UtilsProxiesRequest.FromString,
+                    response_serializer=rpc__proxies_dot_utils__pb2.UtilsProxiesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -198,5 +218,22 @@ class Utils(object):
         return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsUserAgentsPoolNames',
             rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesRequest.SerializeToString,
             rpc__useragent_dot_utils__pb2.UtilsUserAgentsPoolNamesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UtilsProxies(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/utils.Utils/UtilsProxies',
+            rpc__proxies_dot_utils__pb2.UtilsProxiesRequest.SerializeToString,
+            rpc__proxies_dot_utils__pb2.UtilsProxiesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

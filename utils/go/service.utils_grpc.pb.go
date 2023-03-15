@@ -24,6 +24,7 @@ const (
 	Utils_UtilsUserAgents_FullMethodName          = "/utils.Utils/UtilsUserAgents"
 	Utils_UtilsUserAgentsPool_FullMethodName      = "/utils.Utils/UtilsUserAgentsPool"
 	Utils_UtilsUserAgentsPoolNames_FullMethodName = "/utils.Utils/UtilsUserAgentsPoolNames"
+	Utils_UtilsProxies_FullMethodName             = "/utils.Utils/UtilsProxies"
 )
 
 // UtilsClient is the client API for Utils service.
@@ -37,6 +38,10 @@ type UtilsClient interface {
 	UtilsUserAgents(ctx context.Context, in *UtilsUserAgentsRequest, opts ...grpc.CallOption) (*UtilsUserAgentsResponse, error)
 	UtilsUserAgentsPool(ctx context.Context, in *UtilsUserAgentsPoolRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolResponse, error)
 	UtilsUserAgentsPoolNames(ctx context.Context, in *UtilsUserAgentsPoolNamesRequest, opts ...grpc.CallOption) (*UtilsUserAgentsPoolNamesResponse, error)
+	// ----------------------------------------------------------------------------------------
+	// Proxy Route
+	// ----------------------------------------------------------------------------------------
+	UtilsProxies(ctx context.Context, in *UtilsProxiesRequest, opts ...grpc.CallOption) (*UtilsProxiesResponse, error)
 }
 
 type utilsClient struct {
@@ -92,6 +97,15 @@ func (c *utilsClient) UtilsUserAgentsPoolNames(ctx context.Context, in *UtilsUse
 	return out, nil
 }
 
+func (c *utilsClient) UtilsProxies(ctx context.Context, in *UtilsProxiesRequest, opts ...grpc.CallOption) (*UtilsProxiesResponse, error) {
+	out := new(UtilsProxiesResponse)
+	err := c.cc.Invoke(ctx, Utils_UtilsProxies_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UtilsServer is the server API for Utils service.
 // All implementations must embed UnimplementedUtilsServer
 // for forward compatibility
@@ -103,6 +117,10 @@ type UtilsServer interface {
 	UtilsUserAgents(context.Context, *UtilsUserAgentsRequest) (*UtilsUserAgentsResponse, error)
 	UtilsUserAgentsPool(context.Context, *UtilsUserAgentsPoolRequest) (*UtilsUserAgentsPoolResponse, error)
 	UtilsUserAgentsPoolNames(context.Context, *UtilsUserAgentsPoolNamesRequest) (*UtilsUserAgentsPoolNamesResponse, error)
+	// ----------------------------------------------------------------------------------------
+	// Proxy Route
+	// ----------------------------------------------------------------------------------------
+	UtilsProxies(context.Context, *UtilsProxiesRequest) (*UtilsProxiesResponse, error)
 	mustEmbedUnimplementedUtilsServer()
 }
 
@@ -124,6 +142,9 @@ func (UnimplementedUtilsServer) UtilsUserAgentsPool(context.Context, *UtilsUserA
 }
 func (UnimplementedUtilsServer) UtilsUserAgentsPoolNames(context.Context, *UtilsUserAgentsPoolNamesRequest) (*UtilsUserAgentsPoolNamesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UtilsUserAgentsPoolNames not implemented")
+}
+func (UnimplementedUtilsServer) UtilsProxies(context.Context, *UtilsProxiesRequest) (*UtilsProxiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UtilsProxies not implemented")
 }
 func (UnimplementedUtilsServer) mustEmbedUnimplementedUtilsServer() {}
 
@@ -228,6 +249,24 @@ func _Utils_UtilsUserAgentsPoolNames_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Utils_UtilsProxies_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UtilsProxiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UtilsServer).UtilsProxies(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Utils_UtilsProxies_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UtilsServer).UtilsProxies(ctx, req.(*UtilsProxiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Utils_ServiceDesc is the grpc.ServiceDesc for Utils service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -254,6 +293,10 @@ var Utils_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UtilsUserAgentsPoolNames",
 			Handler:    _Utils_UtilsUserAgentsPoolNames_Handler,
+		},
+		{
+			MethodName: "UtilsProxies",
+			Handler:    _Utils_UtilsProxies_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

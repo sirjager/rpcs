@@ -155,6 +155,24 @@ func local_request_Utils_UtilsUserAgentsPoolNames_0(ctx context.Context, marshal
 
 }
 
+func request_Utils_UtilsProxies_0(ctx context.Context, marshaler runtime.Marshaler, client UtilsClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsProxiesRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := client.UtilsProxies(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_Utils_UtilsProxies_0(ctx context.Context, marshaler runtime.Marshaler, server UtilsServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq UtilsProxiesRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.UtilsProxies(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 // RegisterUtilsHandlerServer registers the http handlers for service Utils to "mux".
 // UnaryRPC     :call UtilsServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
@@ -283,6 +301,31 @@ func RegisterUtilsHandlerServer(ctx context.Context, mux *runtime.ServeMux, serv
 		}
 
 		forward_Utils_UtilsUserAgentsPoolNames_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_Utils_UtilsProxies_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/utils.Utils/UtilsProxies", runtime.WithHTTPPathPattern("/v1/proxies"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_Utils_UtilsProxies_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Utils_UtilsProxies_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -437,6 +480,28 @@ func RegisterUtilsHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 
 	})
 
+	mux.Handle("GET", pattern_Utils_UtilsProxies_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/utils.Utils/UtilsProxies", runtime.WithHTTPPathPattern("/v1/proxies"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Utils_UtilsProxies_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Utils_UtilsProxies_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -450,6 +515,8 @@ var (
 	pattern_Utils_UtilsUserAgentsPool_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "user-agents", "pool"}, ""))
 
 	pattern_Utils_UtilsUserAgentsPoolNames_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "user-agents", "pools"}, ""))
+
+	pattern_Utils_UtilsProxies_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "proxies"}, ""))
 )
 
 var (
@@ -462,4 +529,6 @@ var (
 	forward_Utils_UtilsUserAgentsPool_0 = runtime.ForwardResponseMessage
 
 	forward_Utils_UtilsUserAgentsPoolNames_0 = runtime.ForwardResponseMessage
+
+	forward_Utils_UtilsProxies_0 = runtime.ForwardResponseMessage
 )

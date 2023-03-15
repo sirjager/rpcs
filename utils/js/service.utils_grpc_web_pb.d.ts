@@ -1,6 +1,7 @@
 import * as grpcWeb from 'grpc-web';
 
 import * as rpc$health_utils_pb from './rpc-health.utils_pb';
+import * as rpc$proxies_utils_pb from './rpc-proxies.utils_pb';
 import * as rpc$useragent_utils_pb from './rpc-useragent.utils_pb';
 import * as rpc$welcome_utils_pb from './rpc-welcome.utils_pb';
 
@@ -45,6 +46,13 @@ export class UtilsClient {
                response: rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse>;
 
+  utilsProxies(
+    request: rpc$proxies_utils_pb.UtilsProxiesRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$proxies_utils_pb.UtilsProxiesResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$proxies_utils_pb.UtilsProxiesResponse>;
+
 }
 
 export class UtilsPromiseClient {
@@ -76,6 +84,11 @@ export class UtilsPromiseClient {
     request: rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$useragent_utils_pb.UtilsUserAgentsPoolNamesResponse>;
+
+  utilsProxies(
+    request: rpc$proxies_utils_pb.UtilsProxiesRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$proxies_utils_pb.UtilsProxiesResponse>;
 
 }
 
