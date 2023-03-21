@@ -3,14 +3,12 @@
 import grpc
 
 from rpc_delete import authentication_pb2 as rpc__delete_dot_authentication__pb2
-from rpc_forgot import authentication_pb2 as rpc__forgot_dot_authentication__pb2
 from rpc_health import authentication_pb2 as rpc__health_dot_authentication__pb2
 from rpc_refresh import authentication_pb2 as rpc__refresh_dot_authentication__pb2
 from rpc_signin import authentication_pb2 as rpc__signin_dot_authentication__pb2
 from rpc_signout import authentication_pb2 as rpc__signout_dot_authentication__pb2
 from rpc_signup import authentication_pb2 as rpc__signup_dot_authentication__pb2
 from rpc_users import authentication_pb2 as rpc__users_dot_authentication__pb2
-from rpc_verify import authentication_pb2 as rpc__verify_dot_authentication__pb2
 from rpc_welcome import authentication_pb2 as rpc__welcome_dot_authentication__pb2
 
 
@@ -52,26 +50,6 @@ class AuthenticationStub(object):
                 '/authentication.Authentication/AuthenticationRefreshToken',
                 request_serializer=rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenRequest.SerializeToString,
                 response_deserializer=rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenResponse.FromString,
-                )
-        self.AuthenticationRequestEmailVerification = channel.unary_unary(
-                '/authentication.Authentication/AuthenticationRequestEmailVerification',
-                request_serializer=rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationRequest.SerializeToString,
-                response_deserializer=rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationResponse.FromString,
-                )
-        self.AuthenticationVerifyEmail = channel.unary_unary(
-                '/authentication.Authentication/AuthenticationVerifyEmail',
-                request_serializer=rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailRequest.SerializeToString,
-                response_deserializer=rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailResponse.FromString,
-                )
-        self.AuthenticationForgotPassword = channel.unary_unary(
-                '/authentication.Authentication/AuthenticationForgotPassword',
-                request_serializer=rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordRequest.SerializeToString,
-                response_deserializer=rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordResponse.FromString,
-                )
-        self.AuthenticationResetPassword = channel.unary_unary(
-                '/authentication.Authentication/AuthenticationResetPassword',
-                request_serializer=rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordRequest.SerializeToString,
-                response_deserializer=rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordResponse.FromString,
                 )
         self.AuthenticationDeleteAccount = channel.unary_unary(
                 '/authentication.Authentication/AuthenticationDeleteAccount',
@@ -135,35 +113,6 @@ class AuthenticationServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AuthenticationRequestEmailVerification(self, request, context):
-        """------------------------------------------------------------ Request Email Verification
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthenticationVerifyEmail(self, request, context):
-        """------------------------------------------------------------ Verify Email with verification code
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthenticationForgotPassword(self, request, context):
-        """------------------------------------------------------------ Forogt Password ? Request reset code
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AuthenticationResetPassword(self, request, context):
-        """------------------------------------------------------------ Reset Password
-        If Account is not verified then we will directly delete it
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def AuthenticationDeleteAccount(self, request, context):
         """------------------------------------------------------------ Deletion
         If Account is not verified then we will directly delete it
@@ -218,26 +167,6 @@ def add_AuthenticationServicer_to_server(servicer, server):
                     servicer.AuthenticationRefreshToken,
                     request_deserializer=rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenRequest.FromString,
                     response_serializer=rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenResponse.SerializeToString,
-            ),
-            'AuthenticationRequestEmailVerification': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthenticationRequestEmailVerification,
-                    request_deserializer=rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationRequest.FromString,
-                    response_serializer=rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationResponse.SerializeToString,
-            ),
-            'AuthenticationVerifyEmail': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthenticationVerifyEmail,
-                    request_deserializer=rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailRequest.FromString,
-                    response_serializer=rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailResponse.SerializeToString,
-            ),
-            'AuthenticationForgotPassword': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthenticationForgotPassword,
-                    request_deserializer=rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordRequest.FromString,
-                    response_serializer=rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordResponse.SerializeToString,
-            ),
-            'AuthenticationResetPassword': grpc.unary_unary_rpc_method_handler(
-                    servicer.AuthenticationResetPassword,
-                    request_deserializer=rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordRequest.FromString,
-                    response_serializer=rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordResponse.SerializeToString,
             ),
             'AuthenticationDeleteAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.AuthenticationDeleteAccount,
@@ -363,74 +292,6 @@ class Authentication(object):
         return grpc.experimental.unary_unary(request, target, '/authentication.Authentication/AuthenticationRefreshToken',
             rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenRequest.SerializeToString,
             rpc__refresh_dot_authentication__pb2.AuthenticationRefreshTokenResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AuthenticationRequestEmailVerification(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/authentication.Authentication/AuthenticationRequestEmailVerification',
-            rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationRequest.SerializeToString,
-            rpc__verify_dot_authentication__pb2.AuthenticationRequestEmailVerificationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AuthenticationVerifyEmail(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/authentication.Authentication/AuthenticationVerifyEmail',
-            rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailRequest.SerializeToString,
-            rpc__verify_dot_authentication__pb2.AuthenticationVerifyEmailResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AuthenticationForgotPassword(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/authentication.Authentication/AuthenticationForgotPassword',
-            rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordRequest.SerializeToString,
-            rpc__forgot_dot_authentication__pb2.AuthenticationForgotPasswordResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AuthenticationResetPassword(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/authentication.Authentication/AuthenticationResetPassword',
-            rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordRequest.SerializeToString,
-            rpc__forgot_dot_authentication__pb2.AuthenticationResetPasswordResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

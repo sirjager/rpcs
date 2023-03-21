@@ -1,10 +1,8 @@
 import * as grpcWeb from 'grpc-web';
 
 import * as rpc$delete_authentication_pb from './rpc-delete.authentication_pb';
-import * as rpc$forgot_authentication_pb from './rpc-forgot.authentication_pb';
 import * as rpc$health_authentication_pb from './rpc-health.authentication_pb';
 import * as rpc$refresh_authentication_pb from './rpc-refresh.authentication_pb';
-import * as rpc$verify_authentication_pb from './rpc-verify.authentication_pb';
 import * as rpc$signin_authentication_pb from './rpc-signin.authentication_pb';
 import * as rpc$signout_authentication_pb from './rpc-signout.authentication_pb';
 import * as rpc$signup_authentication_pb from './rpc-signup.authentication_pb';
@@ -58,34 +56,6 @@ export class AuthenticationClient {
     callback: (err: grpcWeb.RpcError,
                response: rpc$refresh_authentication_pb.AuthenticationRefreshTokenResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$refresh_authentication_pb.AuthenticationRefreshTokenResponse>;
-
-  authenticationRequestEmailVerification(
-    request: rpc$verify_authentication_pb.AuthenticationRequestEmailVerificationRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: rpc$verify_authentication_pb.AuthenticationRequestEmailVerificationResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$verify_authentication_pb.AuthenticationRequestEmailVerificationResponse>;
-
-  authenticationVerifyEmail(
-    request: rpc$verify_authentication_pb.AuthenticationVerifyEmailRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: rpc$verify_authentication_pb.AuthenticationVerifyEmailResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$verify_authentication_pb.AuthenticationVerifyEmailResponse>;
-
-  authenticationForgotPassword(
-    request: rpc$forgot_authentication_pb.AuthenticationForgotPasswordRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: rpc$forgot_authentication_pb.AuthenticationForgotPasswordResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$forgot_authentication_pb.AuthenticationForgotPasswordResponse>;
-
-  authenticationResetPassword(
-    request: rpc$forgot_authentication_pb.AuthenticationResetPasswordRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: rpc$forgot_authentication_pb.AuthenticationResetPasswordResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$forgot_authentication_pb.AuthenticationResetPasswordResponse>;
 
   authenticationDeleteAccount(
     request: rpc$delete_authentication_pb.AuthenticationDeleteAccountRequest,
@@ -144,26 +114,6 @@ export class AuthenticationPromiseClient {
     request: rpc$refresh_authentication_pb.AuthenticationRefreshTokenRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$refresh_authentication_pb.AuthenticationRefreshTokenResponse>;
-
-  authenticationRequestEmailVerification(
-    request: rpc$verify_authentication_pb.AuthenticationRequestEmailVerificationRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<rpc$verify_authentication_pb.AuthenticationRequestEmailVerificationResponse>;
-
-  authenticationVerifyEmail(
-    request: rpc$verify_authentication_pb.AuthenticationVerifyEmailRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<rpc$verify_authentication_pb.AuthenticationVerifyEmailResponse>;
-
-  authenticationForgotPassword(
-    request: rpc$forgot_authentication_pb.AuthenticationForgotPasswordRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<rpc$forgot_authentication_pb.AuthenticationForgotPasswordResponse>;
-
-  authenticationResetPassword(
-    request: rpc$forgot_authentication_pb.AuthenticationResetPasswordRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<rpc$forgot_authentication_pb.AuthenticationResetPasswordResponse>;
 
   authenticationDeleteAccount(
     request: rpc$delete_authentication_pb.AuthenticationDeleteAccountRequest,

@@ -8,8 +8,6 @@ import * as rpc$signup_authentication_pb from './rpc-signup.authentication_pb';
 import * as rpc$signin_authentication_pb from './rpc-signin.authentication_pb';
 import * as rpc$signout_authentication_pb from './rpc-signout.authentication_pb';
 import * as rpc$refresh_authentication_pb from './rpc-refresh.authentication_pb';
-import * as rpc$verify_authentication_pb from './rpc-verify.authentication_pb';
-import * as rpc$forgot_authentication_pb from './rpc-forgot.authentication_pb';
 import * as rpc$delete_authentication_pb from './rpc-delete.authentication_pb';
 import * as rpc$users_authentication_pb from './rpc-users.authentication_pb';
 

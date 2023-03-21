@@ -19,19 +19,15 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Authentication_AuthenticationWelcome_FullMethodName                  = "/authentication.Authentication/AuthenticationWelcome"
-	Authentication_AuthenticationHealth_FullMethodName                   = "/authentication.Authentication/AuthenticationHealth"
-	Authentication_AuthenticationSignup_FullMethodName                   = "/authentication.Authentication/AuthenticationSignup"
-	Authentication_AuthenticationSignin_FullMethodName                   = "/authentication.Authentication/AuthenticationSignin"
-	Authentication_AuthenticationSignout_FullMethodName                  = "/authentication.Authentication/AuthenticationSignout"
-	Authentication_AuthenticationRefreshToken_FullMethodName             = "/authentication.Authentication/AuthenticationRefreshToken"
-	Authentication_AuthenticationRequestEmailVerification_FullMethodName = "/authentication.Authentication/AuthenticationRequestEmailVerification"
-	Authentication_AuthenticationVerifyEmail_FullMethodName              = "/authentication.Authentication/AuthenticationVerifyEmail"
-	Authentication_AuthenticationForgotPassword_FullMethodName           = "/authentication.Authentication/AuthenticationForgotPassword"
-	Authentication_AuthenticationResetPassword_FullMethodName            = "/authentication.Authentication/AuthenticationResetPassword"
-	Authentication_AuthenticationDeleteAccount_FullMethodName            = "/authentication.Authentication/AuthenticationDeleteAccount"
-	Authentication_AuthenticationUsers_FullMethodName                    = "/authentication.Authentication/AuthenticationUsers"
-	Authentication_AuthenticationUser_FullMethodName                     = "/authentication.Authentication/AuthenticationUser"
+	Authentication_AuthenticationWelcome_FullMethodName       = "/authentication.Authentication/AuthenticationWelcome"
+	Authentication_AuthenticationHealth_FullMethodName        = "/authentication.Authentication/AuthenticationHealth"
+	Authentication_AuthenticationSignup_FullMethodName        = "/authentication.Authentication/AuthenticationSignup"
+	Authentication_AuthenticationSignin_FullMethodName        = "/authentication.Authentication/AuthenticationSignin"
+	Authentication_AuthenticationSignout_FullMethodName       = "/authentication.Authentication/AuthenticationSignout"
+	Authentication_AuthenticationRefreshToken_FullMethodName  = "/authentication.Authentication/AuthenticationRefreshToken"
+	Authentication_AuthenticationDeleteAccount_FullMethodName = "/authentication.Authentication/AuthenticationDeleteAccount"
+	Authentication_AuthenticationUsers_FullMethodName         = "/authentication.Authentication/AuthenticationUsers"
+	Authentication_AuthenticationUser_FullMethodName          = "/authentication.Authentication/AuthenticationUser"
 )
 
 // AuthenticationClient is the client API for Authentication service.
@@ -50,15 +46,6 @@ type AuthenticationClient interface {
 	AuthenticationSignout(ctx context.Context, in *AuthenticationSignoutRequest, opts ...grpc.CallOption) (*AuthenticationSignoutResponse, error)
 	// ------------------------------------------------------------ Refresh
 	AuthenticationRefreshToken(ctx context.Context, in *AuthenticationRefreshTokenRequest, opts ...grpc.CallOption) (*AuthenticationRefreshTokenResponse, error)
-	// ------------------------------------------------------------ Request Email Verification
-	AuthenticationRequestEmailVerification(ctx context.Context, in *AuthenticationRequestEmailVerificationRequest, opts ...grpc.CallOption) (*AuthenticationRequestEmailVerificationResponse, error)
-	// ------------------------------------------------------------ Verify Email with verification code
-	AuthenticationVerifyEmail(ctx context.Context, in *AuthenticationVerifyEmailRequest, opts ...grpc.CallOption) (*AuthenticationVerifyEmailResponse, error)
-	// ------------------------------------------------------------ Forogt Password ? Request reset code
-	AuthenticationForgotPassword(ctx context.Context, in *AuthenticationForgotPasswordRequest, opts ...grpc.CallOption) (*AuthenticationForgotPasswordResponse, error)
-	// ------------------------------------------------------------ Reset Password
-	// If Account is not verified then we will directly delete it
-	AuthenticationResetPassword(ctx context.Context, in *AuthenticationResetPasswordRequest, opts ...grpc.CallOption) (*AuthenticationResetPasswordResponse, error)
 	// ------------------------------------------------------------ Deletion
 	// If Account is not verified then we will directly delete it
 	AuthenticationDeleteAccount(ctx context.Context, in *AuthenticationDeleteAccountRequest, opts ...grpc.CallOption) (*AuthenticationDeleteAccountResponse, error)
@@ -130,42 +117,6 @@ func (c *authenticationClient) AuthenticationRefreshToken(ctx context.Context, i
 	return out, nil
 }
 
-func (c *authenticationClient) AuthenticationRequestEmailVerification(ctx context.Context, in *AuthenticationRequestEmailVerificationRequest, opts ...grpc.CallOption) (*AuthenticationRequestEmailVerificationResponse, error) {
-	out := new(AuthenticationRequestEmailVerificationResponse)
-	err := c.cc.Invoke(ctx, Authentication_AuthenticationRequestEmailVerification_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authenticationClient) AuthenticationVerifyEmail(ctx context.Context, in *AuthenticationVerifyEmailRequest, opts ...grpc.CallOption) (*AuthenticationVerifyEmailResponse, error) {
-	out := new(AuthenticationVerifyEmailResponse)
-	err := c.cc.Invoke(ctx, Authentication_AuthenticationVerifyEmail_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authenticationClient) AuthenticationForgotPassword(ctx context.Context, in *AuthenticationForgotPasswordRequest, opts ...grpc.CallOption) (*AuthenticationForgotPasswordResponse, error) {
-	out := new(AuthenticationForgotPasswordResponse)
-	err := c.cc.Invoke(ctx, Authentication_AuthenticationForgotPassword_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *authenticationClient) AuthenticationResetPassword(ctx context.Context, in *AuthenticationResetPasswordRequest, opts ...grpc.CallOption) (*AuthenticationResetPasswordResponse, error) {
-	out := new(AuthenticationResetPasswordResponse)
-	err := c.cc.Invoke(ctx, Authentication_AuthenticationResetPassword_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *authenticationClient) AuthenticationDeleteAccount(ctx context.Context, in *AuthenticationDeleteAccountRequest, opts ...grpc.CallOption) (*AuthenticationDeleteAccountResponse, error) {
 	out := new(AuthenticationDeleteAccountResponse)
 	err := c.cc.Invoke(ctx, Authentication_AuthenticationDeleteAccount_FullMethodName, in, out, opts...)
@@ -209,15 +160,6 @@ type AuthenticationServer interface {
 	AuthenticationSignout(context.Context, *AuthenticationSignoutRequest) (*AuthenticationSignoutResponse, error)
 	// ------------------------------------------------------------ Refresh
 	AuthenticationRefreshToken(context.Context, *AuthenticationRefreshTokenRequest) (*AuthenticationRefreshTokenResponse, error)
-	// ------------------------------------------------------------ Request Email Verification
-	AuthenticationRequestEmailVerification(context.Context, *AuthenticationRequestEmailVerificationRequest) (*AuthenticationRequestEmailVerificationResponse, error)
-	// ------------------------------------------------------------ Verify Email with verification code
-	AuthenticationVerifyEmail(context.Context, *AuthenticationVerifyEmailRequest) (*AuthenticationVerifyEmailResponse, error)
-	// ------------------------------------------------------------ Forogt Password ? Request reset code
-	AuthenticationForgotPassword(context.Context, *AuthenticationForgotPasswordRequest) (*AuthenticationForgotPasswordResponse, error)
-	// ------------------------------------------------------------ Reset Password
-	// If Account is not verified then we will directly delete it
-	AuthenticationResetPassword(context.Context, *AuthenticationResetPasswordRequest) (*AuthenticationResetPasswordResponse, error)
 	// ------------------------------------------------------------ Deletion
 	// If Account is not verified then we will directly delete it
 	AuthenticationDeleteAccount(context.Context, *AuthenticationDeleteAccountRequest) (*AuthenticationDeleteAccountResponse, error)
@@ -249,18 +191,6 @@ func (UnimplementedAuthenticationServer) AuthenticationSignout(context.Context, 
 }
 func (UnimplementedAuthenticationServer) AuthenticationRefreshToken(context.Context, *AuthenticationRefreshTokenRequest) (*AuthenticationRefreshTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationRefreshToken not implemented")
-}
-func (UnimplementedAuthenticationServer) AuthenticationRequestEmailVerification(context.Context, *AuthenticationRequestEmailVerificationRequest) (*AuthenticationRequestEmailVerificationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationRequestEmailVerification not implemented")
-}
-func (UnimplementedAuthenticationServer) AuthenticationVerifyEmail(context.Context, *AuthenticationVerifyEmailRequest) (*AuthenticationVerifyEmailResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationVerifyEmail not implemented")
-}
-func (UnimplementedAuthenticationServer) AuthenticationForgotPassword(context.Context, *AuthenticationForgotPasswordRequest) (*AuthenticationForgotPasswordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationForgotPassword not implemented")
-}
-func (UnimplementedAuthenticationServer) AuthenticationResetPassword(context.Context, *AuthenticationResetPasswordRequest) (*AuthenticationResetPasswordResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationResetPassword not implemented")
 }
 func (UnimplementedAuthenticationServer) AuthenticationDeleteAccount(context.Context, *AuthenticationDeleteAccountRequest) (*AuthenticationDeleteAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AuthenticationDeleteAccount not implemented")
@@ -392,78 +322,6 @@ func _Authentication_AuthenticationRefreshToken_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Authentication_AuthenticationRequestEmailVerification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthenticationRequestEmailVerificationRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthenticationServer).AuthenticationRequestEmailVerification(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Authentication_AuthenticationRequestEmailVerification_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationServer).AuthenticationRequestEmailVerification(ctx, req.(*AuthenticationRequestEmailVerificationRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Authentication_AuthenticationVerifyEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthenticationVerifyEmailRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthenticationServer).AuthenticationVerifyEmail(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Authentication_AuthenticationVerifyEmail_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationServer).AuthenticationVerifyEmail(ctx, req.(*AuthenticationVerifyEmailRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Authentication_AuthenticationForgotPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthenticationForgotPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthenticationServer).AuthenticationForgotPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Authentication_AuthenticationForgotPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationServer).AuthenticationForgotPassword(ctx, req.(*AuthenticationForgotPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Authentication_AuthenticationResetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthenticationResetPasswordRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AuthenticationServer).AuthenticationResetPassword(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Authentication_AuthenticationResetPassword_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AuthenticationServer).AuthenticationResetPassword(ctx, req.(*AuthenticationResetPasswordRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Authentication_AuthenticationDeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AuthenticationDeleteAccountRequest)
 	if err := dec(in); err != nil {
@@ -548,22 +406,6 @@ var Authentication_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AuthenticationRefreshToken",
 			Handler:    _Authentication_AuthenticationRefreshToken_Handler,
-		},
-		{
-			MethodName: "AuthenticationRequestEmailVerification",
-			Handler:    _Authentication_AuthenticationRequestEmailVerification_Handler,
-		},
-		{
-			MethodName: "AuthenticationVerifyEmail",
-			Handler:    _Authentication_AuthenticationVerifyEmail_Handler,
-		},
-		{
-			MethodName: "AuthenticationForgotPassword",
-			Handler:    _Authentication_AuthenticationForgotPassword_Handler,
-		},
-		{
-			MethodName: "AuthenticationResetPassword",
-			Handler:    _Authentication_AuthenticationResetPassword_Handler,
 		},
 		{
 			MethodName: "AuthenticationDeleteAccount",
