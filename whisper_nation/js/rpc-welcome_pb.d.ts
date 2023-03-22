@@ -2,33 +2,33 @@ import * as jspb from 'google-protobuf'
 
 
 
-export class WhisperNationWelcomeRequest extends jspb.Message {
+export class WelcomeRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationWelcomeRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationWelcomeRequest): WhisperNationWelcomeRequest.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationWelcomeRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationWelcomeRequest;
-  static deserializeBinaryFromReader(message: WhisperNationWelcomeRequest, reader: jspb.BinaryReader): WhisperNationWelcomeRequest;
+  toObject(includeInstance?: boolean): WelcomeRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: WelcomeRequest): WelcomeRequest.AsObject;
+  static serializeBinaryToWriter(message: WelcomeRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WelcomeRequest;
+  static deserializeBinaryFromReader(message: WelcomeRequest, reader: jspb.BinaryReader): WelcomeRequest;
 }
 
-export namespace WhisperNationWelcomeRequest {
+export namespace WelcomeRequest {
   export type AsObject = {
   }
 }
 
-export class WhisperNationWelcomeResponse extends jspb.Message {
+export class WelcomeResponse extends jspb.Message {
   getMessage(): string;
-  setMessage(value: string): WhisperNationWelcomeResponse;
+  setMessage(value: string): WelcomeResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationWelcomeResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationWelcomeResponse): WhisperNationWelcomeResponse.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationWelcomeResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationWelcomeResponse;
-  static deserializeBinaryFromReader(message: WhisperNationWelcomeResponse, reader: jspb.BinaryReader): WhisperNationWelcomeResponse;
+  toObject(includeInstance?: boolean): WelcomeResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: WelcomeResponse): WelcomeResponse.AsObject;
+  static serializeBinaryToWriter(message: WelcomeResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): WelcomeResponse;
+  static deserializeBinaryFromReader(message: WelcomeResponse, reader: jspb.BinaryReader): WelcomeResponse;
 }
 
-export namespace WhisperNationWelcomeResponse {
+export namespace WelcomeResponse {
   export type AsObject = {
     message: string,
   }

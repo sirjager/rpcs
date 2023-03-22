@@ -20,14 +20,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type WhisperNationWelcomeRequest struct {
+type WelcomeRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *WhisperNationWelcomeRequest) Reset() {
-	*x = WhisperNationWelcomeRequest{}
+func (x *WelcomeRequest) Reset() {
+	*x = WelcomeRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_welcome_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -35,13 +35,13 @@ func (x *WhisperNationWelcomeRequest) Reset() {
 	}
 }
 
-func (x *WhisperNationWelcomeRequest) String() string {
+func (x *WelcomeRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WhisperNationWelcomeRequest) ProtoMessage() {}
+func (*WelcomeRequest) ProtoMessage() {}
 
-func (x *WhisperNationWelcomeRequest) ProtoReflect() protoreflect.Message {
+func (x *WelcomeRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_welcome_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,12 +53,12 @@ func (x *WhisperNationWelcomeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WhisperNationWelcomeRequest.ProtoReflect.Descriptor instead.
-func (*WhisperNationWelcomeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use WelcomeRequest.ProtoReflect.Descriptor instead.
+func (*WelcomeRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_welcome_proto_rawDescGZIP(), []int{0}
 }
 
-type WhisperNationWelcomeResponse struct {
+type WelcomeResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -66,8 +66,8 @@ type WhisperNationWelcomeResponse struct {
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
-func (x *WhisperNationWelcomeResponse) Reset() {
-	*x = WhisperNationWelcomeResponse{}
+func (x *WelcomeResponse) Reset() {
+	*x = WelcomeResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_welcome_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -75,13 +75,13 @@ func (x *WhisperNationWelcomeResponse) Reset() {
 	}
 }
 
-func (x *WhisperNationWelcomeResponse) String() string {
+func (x *WelcomeResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*WhisperNationWelcomeResponse) ProtoMessage() {}
+func (*WelcomeResponse) ProtoMessage() {}
 
-func (x *WhisperNationWelcomeResponse) ProtoReflect() protoreflect.Message {
+func (x *WelcomeResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_welcome_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -93,12 +93,12 @@ func (x *WhisperNationWelcomeResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use WhisperNationWelcomeResponse.ProtoReflect.Descriptor instead.
-func (*WhisperNationWelcomeResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use WelcomeResponse.ProtoReflect.Descriptor instead.
+func (*WelcomeResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_welcome_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *WhisperNationWelcomeResponse) GetMessage() string {
+func (x *WelcomeResponse) GetMessage() string {
 	if x != nil {
 		return x.Message
 	}
@@ -110,15 +110,14 @@ var File_rpc_welcome_proto protoreflect.FileDescriptor
 var file_rpc_welcome_proto_rawDesc = []byte{
 	0x0a, 0x11, 0x72, 0x70, 0x63, 0x2d, 0x77, 0x65, 0x6c, 0x63, 0x6f, 0x6d, 0x65, 0x2e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x12, 0x0e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x22, 0x1d, 0x0a, 0x1b, 0x57, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x4e, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x57, 0x65, 0x6c, 0x63, 0x6f, 0x6d, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x22, 0x38, 0x0a, 0x1c, 0x57, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x4e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x57, 0x65, 0x6c, 0x63, 0x6f, 0x6d, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x29, 0x5a, 0x27,
-	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61,
-	0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72,
-	0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x69, 0x6f, 0x6e, 0x22, 0x10, 0x0a, 0x0e, 0x57, 0x65, 0x6c, 0x63, 0x6f, 0x6d, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x2b, 0x0a, 0x0f, 0x57, 0x65, 0x6c, 0x63, 0x6f, 0x6d, 0x65,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73,
+	0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
+	0x67, 0x65, 0x42, 0x29, 0x5a, 0x27, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d,
+	0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x77,
+	0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -135,8 +134,8 @@ func file_rpc_welcome_proto_rawDescGZIP() []byte {
 
 var file_rpc_welcome_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_rpc_welcome_proto_goTypes = []interface{}{
-	(*WhisperNationWelcomeRequest)(nil),  // 0: whisper_nation.WhisperNationWelcomeRequest
-	(*WhisperNationWelcomeResponse)(nil), // 1: whisper_nation.WhisperNationWelcomeResponse
+	(*WelcomeRequest)(nil),  // 0: whisper_nation.WelcomeRequest
+	(*WelcomeResponse)(nil), // 1: whisper_nation.WelcomeResponse
 }
 var file_rpc_welcome_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -153,7 +152,7 @@ func file_rpc_welcome_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_rpc_welcome_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WhisperNationWelcomeRequest); i {
+			switch v := v.(*WelcomeRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -165,7 +164,7 @@ func file_rpc_welcome_proto_init() {
 			}
 		}
 		file_rpc_welcome_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*WhisperNationWelcomeResponse); i {
+			switch v := v.(*WelcomeResponse); i {
 			case 0:
 				return &v.state
 			case 1:

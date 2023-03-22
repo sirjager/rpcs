@@ -3,113 +3,113 @@ import * as jspb from 'google-protobuf'
 import * as whisper_nation_pb from './whisper_nation_pb';
 
 
-export class WhisperNationCreateGroupRequest extends jspb.Message {
+export class CreateGroupRequest extends jspb.Message {
   getName(): string;
-  setName(value: string): WhisperNationCreateGroupRequest;
+  setName(value: string): CreateGroupRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationCreateGroupRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationCreateGroupRequest): WhisperNationCreateGroupRequest.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationCreateGroupRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationCreateGroupRequest;
-  static deserializeBinaryFromReader(message: WhisperNationCreateGroupRequest, reader: jspb.BinaryReader): WhisperNationCreateGroupRequest;
+  toObject(includeInstance?: boolean): CreateGroupRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateGroupRequest): CreateGroupRequest.AsObject;
+  static serializeBinaryToWriter(message: CreateGroupRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateGroupRequest;
+  static deserializeBinaryFromReader(message: CreateGroupRequest, reader: jspb.BinaryReader): CreateGroupRequest;
 }
 
-export namespace WhisperNationCreateGroupRequest {
+export namespace CreateGroupRequest {
   export type AsObject = {
     name: string,
   }
 }
 
-export class WhisperNationCreateGroupResponse extends jspb.Message {
-  getGroup(): whisper_nation_pb.WhisperNationGroup | undefined;
-  setGroup(value?: whisper_nation_pb.WhisperNationGroup): WhisperNationCreateGroupResponse;
+export class CreateGroupResponse extends jspb.Message {
+  getGroup(): whisper_nation_pb.Group | undefined;
+  setGroup(value?: whisper_nation_pb.Group): CreateGroupResponse;
   hasGroup(): boolean;
-  clearGroup(): WhisperNationCreateGroupResponse;
+  clearGroup(): CreateGroupResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationCreateGroupResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationCreateGroupResponse): WhisperNationCreateGroupResponse.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationCreateGroupResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationCreateGroupResponse;
-  static deserializeBinaryFromReader(message: WhisperNationCreateGroupResponse, reader: jspb.BinaryReader): WhisperNationCreateGroupResponse;
+  toObject(includeInstance?: boolean): CreateGroupResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateGroupResponse): CreateGroupResponse.AsObject;
+  static serializeBinaryToWriter(message: CreateGroupResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateGroupResponse;
+  static deserializeBinaryFromReader(message: CreateGroupResponse, reader: jspb.BinaryReader): CreateGroupResponse;
 }
 
-export namespace WhisperNationCreateGroupResponse {
+export namespace CreateGroupResponse {
   export type AsObject = {
-    group?: whisper_nation_pb.WhisperNationGroup.AsObject,
+    group?: whisper_nation_pb.Group.AsObject,
   }
 }
 
-export class WhisperNationListGroupsRequest extends jspb.Message {
+export class ListGroupsRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationListGroupsRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationListGroupsRequest): WhisperNationListGroupsRequest.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationListGroupsRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationListGroupsRequest;
-  static deserializeBinaryFromReader(message: WhisperNationListGroupsRequest, reader: jspb.BinaryReader): WhisperNationListGroupsRequest;
+  toObject(includeInstance?: boolean): ListGroupsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListGroupsRequest): ListGroupsRequest.AsObject;
+  static serializeBinaryToWriter(message: ListGroupsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListGroupsRequest;
+  static deserializeBinaryFromReader(message: ListGroupsRequest, reader: jspb.BinaryReader): ListGroupsRequest;
 }
 
-export namespace WhisperNationListGroupsRequest {
+export namespace ListGroupsRequest {
   export type AsObject = {
   }
 }
 
-export class WhisperNationListGroupsResponse extends jspb.Message {
-  getGroupsList(): Array<whisper_nation_pb.WhisperNationGroup>;
-  setGroupsList(value: Array<whisper_nation_pb.WhisperNationGroup>): WhisperNationListGroupsResponse;
-  clearGroupsList(): WhisperNationListGroupsResponse;
-  addGroups(value?: whisper_nation_pb.WhisperNationGroup, index?: number): whisper_nation_pb.WhisperNationGroup;
+export class ListGroupsResponse extends jspb.Message {
+  getGroupsList(): Array<whisper_nation_pb.Group>;
+  setGroupsList(value: Array<whisper_nation_pb.Group>): ListGroupsResponse;
+  clearGroupsList(): ListGroupsResponse;
+  addGroups(value?: whisper_nation_pb.Group, index?: number): whisper_nation_pb.Group;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationListGroupsResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationListGroupsResponse): WhisperNationListGroupsResponse.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationListGroupsResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationListGroupsResponse;
-  static deserializeBinaryFromReader(message: WhisperNationListGroupsResponse, reader: jspb.BinaryReader): WhisperNationListGroupsResponse;
+  toObject(includeInstance?: boolean): ListGroupsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListGroupsResponse): ListGroupsResponse.AsObject;
+  static serializeBinaryToWriter(message: ListGroupsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListGroupsResponse;
+  static deserializeBinaryFromReader(message: ListGroupsResponse, reader: jspb.BinaryReader): ListGroupsResponse;
 }
 
-export namespace WhisperNationListGroupsResponse {
+export namespace ListGroupsResponse {
   export type AsObject = {
-    groupsList: Array<whisper_nation_pb.WhisperNationGroup.AsObject>,
+    groupsList: Array<whisper_nation_pb.Group.AsObject>,
   }
 }
 
-export class WhisperNationListGroupMembersRequest extends jspb.Message {
+export class ListGroupMembersRequest extends jspb.Message {
   getGroupId(): string;
-  setGroupId(value: string): WhisperNationListGroupMembersRequest;
+  setGroupId(value: string): ListGroupMembersRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationListGroupMembersRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationListGroupMembersRequest): WhisperNationListGroupMembersRequest.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationListGroupMembersRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationListGroupMembersRequest;
-  static deserializeBinaryFromReader(message: WhisperNationListGroupMembersRequest, reader: jspb.BinaryReader): WhisperNationListGroupMembersRequest;
+  toObject(includeInstance?: boolean): ListGroupMembersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListGroupMembersRequest): ListGroupMembersRequest.AsObject;
+  static serializeBinaryToWriter(message: ListGroupMembersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListGroupMembersRequest;
+  static deserializeBinaryFromReader(message: ListGroupMembersRequest, reader: jspb.BinaryReader): ListGroupMembersRequest;
 }
 
-export namespace WhisperNationListGroupMembersRequest {
+export namespace ListGroupMembersRequest {
   export type AsObject = {
     groupId: string,
   }
 }
 
-export class WhisperNationListGroupMembersResponse extends jspb.Message {
-  getMembersList(): Array<whisper_nation_pb.WhisperNationMember>;
-  setMembersList(value: Array<whisper_nation_pb.WhisperNationMember>): WhisperNationListGroupMembersResponse;
-  clearMembersList(): WhisperNationListGroupMembersResponse;
-  addMembers(value?: whisper_nation_pb.WhisperNationMember, index?: number): whisper_nation_pb.WhisperNationMember;
+export class ListGroupMembersResponse extends jspb.Message {
+  getMembersList(): Array<whisper_nation_pb.Member>;
+  setMembersList(value: Array<whisper_nation_pb.Member>): ListGroupMembersResponse;
+  clearMembersList(): ListGroupMembersResponse;
+  addMembers(value?: whisper_nation_pb.Member, index?: number): whisper_nation_pb.Member;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationListGroupMembersResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationListGroupMembersResponse): WhisperNationListGroupMembersResponse.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationListGroupMembersResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationListGroupMembersResponse;
-  static deserializeBinaryFromReader(message: WhisperNationListGroupMembersResponse, reader: jspb.BinaryReader): WhisperNationListGroupMembersResponse;
+  toObject(includeInstance?: boolean): ListGroupMembersResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListGroupMembersResponse): ListGroupMembersResponse.AsObject;
+  static serializeBinaryToWriter(message: ListGroupMembersResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListGroupMembersResponse;
+  static deserializeBinaryFromReader(message: ListGroupMembersResponse, reader: jspb.BinaryReader): ListGroupMembersResponse;
 }
 
-export namespace WhisperNationListGroupMembersResponse {
+export namespace ListGroupMembersResponse {
   export type AsObject = {
-    membersList: Array<whisper_nation_pb.WhisperNationMember.AsObject>,
+    membersList: Array<whisper_nation_pb.Member.AsObject>,
   }
 }
 

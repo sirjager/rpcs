@@ -4,48 +4,48 @@ import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/t
 import * as google_protobuf_duration_pb from 'google-protobuf/google/protobuf/duration_pb';
 
 
-export class WhisperNationHealthRequest extends jspb.Message {
+export class HealthRequest extends jspb.Message {
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationHealthRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationHealthRequest): WhisperNationHealthRequest.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationHealthRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationHealthRequest;
-  static deserializeBinaryFromReader(message: WhisperNationHealthRequest, reader: jspb.BinaryReader): WhisperNationHealthRequest;
+  toObject(includeInstance?: boolean): HealthRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: HealthRequest): HealthRequest.AsObject;
+  static serializeBinaryToWriter(message: HealthRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HealthRequest;
+  static deserializeBinaryFromReader(message: HealthRequest, reader: jspb.BinaryReader): HealthRequest;
 }
 
-export namespace WhisperNationHealthRequest {
+export namespace HealthRequest {
   export type AsObject = {
   }
 }
 
-export class WhisperNationHealthResponse extends jspb.Message {
+export class HealthResponse extends jspb.Message {
   getStatus(): string;
-  setStatus(value: string): WhisperNationHealthResponse;
+  setStatus(value: string): HealthResponse;
 
   getUptime(): google_protobuf_duration_pb.Duration | undefined;
-  setUptime(value?: google_protobuf_duration_pb.Duration): WhisperNationHealthResponse;
+  setUptime(value?: google_protobuf_duration_pb.Duration): HealthResponse;
   hasUptime(): boolean;
-  clearUptime(): WhisperNationHealthResponse;
+  clearUptime(): HealthResponse;
 
   getStarted(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setStarted(value?: google_protobuf_timestamp_pb.Timestamp): WhisperNationHealthResponse;
+  setStarted(value?: google_protobuf_timestamp_pb.Timestamp): HealthResponse;
   hasStarted(): boolean;
-  clearStarted(): WhisperNationHealthResponse;
+  clearStarted(): HealthResponse;
 
   getTimestamp(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): WhisperNationHealthResponse;
+  setTimestamp(value?: google_protobuf_timestamp_pb.Timestamp): HealthResponse;
   hasTimestamp(): boolean;
-  clearTimestamp(): WhisperNationHealthResponse;
+  clearTimestamp(): HealthResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): WhisperNationHealthResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: WhisperNationHealthResponse): WhisperNationHealthResponse.AsObject;
-  static serializeBinaryToWriter(message: WhisperNationHealthResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): WhisperNationHealthResponse;
-  static deserializeBinaryFromReader(message: WhisperNationHealthResponse, reader: jspb.BinaryReader): WhisperNationHealthResponse;
+  toObject(includeInstance?: boolean): HealthResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: HealthResponse): HealthResponse.AsObject;
+  static serializeBinaryToWriter(message: HealthResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): HealthResponse;
+  static deserializeBinaryFromReader(message: HealthResponse, reader: jspb.BinaryReader): HealthResponse;
 }
 
-export namespace WhisperNationHealthResponse {
+export namespace HealthResponse {
   export type AsObject = {
     status: string,
     uptime?: google_protobuf_duration_pb.Duration.AsObject,

@@ -87,305 +87,305 @@ proto.whisper_nation.WhisperNationPromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.whisper_nation.WhisperNationWelcomeRequest,
- *   !proto.whisper_nation.WhisperNationWelcomeResponse>}
+ *   !proto.whisper_nation.WelcomeRequest,
+ *   !proto.whisper_nation.WelcomeResponse>}
  */
-const methodDescriptor_WhisperNation_WhisperNationWelcome = new grpc.web.MethodDescriptor(
-  '/whisper_nation.WhisperNation/WhisperNationWelcome',
+const methodDescriptor_WhisperNation_Welcome = new grpc.web.MethodDescriptor(
+  '/whisper_nation.WhisperNation/Welcome',
   grpc.web.MethodType.UNARY,
-  rpc$welcome_pb.WhisperNationWelcomeRequest,
-  rpc$welcome_pb.WhisperNationWelcomeResponse,
+  rpc$welcome_pb.WelcomeRequest,
+  rpc$welcome_pb.WelcomeResponse,
   /**
-   * @param {!proto.whisper_nation.WhisperNationWelcomeRequest} request
+   * @param {!proto.whisper_nation.WelcomeRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$welcome_pb.WhisperNationWelcomeResponse.deserializeBinary
+  rpc$welcome_pb.WelcomeResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationWelcomeRequest} request The
+ * @param {!proto.whisper_nation.WelcomeRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WhisperNationWelcomeResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WelcomeResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WhisperNationWelcomeResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WelcomeResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.whisper_nation.WhisperNationClient.prototype.whisperNationWelcome =
+proto.whisper_nation.WhisperNationClient.prototype.welcome =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationWelcome',
+      '/whisper_nation.WhisperNation/Welcome',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationWelcome,
+      methodDescriptor_WhisperNation_Welcome,
       callback);
 };
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationWelcomeRequest} request The
+ * @param {!proto.whisper_nation.WelcomeRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.whisper_nation.WhisperNationWelcomeResponse>}
+ * @return {!Promise<!proto.whisper_nation.WelcomeResponse>}
  *     Promise that resolves to the response
  */
-proto.whisper_nation.WhisperNationPromiseClient.prototype.whisperNationWelcome =
+proto.whisper_nation.WhisperNationPromiseClient.prototype.welcome =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationWelcome',
+      '/whisper_nation.WhisperNation/Welcome',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationWelcome);
+      methodDescriptor_WhisperNation_Welcome);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.whisper_nation.WhisperNationHealthRequest,
- *   !proto.whisper_nation.WhisperNationHealthResponse>}
+ *   !proto.whisper_nation.HealthRequest,
+ *   !proto.whisper_nation.HealthResponse>}
  */
-const methodDescriptor_WhisperNation_WhisperNationHealth = new grpc.web.MethodDescriptor(
-  '/whisper_nation.WhisperNation/WhisperNationHealth',
+const methodDescriptor_WhisperNation_Health = new grpc.web.MethodDescriptor(
+  '/whisper_nation.WhisperNation/Health',
   grpc.web.MethodType.UNARY,
-  rpc$health_pb.WhisperNationHealthRequest,
-  rpc$health_pb.WhisperNationHealthResponse,
+  rpc$health_pb.HealthRequest,
+  rpc$health_pb.HealthResponse,
   /**
-   * @param {!proto.whisper_nation.WhisperNationHealthRequest} request
+   * @param {!proto.whisper_nation.HealthRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$health_pb.WhisperNationHealthResponse.deserializeBinary
+  rpc$health_pb.HealthResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationHealthRequest} request The
+ * @param {!proto.whisper_nation.HealthRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WhisperNationHealthResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.HealthResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WhisperNationHealthResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.HealthResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.whisper_nation.WhisperNationClient.prototype.whisperNationHealth =
+proto.whisper_nation.WhisperNationClient.prototype.health =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationHealth',
+      '/whisper_nation.WhisperNation/Health',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationHealth,
+      methodDescriptor_WhisperNation_Health,
       callback);
 };
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationHealthRequest} request The
+ * @param {!proto.whisper_nation.HealthRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.whisper_nation.WhisperNationHealthResponse>}
+ * @return {!Promise<!proto.whisper_nation.HealthResponse>}
  *     Promise that resolves to the response
  */
-proto.whisper_nation.WhisperNationPromiseClient.prototype.whisperNationHealth =
+proto.whisper_nation.WhisperNationPromiseClient.prototype.health =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationHealth',
+      '/whisper_nation.WhisperNation/Health',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationHealth);
+      methodDescriptor_WhisperNation_Health);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.whisper_nation.WhisperNationCreateGroupRequest,
- *   !proto.whisper_nation.WhisperNationCreateGroupResponse>}
+ *   !proto.whisper_nation.CreateGroupRequest,
+ *   !proto.whisper_nation.CreateGroupResponse>}
  */
-const methodDescriptor_WhisperNation_WhisperNationCreateGroup = new grpc.web.MethodDescriptor(
-  '/whisper_nation.WhisperNation/WhisperNationCreateGroup',
+const methodDescriptor_WhisperNation_CreateGroup = new grpc.web.MethodDescriptor(
+  '/whisper_nation.WhisperNation/CreateGroup',
   grpc.web.MethodType.UNARY,
-  rpc$groups_pb.WhisperNationCreateGroupRequest,
-  rpc$groups_pb.WhisperNationCreateGroupResponse,
+  rpc$groups_pb.CreateGroupRequest,
+  rpc$groups_pb.CreateGroupResponse,
   /**
-   * @param {!proto.whisper_nation.WhisperNationCreateGroupRequest} request
+   * @param {!proto.whisper_nation.CreateGroupRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$groups_pb.WhisperNationCreateGroupResponse.deserializeBinary
+  rpc$groups_pb.CreateGroupResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationCreateGroupRequest} request The
+ * @param {!proto.whisper_nation.CreateGroupRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WhisperNationCreateGroupResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.CreateGroupResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WhisperNationCreateGroupResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.CreateGroupResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.whisper_nation.WhisperNationClient.prototype.whisperNationCreateGroup =
+proto.whisper_nation.WhisperNationClient.prototype.createGroup =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationCreateGroup',
+      '/whisper_nation.WhisperNation/CreateGroup',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationCreateGroup,
+      methodDescriptor_WhisperNation_CreateGroup,
       callback);
 };
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationCreateGroupRequest} request The
+ * @param {!proto.whisper_nation.CreateGroupRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.whisper_nation.WhisperNationCreateGroupResponse>}
+ * @return {!Promise<!proto.whisper_nation.CreateGroupResponse>}
  *     Promise that resolves to the response
  */
-proto.whisper_nation.WhisperNationPromiseClient.prototype.whisperNationCreateGroup =
+proto.whisper_nation.WhisperNationPromiseClient.prototype.createGroup =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationCreateGroup',
+      '/whisper_nation.WhisperNation/CreateGroup',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationCreateGroup);
+      methodDescriptor_WhisperNation_CreateGroup);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.whisper_nation.WhisperNationListGroupsRequest,
- *   !proto.whisper_nation.WhisperNationListGroupsResponse>}
+ *   !proto.whisper_nation.ListGroupsRequest,
+ *   !proto.whisper_nation.ListGroupsResponse>}
  */
-const methodDescriptor_WhisperNation_WhisperNationListGroups = new grpc.web.MethodDescriptor(
-  '/whisper_nation.WhisperNation/WhisperNationListGroups',
+const methodDescriptor_WhisperNation_ListGroups = new grpc.web.MethodDescriptor(
+  '/whisper_nation.WhisperNation/ListGroups',
   grpc.web.MethodType.UNARY,
-  rpc$groups_pb.WhisperNationListGroupsRequest,
-  rpc$groups_pb.WhisperNationListGroupsResponse,
+  rpc$groups_pb.ListGroupsRequest,
+  rpc$groups_pb.ListGroupsResponse,
   /**
-   * @param {!proto.whisper_nation.WhisperNationListGroupsRequest} request
+   * @param {!proto.whisper_nation.ListGroupsRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$groups_pb.WhisperNationListGroupsResponse.deserializeBinary
+  rpc$groups_pb.ListGroupsResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationListGroupsRequest} request The
+ * @param {!proto.whisper_nation.ListGroupsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WhisperNationListGroupsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.ListGroupsResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WhisperNationListGroupsResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.ListGroupsResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.whisper_nation.WhisperNationClient.prototype.whisperNationListGroups =
+proto.whisper_nation.WhisperNationClient.prototype.listGroups =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationListGroups',
+      '/whisper_nation.WhisperNation/ListGroups',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationListGroups,
+      methodDescriptor_WhisperNation_ListGroups,
       callback);
 };
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationListGroupsRequest} request The
+ * @param {!proto.whisper_nation.ListGroupsRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.whisper_nation.WhisperNationListGroupsResponse>}
+ * @return {!Promise<!proto.whisper_nation.ListGroupsResponse>}
  *     Promise that resolves to the response
  */
-proto.whisper_nation.WhisperNationPromiseClient.prototype.whisperNationListGroups =
+proto.whisper_nation.WhisperNationPromiseClient.prototype.listGroups =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationListGroups',
+      '/whisper_nation.WhisperNation/ListGroups',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationListGroups);
+      methodDescriptor_WhisperNation_ListGroups);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.whisper_nation.WhisperNationListGroupMembersRequest,
- *   !proto.whisper_nation.WhisperNationListGroupMembersResponse>}
+ *   !proto.whisper_nation.ListGroupMembersRequest,
+ *   !proto.whisper_nation.ListGroupMembersResponse>}
  */
-const methodDescriptor_WhisperNation_WhisperNationListGroupMembers = new grpc.web.MethodDescriptor(
-  '/whisper_nation.WhisperNation/WhisperNationListGroupMembers',
+const methodDescriptor_WhisperNation_ListGroupMembers = new grpc.web.MethodDescriptor(
+  '/whisper_nation.WhisperNation/ListGroupMembers',
   grpc.web.MethodType.UNARY,
-  rpc$groups_pb.WhisperNationListGroupMembersRequest,
-  rpc$groups_pb.WhisperNationListGroupMembersResponse,
+  rpc$groups_pb.ListGroupMembersRequest,
+  rpc$groups_pb.ListGroupMembersResponse,
   /**
-   * @param {!proto.whisper_nation.WhisperNationListGroupMembersRequest} request
+   * @param {!proto.whisper_nation.ListGroupMembersRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$groups_pb.WhisperNationListGroupMembersResponse.deserializeBinary
+  rpc$groups_pb.ListGroupMembersResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationListGroupMembersRequest} request The
+ * @param {!proto.whisper_nation.ListGroupMembersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.WhisperNationListGroupMembersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.whisper_nation.ListGroupMembersResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.WhisperNationListGroupMembersResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.whisper_nation.ListGroupMembersResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.whisper_nation.WhisperNationClient.prototype.whisperNationListGroupMembers =
+proto.whisper_nation.WhisperNationClient.prototype.listGroupMembers =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationListGroupMembers',
+      '/whisper_nation.WhisperNation/ListGroupMembers',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationListGroupMembers,
+      methodDescriptor_WhisperNation_ListGroupMembers,
       callback);
 };
 
 
 /**
- * @param {!proto.whisper_nation.WhisperNationListGroupMembersRequest} request The
+ * @param {!proto.whisper_nation.ListGroupMembersRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.whisper_nation.WhisperNationListGroupMembersResponse>}
+ * @return {!Promise<!proto.whisper_nation.ListGroupMembersResponse>}
  *     Promise that resolves to the response
  */
-proto.whisper_nation.WhisperNationPromiseClient.prototype.whisperNationListGroupMembers =
+proto.whisper_nation.WhisperNationPromiseClient.prototype.listGroupMembers =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/whisper_nation.WhisperNation/WhisperNationListGroupMembers',
+      '/whisper_nation.WhisperNation/ListGroupMembers',
       request,
       metadata || {},
-      methodDescriptor_WhisperNation_WhisperNationListGroupMembers);
+      methodDescriptor_WhisperNation_ListGroupMembers);
 };
 
 

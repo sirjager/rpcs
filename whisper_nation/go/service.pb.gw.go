@@ -31,61 +31,44 @@ var _ = runtime.String
 var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
-func request_WhisperNation_WhisperNationWelcome_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationWelcomeRequest
+func request_WhisperNation_Welcome_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq WelcomeRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := client.WhisperNationWelcome(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.Welcome(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_WhisperNation_WhisperNationWelcome_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationWelcomeRequest
+func local_request_WhisperNation_Welcome_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq WelcomeRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := server.WhisperNationWelcome(ctx, &protoReq)
+	msg, err := server.Welcome(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_WhisperNation_WhisperNationHealth_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationHealthRequest
+func request_WhisperNation_Health_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq HealthRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := client.WhisperNationHealth(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.Health(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_WhisperNation_WhisperNationHealth_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationHealthRequest
+func local_request_WhisperNation_Health_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq HealthRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := server.WhisperNationHealth(ctx, &protoReq)
+	msg, err := server.Health(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_WhisperNation_WhisperNationCreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationCreateGroupRequest
-	var metadata runtime.ServerMetadata
-
-	newReader, berr := utilities.IOReaderFactory(req.Body)
-	if berr != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
-	}
-	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-
-	msg, err := client.WhisperNationCreateGroup(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-
-}
-
-func local_request_WhisperNation_WhisperNationCreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationCreateGroupRequest
+func request_WhisperNation_CreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CreateGroupRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -96,31 +79,48 @@ func local_request_WhisperNation_WhisperNationCreateGroup_0(ctx context.Context,
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.WhisperNationCreateGroup(ctx, &protoReq)
+	msg, err := client.CreateGroup(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_WhisperNation_WhisperNationListGroups_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationListGroupsRequest
+func local_request_WhisperNation_CreateGroup_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq CreateGroupRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := client.WhisperNationListGroups(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	newReader, berr := utilities.IOReaderFactory(req.Body)
+	if berr != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", berr)
+	}
+	if err := marshaler.NewDecoder(newReader()).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.CreateGroup(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func local_request_WhisperNation_WhisperNationListGroups_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationListGroupsRequest
+func request_WhisperNation_ListGroups_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListGroupsRequest
 	var metadata runtime.ServerMetadata
 
-	msg, err := server.WhisperNationListGroups(ctx, &protoReq)
+	msg, err := client.ListGroups(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func request_WhisperNation_WhisperNationListGroupMembers_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationListGroupMembersRequest
+func local_request_WhisperNation_ListGroups_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListGroupsRequest
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.ListGroups(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
+func request_WhisperNation_ListGroupMembers_0(ctx context.Context, marshaler runtime.Marshaler, client WhisperNationClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListGroupMembersRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -140,13 +140,13 @@ func request_WhisperNation_WhisperNationListGroupMembers_0(ctx context.Context, 
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "group_id", err)
 	}
 
-	msg, err := client.WhisperNationListGroupMembers(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.ListGroupMembers(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_WhisperNation_WhisperNationListGroupMembers_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq WhisperNationListGroupMembersRequest
+func local_request_WhisperNation_ListGroupMembers_0(ctx context.Context, marshaler runtime.Marshaler, server WhisperNationServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq ListGroupMembersRequest
 	var metadata runtime.ServerMetadata
 
 	var (
@@ -166,7 +166,7 @@ func local_request_WhisperNation_WhisperNationListGroupMembers_0(ctx context.Con
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "group_id", err)
 	}
 
-	msg, err := server.WhisperNationListGroupMembers(ctx, &protoReq)
+	msg, err := server.ListGroupMembers(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -177,7 +177,7 @@ func local_request_WhisperNation_WhisperNationListGroupMembers_0(ctx context.Con
 // Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterWhisperNationHandlerFromEndpoint instead.
 func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeMux, server WhisperNationServer) error {
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationWelcome_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_Welcome_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -185,12 +185,12 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationWelcome", runtime.WithHTTPPathPattern("/"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/Welcome", runtime.WithHTTPPathPattern("/"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_WhisperNation_WhisperNationWelcome_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_WhisperNation_Welcome_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -198,11 +198,11 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_WhisperNation_WhisperNationWelcome_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_Welcome_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationHealth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_Health_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -210,12 +210,12 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationHealth", runtime.WithHTTPPathPattern("/v1/health"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/Health", runtime.WithHTTPPathPattern("/v1/health"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_WhisperNation_WhisperNationHealth_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_WhisperNation_Health_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -223,11 +223,11 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_WhisperNation_WhisperNationHealth_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_Health_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_WhisperNation_WhisperNationCreateGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_WhisperNation_CreateGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -235,12 +235,12 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationCreateGroup", runtime.WithHTTPPathPattern("/v1/groups"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/CreateGroup", runtime.WithHTTPPathPattern("/v1/groups"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_WhisperNation_WhisperNationCreateGroup_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_WhisperNation_CreateGroup_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -248,11 +248,11 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_WhisperNation_WhisperNationCreateGroup_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_CreateGroup_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationListGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_ListGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -260,12 +260,12 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationListGroups", runtime.WithHTTPPathPattern("/v1/groups"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/ListGroups", runtime.WithHTTPPathPattern("/v1/groups"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_WhisperNation_WhisperNationListGroups_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_WhisperNation_ListGroups_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -273,11 +273,11 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_WhisperNation_WhisperNationListGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_ListGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationListGroupMembers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_ListGroupMembers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -285,12 +285,12 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationListGroupMembers", runtime.WithHTTPPathPattern("/v1/groups/{group_id}/members"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/whisper_nation.WhisperNation/ListGroupMembers", runtime.WithHTTPPathPattern("/v1/groups/{group_id}/members"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_WhisperNation_WhisperNationListGroupMembers_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_WhisperNation_ListGroupMembers_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -298,7 +298,7 @@ func RegisterWhisperNationHandlerServer(ctx context.Context, mux *runtime.ServeM
 			return
 		}
 
-		forward_WhisperNation_WhisperNationListGroupMembers_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_ListGroupMembers_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -343,113 +343,113 @@ func RegisterWhisperNationHandler(ctx context.Context, mux *runtime.ServeMux, co
 // "WhisperNationClient" to call the correct interceptors.
 func RegisterWhisperNationHandlerClient(ctx context.Context, mux *runtime.ServeMux, client WhisperNationClient) error {
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationWelcome_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_Welcome_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationWelcome", runtime.WithHTTPPathPattern("/"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/Welcome", runtime.WithHTTPPathPattern("/"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_WhisperNation_WhisperNationWelcome_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_WhisperNation_Welcome_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_WhisperNation_WhisperNationWelcome_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_Welcome_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationHealth_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_Health_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationHealth", runtime.WithHTTPPathPattern("/v1/health"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/Health", runtime.WithHTTPPathPattern("/v1/health"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_WhisperNation_WhisperNationHealth_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_WhisperNation_Health_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_WhisperNation_WhisperNationHealth_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_Health_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_WhisperNation_WhisperNationCreateGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_WhisperNation_CreateGroup_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationCreateGroup", runtime.WithHTTPPathPattern("/v1/groups"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/CreateGroup", runtime.WithHTTPPathPattern("/v1/groups"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_WhisperNation_WhisperNationCreateGroup_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_WhisperNation_CreateGroup_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_WhisperNation_WhisperNationCreateGroup_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_CreateGroup_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationListGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_ListGroups_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationListGroups", runtime.WithHTTPPathPattern("/v1/groups"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/ListGroups", runtime.WithHTTPPathPattern("/v1/groups"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_WhisperNation_WhisperNationListGroups_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_WhisperNation_ListGroups_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_WhisperNation_WhisperNationListGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_ListGroups_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_WhisperNation_WhisperNationListGroupMembers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_WhisperNation_ListGroupMembers_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/WhisperNationListGroupMembers", runtime.WithHTTPPathPattern("/v1/groups/{group_id}/members"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/whisper_nation.WhisperNation/ListGroupMembers", runtime.WithHTTPPathPattern("/v1/groups/{group_id}/members"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_WhisperNation_WhisperNationListGroupMembers_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_WhisperNation_ListGroupMembers_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_WhisperNation_WhisperNationListGroupMembers_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_WhisperNation_ListGroupMembers_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -457,25 +457,25 @@ func RegisterWhisperNationHandlerClient(ctx context.Context, mux *runtime.ServeM
 }
 
 var (
-	pattern_WhisperNation_WhisperNationWelcome_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{""}, ""))
+	pattern_WhisperNation_Welcome_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{""}, ""))
 
-	pattern_WhisperNation_WhisperNationHealth_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "health"}, ""))
+	pattern_WhisperNation_Health_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "health"}, ""))
 
-	pattern_WhisperNation_WhisperNationCreateGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "groups"}, ""))
+	pattern_WhisperNation_CreateGroup_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "groups"}, ""))
 
-	pattern_WhisperNation_WhisperNationListGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "groups"}, ""))
+	pattern_WhisperNation_ListGroups_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "groups"}, ""))
 
-	pattern_WhisperNation_WhisperNationListGroupMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "groups", "group_id", "members"}, ""))
+	pattern_WhisperNation_ListGroupMembers_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "groups", "group_id", "members"}, ""))
 )
 
 var (
-	forward_WhisperNation_WhisperNationWelcome_0 = runtime.ForwardResponseMessage
+	forward_WhisperNation_Welcome_0 = runtime.ForwardResponseMessage
 
-	forward_WhisperNation_WhisperNationHealth_0 = runtime.ForwardResponseMessage
+	forward_WhisperNation_Health_0 = runtime.ForwardResponseMessage
 
-	forward_WhisperNation_WhisperNationCreateGroup_0 = runtime.ForwardResponseMessage
+	forward_WhisperNation_CreateGroup_0 = runtime.ForwardResponseMessage
 
-	forward_WhisperNation_WhisperNationListGroups_0 = runtime.ForwardResponseMessage
+	forward_WhisperNation_ListGroups_0 = runtime.ForwardResponseMessage
 
-	forward_WhisperNation_WhisperNationListGroupMembers_0 = runtime.ForwardResponseMessage
+	forward_WhisperNation_ListGroupMembers_0 = runtime.ForwardResponseMessage
 )

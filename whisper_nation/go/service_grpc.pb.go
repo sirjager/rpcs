@@ -19,11 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	WhisperNation_WhisperNationWelcome_FullMethodName          = "/whisper_nation.WhisperNation/WhisperNationWelcome"
-	WhisperNation_WhisperNationHealth_FullMethodName           = "/whisper_nation.WhisperNation/WhisperNationHealth"
-	WhisperNation_WhisperNationCreateGroup_FullMethodName      = "/whisper_nation.WhisperNation/WhisperNationCreateGroup"
-	WhisperNation_WhisperNationListGroups_FullMethodName       = "/whisper_nation.WhisperNation/WhisperNationListGroups"
-	WhisperNation_WhisperNationListGroupMembers_FullMethodName = "/whisper_nation.WhisperNation/WhisperNationListGroupMembers"
+	WhisperNation_Welcome_FullMethodName          = "/whisper_nation.WhisperNation/Welcome"
+	WhisperNation_Health_FullMethodName           = "/whisper_nation.WhisperNation/Health"
+	WhisperNation_CreateGroup_FullMethodName      = "/whisper_nation.WhisperNation/CreateGroup"
+	WhisperNation_ListGroups_FullMethodName       = "/whisper_nation.WhisperNation/ListGroups"
+	WhisperNation_ListGroupMembers_FullMethodName = "/whisper_nation.WhisperNation/ListGroupMembers"
 )
 
 // WhisperNationClient is the client API for WhisperNation service.
@@ -31,11 +31,11 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type WhisperNationClient interface {
 	// ------------------------------------------------------ System
-	WhisperNationWelcome(ctx context.Context, in *WhisperNationWelcomeRequest, opts ...grpc.CallOption) (*WhisperNationWelcomeResponse, error)
-	WhisperNationHealth(ctx context.Context, in *WhisperNationHealthRequest, opts ...grpc.CallOption) (*WhisperNationHealthResponse, error)
-	WhisperNationCreateGroup(ctx context.Context, in *WhisperNationCreateGroupRequest, opts ...grpc.CallOption) (*WhisperNationCreateGroupResponse, error)
-	WhisperNationListGroups(ctx context.Context, in *WhisperNationListGroupsRequest, opts ...grpc.CallOption) (*WhisperNationListGroupsResponse, error)
-	WhisperNationListGroupMembers(ctx context.Context, in *WhisperNationListGroupMembersRequest, opts ...grpc.CallOption) (*WhisperNationListGroupMembersResponse, error)
+	Welcome(ctx context.Context, in *WelcomeRequest, opts ...grpc.CallOption) (*WelcomeResponse, error)
+	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error)
+	CreateGroup(ctx context.Context, in *CreateGroupRequest, opts ...grpc.CallOption) (*CreateGroupResponse, error)
+	ListGroups(ctx context.Context, in *ListGroupsRequest, opts ...grpc.CallOption) (*ListGroupsResponse, error)
+	ListGroupMembers(ctx context.Context, in *ListGroupMembersRequest, opts ...grpc.CallOption) (*ListGroupMembersResponse, error)
 }
 
 type whisperNationClient struct {
@@ -46,45 +46,45 @@ func NewWhisperNationClient(cc grpc.ClientConnInterface) WhisperNationClient {
 	return &whisperNationClient{cc}
 }
 
-func (c *whisperNationClient) WhisperNationWelcome(ctx context.Context, in *WhisperNationWelcomeRequest, opts ...grpc.CallOption) (*WhisperNationWelcomeResponse, error) {
-	out := new(WhisperNationWelcomeResponse)
-	err := c.cc.Invoke(ctx, WhisperNation_WhisperNationWelcome_FullMethodName, in, out, opts...)
+func (c *whisperNationClient) Welcome(ctx context.Context, in *WelcomeRequest, opts ...grpc.CallOption) (*WelcomeResponse, error) {
+	out := new(WelcomeResponse)
+	err := c.cc.Invoke(ctx, WhisperNation_Welcome_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *whisperNationClient) WhisperNationHealth(ctx context.Context, in *WhisperNationHealthRequest, opts ...grpc.CallOption) (*WhisperNationHealthResponse, error) {
-	out := new(WhisperNationHealthResponse)
-	err := c.cc.Invoke(ctx, WhisperNation_WhisperNationHealth_FullMethodName, in, out, opts...)
+func (c *whisperNationClient) Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error) {
+	out := new(HealthResponse)
+	err := c.cc.Invoke(ctx, WhisperNation_Health_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *whisperNationClient) WhisperNationCreateGroup(ctx context.Context, in *WhisperNationCreateGroupRequest, opts ...grpc.CallOption) (*WhisperNationCreateGroupResponse, error) {
-	out := new(WhisperNationCreateGroupResponse)
-	err := c.cc.Invoke(ctx, WhisperNation_WhisperNationCreateGroup_FullMethodName, in, out, opts...)
+func (c *whisperNationClient) CreateGroup(ctx context.Context, in *CreateGroupRequest, opts ...grpc.CallOption) (*CreateGroupResponse, error) {
+	out := new(CreateGroupResponse)
+	err := c.cc.Invoke(ctx, WhisperNation_CreateGroup_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *whisperNationClient) WhisperNationListGroups(ctx context.Context, in *WhisperNationListGroupsRequest, opts ...grpc.CallOption) (*WhisperNationListGroupsResponse, error) {
-	out := new(WhisperNationListGroupsResponse)
-	err := c.cc.Invoke(ctx, WhisperNation_WhisperNationListGroups_FullMethodName, in, out, opts...)
+func (c *whisperNationClient) ListGroups(ctx context.Context, in *ListGroupsRequest, opts ...grpc.CallOption) (*ListGroupsResponse, error) {
+	out := new(ListGroupsResponse)
+	err := c.cc.Invoke(ctx, WhisperNation_ListGroups_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *whisperNationClient) WhisperNationListGroupMembers(ctx context.Context, in *WhisperNationListGroupMembersRequest, opts ...grpc.CallOption) (*WhisperNationListGroupMembersResponse, error) {
-	out := new(WhisperNationListGroupMembersResponse)
-	err := c.cc.Invoke(ctx, WhisperNation_WhisperNationListGroupMembers_FullMethodName, in, out, opts...)
+func (c *whisperNationClient) ListGroupMembers(ctx context.Context, in *ListGroupMembersRequest, opts ...grpc.CallOption) (*ListGroupMembersResponse, error) {
+	out := new(ListGroupMembersResponse)
+	err := c.cc.Invoke(ctx, WhisperNation_ListGroupMembers_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -96,11 +96,11 @@ func (c *whisperNationClient) WhisperNationListGroupMembers(ctx context.Context,
 // for forward compatibility
 type WhisperNationServer interface {
 	// ------------------------------------------------------ System
-	WhisperNationWelcome(context.Context, *WhisperNationWelcomeRequest) (*WhisperNationWelcomeResponse, error)
-	WhisperNationHealth(context.Context, *WhisperNationHealthRequest) (*WhisperNationHealthResponse, error)
-	WhisperNationCreateGroup(context.Context, *WhisperNationCreateGroupRequest) (*WhisperNationCreateGroupResponse, error)
-	WhisperNationListGroups(context.Context, *WhisperNationListGroupsRequest) (*WhisperNationListGroupsResponse, error)
-	WhisperNationListGroupMembers(context.Context, *WhisperNationListGroupMembersRequest) (*WhisperNationListGroupMembersResponse, error)
+	Welcome(context.Context, *WelcomeRequest) (*WelcomeResponse, error)
+	Health(context.Context, *HealthRequest) (*HealthResponse, error)
+	CreateGroup(context.Context, *CreateGroupRequest) (*CreateGroupResponse, error)
+	ListGroups(context.Context, *ListGroupsRequest) (*ListGroupsResponse, error)
+	ListGroupMembers(context.Context, *ListGroupMembersRequest) (*ListGroupMembersResponse, error)
 	mustEmbedUnimplementedWhisperNationServer()
 }
 
@@ -108,20 +108,20 @@ type WhisperNationServer interface {
 type UnimplementedWhisperNationServer struct {
 }
 
-func (UnimplementedWhisperNationServer) WhisperNationWelcome(context.Context, *WhisperNationWelcomeRequest) (*WhisperNationWelcomeResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhisperNationWelcome not implemented")
+func (UnimplementedWhisperNationServer) Welcome(context.Context, *WelcomeRequest) (*WelcomeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Welcome not implemented")
 }
-func (UnimplementedWhisperNationServer) WhisperNationHealth(context.Context, *WhisperNationHealthRequest) (*WhisperNationHealthResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhisperNationHealth not implemented")
+func (UnimplementedWhisperNationServer) Health(context.Context, *HealthRequest) (*HealthResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Health not implemented")
 }
-func (UnimplementedWhisperNationServer) WhisperNationCreateGroup(context.Context, *WhisperNationCreateGroupRequest) (*WhisperNationCreateGroupResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhisperNationCreateGroup not implemented")
+func (UnimplementedWhisperNationServer) CreateGroup(context.Context, *CreateGroupRequest) (*CreateGroupResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateGroup not implemented")
 }
-func (UnimplementedWhisperNationServer) WhisperNationListGroups(context.Context, *WhisperNationListGroupsRequest) (*WhisperNationListGroupsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhisperNationListGroups not implemented")
+func (UnimplementedWhisperNationServer) ListGroups(context.Context, *ListGroupsRequest) (*ListGroupsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGroups not implemented")
 }
-func (UnimplementedWhisperNationServer) WhisperNationListGroupMembers(context.Context, *WhisperNationListGroupMembersRequest) (*WhisperNationListGroupMembersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method WhisperNationListGroupMembers not implemented")
+func (UnimplementedWhisperNationServer) ListGroupMembers(context.Context, *ListGroupMembersRequest) (*ListGroupMembersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListGroupMembers not implemented")
 }
 func (UnimplementedWhisperNationServer) mustEmbedUnimplementedWhisperNationServer() {}
 
@@ -136,92 +136,92 @@ func RegisterWhisperNationServer(s grpc.ServiceRegistrar, srv WhisperNationServe
 	s.RegisterService(&WhisperNation_ServiceDesc, srv)
 }
 
-func _WhisperNation_WhisperNationWelcome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhisperNationWelcomeRequest)
+func _WhisperNation_Welcome_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WelcomeRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WhisperNationServer).WhisperNationWelcome(ctx, in)
+		return srv.(WhisperNationServer).Welcome(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WhisperNation_WhisperNationWelcome_FullMethodName,
+		FullMethod: WhisperNation_Welcome_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhisperNationServer).WhisperNationWelcome(ctx, req.(*WhisperNationWelcomeRequest))
+		return srv.(WhisperNationServer).Welcome(ctx, req.(*WelcomeRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WhisperNation_WhisperNationHealth_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhisperNationHealthRequest)
+func _WhisperNation_Health_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HealthRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WhisperNationServer).WhisperNationHealth(ctx, in)
+		return srv.(WhisperNationServer).Health(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WhisperNation_WhisperNationHealth_FullMethodName,
+		FullMethod: WhisperNation_Health_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhisperNationServer).WhisperNationHealth(ctx, req.(*WhisperNationHealthRequest))
+		return srv.(WhisperNationServer).Health(ctx, req.(*HealthRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WhisperNation_WhisperNationCreateGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhisperNationCreateGroupRequest)
+func _WhisperNation_CreateGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateGroupRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WhisperNationServer).WhisperNationCreateGroup(ctx, in)
+		return srv.(WhisperNationServer).CreateGroup(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WhisperNation_WhisperNationCreateGroup_FullMethodName,
+		FullMethod: WhisperNation_CreateGroup_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhisperNationServer).WhisperNationCreateGroup(ctx, req.(*WhisperNationCreateGroupRequest))
+		return srv.(WhisperNationServer).CreateGroup(ctx, req.(*CreateGroupRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WhisperNation_WhisperNationListGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhisperNationListGroupsRequest)
+func _WhisperNation_ListGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListGroupsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WhisperNationServer).WhisperNationListGroups(ctx, in)
+		return srv.(WhisperNationServer).ListGroups(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WhisperNation_WhisperNationListGroups_FullMethodName,
+		FullMethod: WhisperNation_ListGroups_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhisperNationServer).WhisperNationListGroups(ctx, req.(*WhisperNationListGroupsRequest))
+		return srv.(WhisperNationServer).ListGroups(ctx, req.(*ListGroupsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _WhisperNation_WhisperNationListGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(WhisperNationListGroupMembersRequest)
+func _WhisperNation_ListGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListGroupMembersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(WhisperNationServer).WhisperNationListGroupMembers(ctx, in)
+		return srv.(WhisperNationServer).ListGroupMembers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: WhisperNation_WhisperNationListGroupMembers_FullMethodName,
+		FullMethod: WhisperNation_ListGroupMembers_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(WhisperNationServer).WhisperNationListGroupMembers(ctx, req.(*WhisperNationListGroupMembersRequest))
+		return srv.(WhisperNationServer).ListGroupMembers(ctx, req.(*ListGroupMembersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -234,24 +234,24 @@ var WhisperNation_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*WhisperNationServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "WhisperNationWelcome",
-			Handler:    _WhisperNation_WhisperNationWelcome_Handler,
+			MethodName: "Welcome",
+			Handler:    _WhisperNation_Welcome_Handler,
 		},
 		{
-			MethodName: "WhisperNationHealth",
-			Handler:    _WhisperNation_WhisperNationHealth_Handler,
+			MethodName: "Health",
+			Handler:    _WhisperNation_Health_Handler,
 		},
 		{
-			MethodName: "WhisperNationCreateGroup",
-			Handler:    _WhisperNation_WhisperNationCreateGroup_Handler,
+			MethodName: "CreateGroup",
+			Handler:    _WhisperNation_CreateGroup_Handler,
 		},
 		{
-			MethodName: "WhisperNationListGroups",
-			Handler:    _WhisperNation_WhisperNationListGroups_Handler,
+			MethodName: "ListGroups",
+			Handler:    _WhisperNation_ListGroups_Handler,
 		},
 		{
-			MethodName: "WhisperNationListGroupMembers",
-			Handler:    _WhisperNation_WhisperNationListGroupMembers_Handler,
+			MethodName: "ListGroupMembers",
+			Handler:    _WhisperNation_ListGroupMembers_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -15,7 +15,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-health.proto\x12\x0ewhisper_nation\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\x1c\n\x1aWhisperNationHealthRequest\"\xb4\x01\n\x1bWhisperNationHealthResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12)\n\x06uptime\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x07started\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB)Z\'github.com/sirjager/rpcs/whisper_nationb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-health.proto\x12\x0ewhisper_nation\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\"\x0f\n\rHealthRequest\"\xa7\x01\n\x0eHealthResponse\x12\x0e\n\x06status\x18\x01 \x01(\t\x12)\n\x06uptime\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12+\n\x07started\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12-\n\ttimestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB)Z\'github.com/sirjager/rpcs/whisper_nationb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_health_pb2', globals())
@@ -23,8 +23,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z\'github.com/sirjager/rpcs/whisper_nation'
-  _WHISPERNATIONHEALTHREQUEST._serialized_start=101
-  _WHISPERNATIONHEALTHREQUEST._serialized_end=129
-  _WHISPERNATIONHEALTHRESPONSE._serialized_start=132
-  _WHISPERNATIONHEALTHRESPONSE._serialized_end=312
+  _HEALTHREQUEST._serialized_start=101
+  _HEALTHREQUEST._serialized_end=116
+  _HEALTHRESPONSE._serialized_start=119
+  _HEALTHRESPONSE._serialized_end=286
 # @@protoc_insertion_point(module_scope)

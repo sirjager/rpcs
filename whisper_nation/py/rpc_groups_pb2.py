@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import whisper_nation_pb2 as whisper__nation__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-groups.proto\x12\x0ewhisper_nation\x1a\x14whisper_nation.proto\"/\n\x1fWhisperNationCreateGroupRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"U\n WhisperNationCreateGroupResponse\x12\x31\n\x05group\x18\x01 \x01(\x0b\x32\".whisper_nation.WhisperNationGroup\" \n\x1eWhisperNationListGroupsRequest\"U\n\x1fWhisperNationListGroupsResponse\x12\x32\n\x06groups\x18\x01 \x03(\x0b\x32\".whisper_nation.WhisperNationGroup\"8\n$WhisperNationListGroupMembersRequest\x12\x10\n\x08group_id\x18\x01 \x01(\t\"]\n%WhisperNationListGroupMembersResponse\x12\x34\n\x07members\x18\x01 \x03(\x0b\x32#.whisper_nation.WhisperNationMemberB)Z\'github.com/sirjager/rpcs/whisper_nationb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-groups.proto\x12\x0ewhisper_nation\x1a\x14whisper_nation.proto\"\"\n\x12\x43reateGroupRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\";\n\x13\x43reateGroupResponse\x12$\n\x05group\x18\x01 \x01(\x0b\x32\x15.whisper_nation.Group\"\x13\n\x11ListGroupsRequest\";\n\x12ListGroupsResponse\x12%\n\x06groups\x18\x01 \x03(\x0b\x32\x15.whisper_nation.Group\"+\n\x17ListGroupMembersRequest\x12\x10\n\x08group_id\x18\x01 \x01(\t\"C\n\x18ListGroupMembersResponse\x12\'\n\x07members\x18\x01 \x03(\x0b\x32\x16.whisper_nation.MemberB)Z\'github.com/sirjager/rpcs/whisper_nationb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_groups_pb2', globals())
@@ -22,16 +22,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z\'github.com/sirjager/rpcs/whisper_nation'
-  _WHISPERNATIONCREATEGROUPREQUEST._serialized_start=58
-  _WHISPERNATIONCREATEGROUPREQUEST._serialized_end=105
-  _WHISPERNATIONCREATEGROUPRESPONSE._serialized_start=107
-  _WHISPERNATIONCREATEGROUPRESPONSE._serialized_end=192
-  _WHISPERNATIONLISTGROUPSREQUEST._serialized_start=194
-  _WHISPERNATIONLISTGROUPSREQUEST._serialized_end=226
-  _WHISPERNATIONLISTGROUPSRESPONSE._serialized_start=228
-  _WHISPERNATIONLISTGROUPSRESPONSE._serialized_end=313
-  _WHISPERNATIONLISTGROUPMEMBERSREQUEST._serialized_start=315
-  _WHISPERNATIONLISTGROUPMEMBERSREQUEST._serialized_end=371
-  _WHISPERNATIONLISTGROUPMEMBERSRESPONSE._serialized_start=373
-  _WHISPERNATIONLISTGROUPMEMBERSRESPONSE._serialized_end=466
+  _CREATEGROUPREQUEST._serialized_start=58
+  _CREATEGROUPREQUEST._serialized_end=92
+  _CREATEGROUPRESPONSE._serialized_start=94
+  _CREATEGROUPRESPONSE._serialized_end=153
+  _LISTGROUPSREQUEST._serialized_start=155
+  _LISTGROUPSREQUEST._serialized_end=174
+  _LISTGROUPSRESPONSE._serialized_start=176
+  _LISTGROUPSRESPONSE._serialized_end=235
+  _LISTGROUPMEMBERSREQUEST._serialized_start=237
+  _LISTGROUPMEMBERSREQUEST._serialized_end=280
+  _LISTGROUPMEMBERSRESPONSE._serialized_start=282
+  _LISTGROUPMEMBERSRESPONSE._serialized_end=349
 # @@protoc_insertion_point(module_scope)

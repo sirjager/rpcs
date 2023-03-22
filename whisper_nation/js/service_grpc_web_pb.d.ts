@@ -10,40 +10,40 @@ export class WhisperNationClient {
                credentials?: null | { [index: string]: string; },
                options?: null | { [index: string]: any; });
 
-  whisperNationWelcome(
-    request: rpc$welcome_pb.WhisperNationWelcomeRequest,
+  welcome(
+    request: rpc$welcome_pb.WelcomeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$welcome_pb.WhisperNationWelcomeResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$welcome_pb.WhisperNationWelcomeResponse>;
+               response: rpc$welcome_pb.WelcomeResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$welcome_pb.WelcomeResponse>;
 
-  whisperNationHealth(
-    request: rpc$health_pb.WhisperNationHealthRequest,
+  health(
+    request: rpc$health_pb.HealthRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$health_pb.WhisperNationHealthResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$health_pb.WhisperNationHealthResponse>;
+               response: rpc$health_pb.HealthResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$health_pb.HealthResponse>;
 
-  whisperNationCreateGroup(
-    request: rpc$groups_pb.WhisperNationCreateGroupRequest,
+  createGroup(
+    request: rpc$groups_pb.CreateGroupRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.WhisperNationCreateGroupResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.WhisperNationCreateGroupResponse>;
+               response: rpc$groups_pb.CreateGroupResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$groups_pb.CreateGroupResponse>;
 
-  whisperNationListGroups(
-    request: rpc$groups_pb.WhisperNationListGroupsRequest,
+  listGroups(
+    request: rpc$groups_pb.ListGroupsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.WhisperNationListGroupsResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.WhisperNationListGroupsResponse>;
+               response: rpc$groups_pb.ListGroupsResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$groups_pb.ListGroupsResponse>;
 
-  whisperNationListGroupMembers(
-    request: rpc$groups_pb.WhisperNationListGroupMembersRequest,
+  listGroupMembers(
+    request: rpc$groups_pb.ListGroupMembersRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.WhisperNationListGroupMembersResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.WhisperNationListGroupMembersResponse>;
+               response: rpc$groups_pb.ListGroupMembersResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$groups_pb.ListGroupMembersResponse>;
 
 }
 
@@ -52,30 +52,30 @@ export class WhisperNationPromiseClient {
                credentials?: null | { [index: string]: string; },
                options?: null | { [index: string]: any; });
 
-  whisperNationWelcome(
-    request: rpc$welcome_pb.WhisperNationWelcomeRequest,
+  welcome(
+    request: rpc$welcome_pb.WelcomeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$welcome_pb.WhisperNationWelcomeResponse>;
+  ): Promise<rpc$welcome_pb.WelcomeResponse>;
 
-  whisperNationHealth(
-    request: rpc$health_pb.WhisperNationHealthRequest,
+  health(
+    request: rpc$health_pb.HealthRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$health_pb.WhisperNationHealthResponse>;
+  ): Promise<rpc$health_pb.HealthResponse>;
 
-  whisperNationCreateGroup(
-    request: rpc$groups_pb.WhisperNationCreateGroupRequest,
+  createGroup(
+    request: rpc$groups_pb.CreateGroupRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.WhisperNationCreateGroupResponse>;
+  ): Promise<rpc$groups_pb.CreateGroupResponse>;
 
-  whisperNationListGroups(
-    request: rpc$groups_pb.WhisperNationListGroupsRequest,
+  listGroups(
+    request: rpc$groups_pb.ListGroupsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.WhisperNationListGroupsResponse>;
+  ): Promise<rpc$groups_pb.ListGroupsResponse>;
 
-  whisperNationListGroupMembers(
-    request: rpc$groups_pb.WhisperNationListGroupMembersRequest,
+  listGroupMembers(
+    request: rpc$groups_pb.ListGroupMembersRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.WhisperNationListGroupMembersResponse>;
+  ): Promise<rpc$groups_pb.ListGroupMembersResponse>;
 
 }
 
