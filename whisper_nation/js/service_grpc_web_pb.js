@@ -24,11 +24,11 @@ var google_api_annotations_pb = require('./google/api/annotations_pb.js')
 
 var protoc$gen$openapiv2_options_annotations_pb = require('./protoc-gen-openapiv2/options/annotations_pb.js')
 
-var health_pb = require('./health_pb.js')
+var rpc$health_pb = require('./rpc-health_pb.js')
 
-var welcome_pb = require('./welcome_pb.js')
+var rpc$welcome_pb = require('./rpc-welcome_pb.js')
 
-var groups_pb = require('./groups_pb.js')
+var rpc$group_pb = require('./rpc-group_pb.js')
 const proto = {};
 proto.whisper_nation = require('./service_pb.js');
 
@@ -93,8 +93,8 @@ proto.whisper_nation.WhisperNationPromiseClient =
 const methodDescriptor_WhisperNation_Welcome = new grpc.web.MethodDescriptor(
   '/whisper_nation.WhisperNation/Welcome',
   grpc.web.MethodType.UNARY,
-  welcome_pb.WelcomeRequest,
-  welcome_pb.WelcomeResponse,
+  rpc$welcome_pb.WelcomeRequest,
+  rpc$welcome_pb.WelcomeResponse,
   /**
    * @param {!proto.whisper_nation.WelcomeRequest} request
    * @return {!Uint8Array}
@@ -102,7 +102,7 @@ const methodDescriptor_WhisperNation_Welcome = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  welcome_pb.WelcomeResponse.deserializeBinary
+  rpc$welcome_pb.WelcomeResponse.deserializeBinary
 );
 
 
@@ -154,8 +154,8 @@ proto.whisper_nation.WhisperNationPromiseClient.prototype.welcome =
 const methodDescriptor_WhisperNation_Health = new grpc.web.MethodDescriptor(
   '/whisper_nation.WhisperNation/Health',
   grpc.web.MethodType.UNARY,
-  health_pb.HealthRequest,
-  health_pb.HealthResponse,
+  rpc$health_pb.HealthRequest,
+  rpc$health_pb.HealthResponse,
   /**
    * @param {!proto.whisper_nation.HealthRequest} request
    * @return {!Uint8Array}
@@ -163,7 +163,7 @@ const methodDescriptor_WhisperNation_Health = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  health_pb.HealthResponse.deserializeBinary
+  rpc$health_pb.HealthResponse.deserializeBinary
 );
 
 
@@ -215,8 +215,8 @@ proto.whisper_nation.WhisperNationPromiseClient.prototype.health =
 const methodDescriptor_WhisperNation_CreateGroup = new grpc.web.MethodDescriptor(
   '/whisper_nation.WhisperNation/CreateGroup',
   grpc.web.MethodType.UNARY,
-  groups_pb.CreateGroupRequest,
-  groups_pb.CreateGroupResponse,
+  rpc$group_pb.CreateGroupRequest,
+  rpc$group_pb.CreateGroupResponse,
   /**
    * @param {!proto.whisper_nation.CreateGroupRequest} request
    * @return {!Uint8Array}
@@ -224,7 +224,7 @@ const methodDescriptor_WhisperNation_CreateGroup = new grpc.web.MethodDescriptor
   function(request) {
     return request.serializeBinary();
   },
-  groups_pb.CreateGroupResponse.deserializeBinary
+  rpc$group_pb.CreateGroupResponse.deserializeBinary
 );
 
 
@@ -276,8 +276,8 @@ proto.whisper_nation.WhisperNationPromiseClient.prototype.createGroup =
 const methodDescriptor_WhisperNation_ListGroups = new grpc.web.MethodDescriptor(
   '/whisper_nation.WhisperNation/ListGroups',
   grpc.web.MethodType.UNARY,
-  groups_pb.ListGroupsRequest,
-  groups_pb.ListGroupsResponse,
+  rpc$group_pb.ListGroupsRequest,
+  rpc$group_pb.ListGroupsResponse,
   /**
    * @param {!proto.whisper_nation.ListGroupsRequest} request
    * @return {!Uint8Array}
@@ -285,7 +285,7 @@ const methodDescriptor_WhisperNation_ListGroups = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  groups_pb.ListGroupsResponse.deserializeBinary
+  rpc$group_pb.ListGroupsResponse.deserializeBinary
 );
 
 
@@ -337,8 +337,8 @@ proto.whisper_nation.WhisperNationPromiseClient.prototype.listGroups =
 const methodDescriptor_WhisperNation_ListGroupMembers = new grpc.web.MethodDescriptor(
   '/whisper_nation.WhisperNation/ListGroupMembers',
   grpc.web.MethodType.UNARY,
-  groups_pb.ListGroupMembersRequest,
-  groups_pb.ListGroupMembersResponse,
+  rpc$group_pb.ListGroupMembersRequest,
+  rpc$group_pb.ListGroupMembersResponse,
   /**
    * @param {!proto.whisper_nation.ListGroupMembersRequest} request
    * @return {!Uint8Array}
@@ -346,7 +346,7 @@ const methodDescriptor_WhisperNation_ListGroupMembers = new grpc.web.MethodDescr
   function(request) {
     return request.serializeBinary();
   },
-  groups_pb.ListGroupMembersResponse.deserializeBinary
+  rpc$group_pb.ListGroupMembersResponse.deserializeBinary
 );
 
 

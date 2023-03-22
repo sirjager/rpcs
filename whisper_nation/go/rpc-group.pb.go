@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.29.0
 // 	protoc        v3.21.12
-// source: groups.proto
+// source: rpc-group.proto
 
 package whisper_nation
 
@@ -31,7 +31,7 @@ type CreateGroupRequest struct {
 func (x *CreateGroupRequest) Reset() {
 	*x = CreateGroupRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[0]
+		mi := &file_rpc_group_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -44,7 +44,7 @@ func (x *CreateGroupRequest) String() string {
 func (*CreateGroupRequest) ProtoMessage() {}
 
 func (x *CreateGroupRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[0]
+	mi := &file_rpc_group_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *CreateGroupRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateGroupRequest.ProtoReflect.Descriptor instead.
 func (*CreateGroupRequest) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{0}
+	return file_rpc_group_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateGroupRequest) GetName() string {
@@ -78,7 +78,7 @@ type CreateGroupResponse struct {
 func (x *CreateGroupResponse) Reset() {
 	*x = CreateGroupResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[1]
+		mi := &file_rpc_group_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -91,7 +91,7 @@ func (x *CreateGroupResponse) String() string {
 func (*CreateGroupResponse) ProtoMessage() {}
 
 func (x *CreateGroupResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[1]
+	mi := &file_rpc_group_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -104,7 +104,7 @@ func (x *CreateGroupResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateGroupResponse.ProtoReflect.Descriptor instead.
 func (*CreateGroupResponse) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{1}
+	return file_rpc_group_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *CreateGroupResponse) GetGroup() *Group {
@@ -123,7 +123,7 @@ type ListGroupsRequest struct {
 func (x *ListGroupsRequest) Reset() {
 	*x = ListGroupsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[2]
+		mi := &file_rpc_group_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -136,7 +136,7 @@ func (x *ListGroupsRequest) String() string {
 func (*ListGroupsRequest) ProtoMessage() {}
 
 func (x *ListGroupsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[2]
+	mi := &file_rpc_group_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -149,7 +149,7 @@ func (x *ListGroupsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGroupsRequest.ProtoReflect.Descriptor instead.
 func (*ListGroupsRequest) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{2}
+	return file_rpc_group_proto_rawDescGZIP(), []int{2}
 }
 
 type ListGroupsResponse struct {
@@ -163,7 +163,7 @@ type ListGroupsResponse struct {
 func (x *ListGroupsResponse) Reset() {
 	*x = ListGroupsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[3]
+		mi := &file_rpc_group_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -176,7 +176,7 @@ func (x *ListGroupsResponse) String() string {
 func (*ListGroupsResponse) ProtoMessage() {}
 
 func (x *ListGroupsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[3]
+	mi := &file_rpc_group_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -189,7 +189,7 @@ func (x *ListGroupsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGroupsResponse.ProtoReflect.Descriptor instead.
 func (*ListGroupsResponse) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{3}
+	return file_rpc_group_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ListGroupsResponse) GetGroups() []*Group {
@@ -210,7 +210,7 @@ type ListGroupMembersRequest struct {
 func (x *ListGroupMembersRequest) Reset() {
 	*x = ListGroupMembersRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[4]
+		mi := &file_rpc_group_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -223,7 +223,7 @@ func (x *ListGroupMembersRequest) String() string {
 func (*ListGroupMembersRequest) ProtoMessage() {}
 
 func (x *ListGroupMembersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[4]
+	mi := &file_rpc_group_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -236,7 +236,7 @@ func (x *ListGroupMembersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGroupMembersRequest.ProtoReflect.Descriptor instead.
 func (*ListGroupMembersRequest) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{4}
+	return file_rpc_group_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListGroupMembersRequest) GetGroupId() string {
@@ -257,7 +257,7 @@ type ListGroupMembersResponse struct {
 func (x *ListGroupMembersResponse) Reset() {
 	*x = ListGroupMembersResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_groups_proto_msgTypes[5]
+		mi := &file_rpc_group_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -270,7 +270,7 @@ func (x *ListGroupMembersResponse) String() string {
 func (*ListGroupMembersResponse) ProtoMessage() {}
 
 func (x *ListGroupMembersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_groups_proto_msgTypes[5]
+	mi := &file_rpc_group_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -283,7 +283,7 @@ func (x *ListGroupMembersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListGroupMembersResponse.ProtoReflect.Descriptor instead.
 func (*ListGroupMembersResponse) Descriptor() ([]byte, []int) {
-	return file_groups_proto_rawDescGZIP(), []int{5}
+	return file_rpc_group_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListGroupMembersResponse) GetMembers() []*Member {
@@ -293,53 +293,53 @@ func (x *ListGroupMembersResponse) GetMembers() []*Member {
 	return nil
 }
 
-var File_groups_proto protoreflect.FileDescriptor
+var File_rpc_group_proto protoreflect.FileDescriptor
 
-var file_groups_proto_rawDesc = []byte{
-	0x0a, 0x0c, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0e,
-	0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x1a, 0x14,
-	0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x22, 0x28, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x72,
-	0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x42,
-	0x0a, 0x13, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x05, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e,
-	0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x05, 0x67, 0x72, 0x6f,
-	0x75, 0x70, 0x22, 0x13, 0x0a, 0x11, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x43, 0x0a, 0x12, 0x4c, 0x69, 0x73, 0x74, 0x47,
-	0x72, 0x6f, 0x75, 0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2d, 0x0a,
-	0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x15, 0x2e,
-	0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x47,
-	0x72, 0x6f, 0x75, 0x70, 0x52, 0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x22, 0x34, 0x0a, 0x17,
-	0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x67, 0x72, 0x6f, 0x75, 0x70,
-	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x67, 0x72, 0x6f, 0x75, 0x70,
-	0x49, 0x64, 0x22, 0x4c, 0x0a, 0x18, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x4d,
-	0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30,
-	0x0a, 0x07, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32,
-	0x16, 0x2e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e,
-	0x2e, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x52, 0x07, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73,
-	0x42, 0x29, 0x5a, 0x27, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73,
-	0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x77, 0x68, 0x69,
-	0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+var file_rpc_group_proto_rawDesc = []byte{
+	0x0a, 0x0f, 0x72, 0x70, 0x63, 0x2d, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x12, 0x0e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x1a, 0x14, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x28, 0x0a, 0x12, 0x43, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x22, 0x42, 0x0a, 0x13, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x47, 0x72, 0x6f, 0x75, 0x70,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2b, 0x0a, 0x05, 0x67, 0x72, 0x6f, 0x75,
+	0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x15, 0x2e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65,
+	0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x05,
+	0x67, 0x72, 0x6f, 0x75, 0x70, 0x22, 0x13, 0x0a, 0x11, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f,
+	0x75, 0x70, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x43, 0x0a, 0x12, 0x4c, 0x69,
+	0x73, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x2d, 0x0a, 0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b,
+	0x32, 0x15, 0x2e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x2e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x06, 0x67, 0x72, 0x6f, 0x75, 0x70, 0x73, 0x22,
+	0x34, 0x0a, 0x17, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x4d, 0x65, 0x6d, 0x62,
+	0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x67, 0x72,
+	0x6f, 0x75, 0x70, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x67, 0x72,
+	0x6f, 0x75, 0x70, 0x49, 0x64, 0x22, 0x4c, 0x0a, 0x18, 0x4c, 0x69, 0x73, 0x74, 0x47, 0x72, 0x6f,
+	0x75, 0x70, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x30, 0x0a, 0x07, 0x6d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x16, 0x2e, 0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x2e, 0x4d, 0x65, 0x6d, 0x62, 0x65, 0x72, 0x52, 0x07, 0x6d, 0x65, 0x6d, 0x62,
+	0x65, 0x72, 0x73, 0x42, 0x29, 0x5a, 0x27, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f,
+	0x77, 0x68, 0x69, 0x73, 0x70, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
-	file_groups_proto_rawDescOnce sync.Once
-	file_groups_proto_rawDescData = file_groups_proto_rawDesc
+	file_rpc_group_proto_rawDescOnce sync.Once
+	file_rpc_group_proto_rawDescData = file_rpc_group_proto_rawDesc
 )
 
-func file_groups_proto_rawDescGZIP() []byte {
-	file_groups_proto_rawDescOnce.Do(func() {
-		file_groups_proto_rawDescData = protoimpl.X.CompressGZIP(file_groups_proto_rawDescData)
+func file_rpc_group_proto_rawDescGZIP() []byte {
+	file_rpc_group_proto_rawDescOnce.Do(func() {
+		file_rpc_group_proto_rawDescData = protoimpl.X.CompressGZIP(file_rpc_group_proto_rawDescData)
 	})
-	return file_groups_proto_rawDescData
+	return file_rpc_group_proto_rawDescData
 }
 
-var file_groups_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_groups_proto_goTypes = []interface{}{
+var file_rpc_group_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_rpc_group_proto_goTypes = []interface{}{
 	(*CreateGroupRequest)(nil),       // 0: whisper_nation.CreateGroupRequest
 	(*CreateGroupResponse)(nil),      // 1: whisper_nation.CreateGroupResponse
 	(*ListGroupsRequest)(nil),        // 2: whisper_nation.ListGroupsRequest
@@ -349,7 +349,7 @@ var file_groups_proto_goTypes = []interface{}{
 	(*Group)(nil),                    // 6: whisper_nation.Group
 	(*Member)(nil),                   // 7: whisper_nation.Member
 }
-var file_groups_proto_depIdxs = []int32{
+var file_rpc_group_proto_depIdxs = []int32{
 	6, // 0: whisper_nation.CreateGroupResponse.group:type_name -> whisper_nation.Group
 	6, // 1: whisper_nation.ListGroupsResponse.groups:type_name -> whisper_nation.Group
 	7, // 2: whisper_nation.ListGroupMembersResponse.members:type_name -> whisper_nation.Member
@@ -360,14 +360,14 @@ var file_groups_proto_depIdxs = []int32{
 	0, // [0:3] is the sub-list for field type_name
 }
 
-func init() { file_groups_proto_init() }
-func file_groups_proto_init() {
-	if File_groups_proto != nil {
+func init() { file_rpc_group_proto_init() }
+func file_rpc_group_proto_init() {
+	if File_rpc_group_proto != nil {
 		return
 	}
 	file_whisper_nation_proto_init()
 	if !protoimpl.UnsafeEnabled {
-		file_groups_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateGroupRequest); i {
 			case 0:
 				return &v.state
@@ -379,7 +379,7 @@ func file_groups_proto_init() {
 				return nil
 			}
 		}
-		file_groups_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateGroupResponse); i {
 			case 0:
 				return &v.state
@@ -391,7 +391,7 @@ func file_groups_proto_init() {
 				return nil
 			}
 		}
-		file_groups_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListGroupsRequest); i {
 			case 0:
 				return &v.state
@@ -403,7 +403,7 @@ func file_groups_proto_init() {
 				return nil
 			}
 		}
-		file_groups_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListGroupsResponse); i {
 			case 0:
 				return &v.state
@@ -415,7 +415,7 @@ func file_groups_proto_init() {
 				return nil
 			}
 		}
-		file_groups_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListGroupMembersRequest); i {
 			case 0:
 				return &v.state
@@ -427,7 +427,7 @@ func file_groups_proto_init() {
 				return nil
 			}
 		}
-		file_groups_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_rpc_group_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ListGroupMembersResponse); i {
 			case 0:
 				return &v.state
@@ -444,18 +444,18 @@ func file_groups_proto_init() {
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: file_groups_proto_rawDesc,
+			RawDescriptor: file_rpc_group_proto_rawDesc,
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_groups_proto_goTypes,
-		DependencyIndexes: file_groups_proto_depIdxs,
-		MessageInfos:      file_groups_proto_msgTypes,
+		GoTypes:           file_rpc_group_proto_goTypes,
+		DependencyIndexes: file_rpc_group_proto_depIdxs,
+		MessageInfos:      file_rpc_group_proto_msgTypes,
 	}.Build()
-	File_groups_proto = out.File
-	file_groups_proto_rawDesc = nil
-	file_groups_proto_goTypes = nil
-	file_groups_proto_depIdxs = nil
+	File_rpc_group_proto = out.File
+	file_rpc_group_proto_rawDesc = nil
+	file_rpc_group_proto_goTypes = nil
+	file_rpc_group_proto_depIdxs = nil
 }
