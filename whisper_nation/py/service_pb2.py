@@ -13,12 +13,12 @@ _sym_db = _symbol_database.Default()
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from protoc_gen_openapiv2.options import annotations_pb2 as protoc__gen__openapiv2_dot_options_dot_annotations__pb2
-import rpc_health_pb2 as rpc__health__pb2
-import rpc_welcome_pb2 as rpc__welcome__pb2
-import rpc_groups_pb2 as rpc__groups__pb2
+import health_pb2 as health__pb2
+import welcome_pb2 as welcome__pb2
+import groups_pb2 as groups__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\x12\x0ewhisper_nation\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x10rpc-health.proto\x1a\x11rpc-welcome.proto\x1a\x10rpc-groups.proto2\xdc\x06\n\rWhisperNation\x12\x82\x01\n\x07Welcome\x12\x1e.whisper_nation.WelcomeRequest\x1a\x1f.whisper_nation.WelcomeResponse\"6\x82\xd3\xe4\x93\x02\x03\x12\x01/\x92\x41*\n\x06System\x12\x0fWelcome Message\x1a\x0fWelcome Message\x12~\n\x06Health\x12\x1d.whisper_nation.HealthRequest\x1a\x1e.whisper_nation.HealthResponse\"5\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/health\x92\x41 \n\x06System\x12\nApi Health\x1a\nApi Health\x12\xb0\x01\n\x0b\x43reateGroup\x12\".whisper_nation.CreateGroupRequest\x1a#.whisper_nation.CreateGroupResponse\"X\x82\xd3\xe4\x93\x02\x0f\"\n/v1/groups:\x01*\x92\x41@\n\x05Group\x12\x0c\x43reate Group\x1a)This creates new group with provided name\x12\xa9\x01\n\nListGroups\x12!.whisper_nation.ListGroupsRequest\x1a\".whisper_nation.ListGroupsResponse\"T\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/groups\x92\x41?\n\x05Group\x12\x0bList Groups\x1a)This returns list of all available groups\x12\xe6\x01\n\x10ListGroupMembers\x12\'.whisper_nation.ListGroupMembersRequest\x1a(.whisper_nation.ListGroupMembersResponse\"\x7f\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/groups/{group_id}/members\x92\x41W\n\x05Group\x12\x12List Group Members\x1a:This returns list of all joined members of requested groupB\x81\x01Z\'github.com/sirjager/rpcs/whisper_nation\x92\x41U\x12S\n\x12Whisper Nation Api\"6\n\x08SirJager\x12*https://github.com/sirjager/whisper_nation2\x05\x31.0.0b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\rservice.proto\x12\x0ewhisper_nation\x1a\x1cgoogle/api/annotations.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\x1a\x0chealth.proto\x1a\rwelcome.proto\x1a\x0cgroups.proto2\xdc\x06\n\rWhisperNation\x12\x82\x01\n\x07Welcome\x12\x1e.whisper_nation.WelcomeRequest\x1a\x1f.whisper_nation.WelcomeResponse\"6\x82\xd3\xe4\x93\x02\x03\x12\x01/\x92\x41*\n\x06System\x12\x0fWelcome Message\x1a\x0fWelcome Message\x12~\n\x06Health\x12\x1d.whisper_nation.HealthRequest\x1a\x1e.whisper_nation.HealthResponse\"5\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/health\x92\x41 \n\x06System\x12\nApi Health\x1a\nApi Health\x12\xb0\x01\n\x0b\x43reateGroup\x12\".whisper_nation.CreateGroupRequest\x1a#.whisper_nation.CreateGroupResponse\"X\x82\xd3\xe4\x93\x02\x0f\"\n/v1/groups:\x01*\x92\x41@\n\x05Group\x12\x0c\x43reate Group\x1a)This creates new group with provided name\x12\xa9\x01\n\nListGroups\x12!.whisper_nation.ListGroupsRequest\x1a\".whisper_nation.ListGroupsResponse\"T\x82\xd3\xe4\x93\x02\x0c\x12\n/v1/groups\x92\x41?\n\x05Group\x12\x0bList Groups\x1a)This returns list of all available groups\x12\xe6\x01\n\x10ListGroupMembers\x12\'.whisper_nation.ListGroupMembersRequest\x1a(.whisper_nation.ListGroupMembersResponse\"\x7f\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1/groups/{group_id}/members\x92\x41W\n\x05Group\x12\x12List Group Members\x1a:This returns list of all joined members of requested groupB\x81\x01Z\'github.com/sirjager/rpcs/whisper_nation\x92\x41U\x12S\n\x12Whisper Nation Api\"6\n\x08SirJager\x12*https://github.com/sirjager/whisper_nation2\x05\x31.0.0b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'service_pb2', globals())
@@ -36,6 +36,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _WHISPERNATION.methods_by_name['ListGroups']._serialized_options = b'\202\323\344\223\002\014\022\n/v1/groups\222A?\n\005Group\022\013List Groups\032)This returns list of all available groups'
   _WHISPERNATION.methods_by_name['ListGroupMembers']._options = None
   _WHISPERNATION.methods_by_name['ListGroupMembers']._serialized_options = b'\202\323\344\223\002\037\022\035/v1/groups/{group_id}/members\222AW\n\005Group\022\022List Group Members\032:This returns list of all joined members of requested group'
-  _WHISPERNATION._serialized_start=167
-  _WHISPERNATION._serialized_end=1027
+  _WHISPERNATION._serialized_start=155
+  _WHISPERNATION._serialized_end=1015
 # @@protoc_insertion_point(module_scope)

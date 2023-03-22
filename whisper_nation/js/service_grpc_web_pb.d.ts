@@ -1,8 +1,8 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as rpc$groups_pb from './rpc-groups_pb';
-import * as rpc$health_pb from './rpc-health_pb';
-import * as rpc$welcome_pb from './rpc-welcome_pb';
+import * as groups_pb from './groups_pb';
+import * as health_pb from './health_pb';
+import * as welcome_pb from './welcome_pb';
 
 
 export class WhisperNationClient {
@@ -11,39 +11,39 @@ export class WhisperNationClient {
                options?: null | { [index: string]: any; });
 
   welcome(
-    request: rpc$welcome_pb.WelcomeRequest,
+    request: welcome_pb.WelcomeRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$welcome_pb.WelcomeResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$welcome_pb.WelcomeResponse>;
+               response: welcome_pb.WelcomeResponse) => void
+  ): grpcWeb.ClientReadableStream<welcome_pb.WelcomeResponse>;
 
   health(
-    request: rpc$health_pb.HealthRequest,
+    request: health_pb.HealthRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$health_pb.HealthResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$health_pb.HealthResponse>;
+               response: health_pb.HealthResponse) => void
+  ): grpcWeb.ClientReadableStream<health_pb.HealthResponse>;
 
   createGroup(
-    request: rpc$groups_pb.CreateGroupRequest,
+    request: groups_pb.CreateGroupRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.CreateGroupResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.CreateGroupResponse>;
+               response: groups_pb.CreateGroupResponse) => void
+  ): grpcWeb.ClientReadableStream<groups_pb.CreateGroupResponse>;
 
   listGroups(
-    request: rpc$groups_pb.ListGroupsRequest,
+    request: groups_pb.ListGroupsRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.ListGroupsResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.ListGroupsResponse>;
+               response: groups_pb.ListGroupsResponse) => void
+  ): grpcWeb.ClientReadableStream<groups_pb.ListGroupsResponse>;
 
   listGroupMembers(
-    request: rpc$groups_pb.ListGroupMembersRequest,
+    request: groups_pb.ListGroupMembersRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$groups_pb.ListGroupMembersResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$groups_pb.ListGroupMembersResponse>;
+               response: groups_pb.ListGroupMembersResponse) => void
+  ): grpcWeb.ClientReadableStream<groups_pb.ListGroupMembersResponse>;
 
 }
 
@@ -53,29 +53,29 @@ export class WhisperNationPromiseClient {
                options?: null | { [index: string]: any; });
 
   welcome(
-    request: rpc$welcome_pb.WelcomeRequest,
+    request: welcome_pb.WelcomeRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$welcome_pb.WelcomeResponse>;
+  ): Promise<welcome_pb.WelcomeResponse>;
 
   health(
-    request: rpc$health_pb.HealthRequest,
+    request: health_pb.HealthRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$health_pb.HealthResponse>;
+  ): Promise<health_pb.HealthResponse>;
 
   createGroup(
-    request: rpc$groups_pb.CreateGroupRequest,
+    request: groups_pb.CreateGroupRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.CreateGroupResponse>;
+  ): Promise<groups_pb.CreateGroupResponse>;
 
   listGroups(
-    request: rpc$groups_pb.ListGroupsRequest,
+    request: groups_pb.ListGroupsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.ListGroupsResponse>;
+  ): Promise<groups_pb.ListGroupsResponse>;
 
   listGroupMembers(
-    request: rpc$groups_pb.ListGroupMembersRequest,
+    request: groups_pb.ListGroupMembersRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$groups_pb.ListGroupMembersResponse>;
+  ): Promise<groups_pb.ListGroupMembersResponse>;
 
 }
 

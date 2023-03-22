@@ -2,9 +2,9 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import rpc_groups_pb2 as rpc__groups__pb2
-import rpc_health_pb2 as rpc__health__pb2
-import rpc_welcome_pb2 as rpc__welcome__pb2
+import groups_pb2 as groups__pb2
+import health_pb2 as health__pb2
+import welcome_pb2 as welcome__pb2
 
 
 class WhisperNationStub(object):
@@ -18,28 +18,28 @@ class WhisperNationStub(object):
         """
         self.Welcome = channel.unary_unary(
                 '/whisper_nation.WhisperNation/Welcome',
-                request_serializer=rpc__welcome__pb2.WelcomeRequest.SerializeToString,
-                response_deserializer=rpc__welcome__pb2.WelcomeResponse.FromString,
+                request_serializer=welcome__pb2.WelcomeRequest.SerializeToString,
+                response_deserializer=welcome__pb2.WelcomeResponse.FromString,
                 )
         self.Health = channel.unary_unary(
                 '/whisper_nation.WhisperNation/Health',
-                request_serializer=rpc__health__pb2.HealthRequest.SerializeToString,
-                response_deserializer=rpc__health__pb2.HealthResponse.FromString,
+                request_serializer=health__pb2.HealthRequest.SerializeToString,
+                response_deserializer=health__pb2.HealthResponse.FromString,
                 )
         self.CreateGroup = channel.unary_unary(
                 '/whisper_nation.WhisperNation/CreateGroup',
-                request_serializer=rpc__groups__pb2.CreateGroupRequest.SerializeToString,
-                response_deserializer=rpc__groups__pb2.CreateGroupResponse.FromString,
+                request_serializer=groups__pb2.CreateGroupRequest.SerializeToString,
+                response_deserializer=groups__pb2.CreateGroupResponse.FromString,
                 )
         self.ListGroups = channel.unary_unary(
                 '/whisper_nation.WhisperNation/ListGroups',
-                request_serializer=rpc__groups__pb2.ListGroupsRequest.SerializeToString,
-                response_deserializer=rpc__groups__pb2.ListGroupsResponse.FromString,
+                request_serializer=groups__pb2.ListGroupsRequest.SerializeToString,
+                response_deserializer=groups__pb2.ListGroupsResponse.FromString,
                 )
         self.ListGroupMembers = channel.unary_unary(
                 '/whisper_nation.WhisperNation/ListGroupMembers',
-                request_serializer=rpc__groups__pb2.ListGroupMembersRequest.SerializeToString,
-                response_deserializer=rpc__groups__pb2.ListGroupMembersResponse.FromString,
+                request_serializer=groups__pb2.ListGroupMembersRequest.SerializeToString,
+                response_deserializer=groups__pb2.ListGroupMembersResponse.FromString,
                 )
 
 
@@ -82,28 +82,28 @@ def add_WhisperNationServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'Welcome': grpc.unary_unary_rpc_method_handler(
                     servicer.Welcome,
-                    request_deserializer=rpc__welcome__pb2.WelcomeRequest.FromString,
-                    response_serializer=rpc__welcome__pb2.WelcomeResponse.SerializeToString,
+                    request_deserializer=welcome__pb2.WelcomeRequest.FromString,
+                    response_serializer=welcome__pb2.WelcomeResponse.SerializeToString,
             ),
             'Health': grpc.unary_unary_rpc_method_handler(
                     servicer.Health,
-                    request_deserializer=rpc__health__pb2.HealthRequest.FromString,
-                    response_serializer=rpc__health__pb2.HealthResponse.SerializeToString,
+                    request_deserializer=health__pb2.HealthRequest.FromString,
+                    response_serializer=health__pb2.HealthResponse.SerializeToString,
             ),
             'CreateGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateGroup,
-                    request_deserializer=rpc__groups__pb2.CreateGroupRequest.FromString,
-                    response_serializer=rpc__groups__pb2.CreateGroupResponse.SerializeToString,
+                    request_deserializer=groups__pb2.CreateGroupRequest.FromString,
+                    response_serializer=groups__pb2.CreateGroupResponse.SerializeToString,
             ),
             'ListGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.ListGroups,
-                    request_deserializer=rpc__groups__pb2.ListGroupsRequest.FromString,
-                    response_serializer=rpc__groups__pb2.ListGroupsResponse.SerializeToString,
+                    request_deserializer=groups__pb2.ListGroupsRequest.FromString,
+                    response_serializer=groups__pb2.ListGroupsResponse.SerializeToString,
             ),
             'ListGroupMembers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListGroupMembers,
-                    request_deserializer=rpc__groups__pb2.ListGroupMembersRequest.FromString,
-                    response_serializer=rpc__groups__pb2.ListGroupMembersResponse.SerializeToString,
+                    request_deserializer=groups__pb2.ListGroupMembersRequest.FromString,
+                    response_serializer=groups__pb2.ListGroupMembersResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -127,8 +127,8 @@ class WhisperNation(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/whisper_nation.WhisperNation/Welcome',
-            rpc__welcome__pb2.WelcomeRequest.SerializeToString,
-            rpc__welcome__pb2.WelcomeResponse.FromString,
+            welcome__pb2.WelcomeRequest.SerializeToString,
+            welcome__pb2.WelcomeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -144,8 +144,8 @@ class WhisperNation(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/whisper_nation.WhisperNation/Health',
-            rpc__health__pb2.HealthRequest.SerializeToString,
-            rpc__health__pb2.HealthResponse.FromString,
+            health__pb2.HealthRequest.SerializeToString,
+            health__pb2.HealthResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -161,8 +161,8 @@ class WhisperNation(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/whisper_nation.WhisperNation/CreateGroup',
-            rpc__groups__pb2.CreateGroupRequest.SerializeToString,
-            rpc__groups__pb2.CreateGroupResponse.FromString,
+            groups__pb2.CreateGroupRequest.SerializeToString,
+            groups__pb2.CreateGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -178,8 +178,8 @@ class WhisperNation(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/whisper_nation.WhisperNation/ListGroups',
-            rpc__groups__pb2.ListGroupsRequest.SerializeToString,
-            rpc__groups__pb2.ListGroupsResponse.FromString,
+            groups__pb2.ListGroupsRequest.SerializeToString,
+            groups__pb2.ListGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -195,7 +195,7 @@ class WhisperNation(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/whisper_nation.WhisperNation/ListGroupMembers',
-            rpc__groups__pb2.ListGroupMembersRequest.SerializeToString,
-            rpc__groups__pb2.ListGroupMembersResponse.FromString,
+            groups__pb2.ListGroupMembersRequest.SerializeToString,
+            groups__pb2.ListGroupMembersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
