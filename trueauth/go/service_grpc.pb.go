@@ -19,15 +19,15 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TrueAuth_Welcome_FullMethodName = "/trueauth.TrueAuth/Welcome"
-	TrueAuth_Health_FullMethodName  = "/trueauth.TrueAuth/Health"
-	TrueAuth_Signup_FullMethodName  = "/trueauth.TrueAuth/Signup"
-	TrueAuth_Signin_FullMethodName  = "/trueauth.TrueAuth/Signin"
-	TrueAuth_Signout_FullMethodName = "/trueauth.TrueAuth/Signout"
-	TrueAuth_Verify_FullMethodName  = "/trueauth.TrueAuth/Verify"
-	TrueAuth_Reset_FullMethodName   = "/trueauth.TrueAuth/Reset"
-	TrueAuth_Users_FullMethodName   = "/trueauth.TrueAuth/Users"
-	TrueAuth_User_FullMethodName    = "/trueauth.TrueAuth/User"
+	TrueAuth_Welcome_FullMethodName   = "/trueauth.TrueAuth/Welcome"
+	TrueAuth_Health_FullMethodName    = "/trueauth.TrueAuth/Health"
+	TrueAuth_Signup_FullMethodName    = "/trueauth.TrueAuth/Signup"
+	TrueAuth_Signin_FullMethodName    = "/trueauth.TrueAuth/Signin"
+	TrueAuth_Signout_FullMethodName   = "/trueauth.TrueAuth/Signout"
+	TrueAuth_Verify_FullMethodName    = "/trueauth.TrueAuth/Verify"
+	TrueAuth_Reset_FullMethodName     = "/trueauth.TrueAuth/Reset"
+	TrueAuth_ListUsers_FullMethodName = "/trueauth.TrueAuth/ListUsers"
+	TrueAuth_GetUser_FullMethodName   = "/trueauth.TrueAuth/GetUser"
 )
 
 // TrueAuthClient is the client API for TrueAuth service.
@@ -41,8 +41,8 @@ type TrueAuthClient interface {
 	Signout(ctx context.Context, in *SignoutRequest, opts ...grpc.CallOption) (*SignoutResponse, error)
 	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
-	Users(ctx context.Context, in *UsersRequest, opts ...grpc.CallOption) (*UsersResponse, error)
-	User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
+	ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 }
 
 type trueAuthClient struct {
@@ -116,18 +116,18 @@ func (c *trueAuthClient) Reset(ctx context.Context, in *ResetRequest, opts ...gr
 	return out, nil
 }
 
-func (c *trueAuthClient) Users(ctx context.Context, in *UsersRequest, opts ...grpc.CallOption) (*UsersResponse, error) {
-	out := new(UsersResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Users_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error) {
+	out := new(ListUsersResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_ListUsers_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trueAuthClient) User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
-	out := new(UserResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_User_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+	out := new(GetUserResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_GetUser_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -145,8 +145,8 @@ type TrueAuthServer interface {
 	Signout(context.Context, *SignoutRequest) (*SignoutResponse, error)
 	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
 	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
-	Users(context.Context, *UsersRequest) (*UsersResponse, error)
-	User(context.Context, *UserRequest) (*UserResponse, error)
+	ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error)
+	GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
 
@@ -175,11 +175,11 @@ func (UnimplementedTrueAuthServer) Verify(context.Context, *VerifyRequest) (*Ver
 func (UnimplementedTrueAuthServer) Reset(context.Context, *ResetRequest) (*ResetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Reset not implemented")
 }
-func (UnimplementedTrueAuthServer) Users(context.Context, *UsersRequest) (*UsersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Users not implemented")
+func (UnimplementedTrueAuthServer) ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListUsers not implemented")
 }
-func (UnimplementedTrueAuthServer) User(context.Context, *UserRequest) (*UserResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method User not implemented")
+func (UnimplementedTrueAuthServer) GetUser(context.Context, *GetUserRequest) (*GetUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
 func (UnimplementedTrueAuthServer) mustEmbedUnimplementedTrueAuthServer() {}
 
@@ -320,38 +320,38 @@ func _TrueAuth_Reset_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Users_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UsersRequest)
+func _TrueAuth_ListUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListUsersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Users(ctx, in)
+		return srv.(TrueAuthServer).ListUsers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Users_FullMethodName,
+		FullMethod: TrueAuth_ListUsers_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Users(ctx, req.(*UsersRequest))
+		return srv.(TrueAuthServer).ListUsers(ctx, req.(*ListUsersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_User_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserRequest)
+func _TrueAuth_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).User(ctx, in)
+		return srv.(TrueAuthServer).GetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_User_FullMethodName,
+		FullMethod: TrueAuth_GetUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).User(ctx, req.(*UserRequest))
+		return srv.(TrueAuthServer).GetUser(ctx, req.(*GetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -392,12 +392,12 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Reset_Handler,
 		},
 		{
-			MethodName: "Users",
-			Handler:    _TrueAuth_Users_Handler,
+			MethodName: "ListUsers",
+			Handler:    _TrueAuth_ListUsers_Handler,
 		},
 		{
-			MethodName: "User",
-			Handler:    _TrueAuth_User_Handler,
+			MethodName: "GetUser",
+			Handler:    _TrueAuth_GetUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

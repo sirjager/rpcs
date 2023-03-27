@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import user_pb2 as user__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0frpc-users.proto\x12\x08trueauth\x1a\nuser.proto\"+\n\x0cUsersRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\".\n\rUsersResponse\x12\x1d\n\x05users\x18\x01 \x03(\x0b\x32\x0e.trueauth.User\"\x1f\n\x0bUserRequest\x12\x10\n\x08identity\x18\x01 \x01(\t\",\n\x0cUserResponse\x12\x1c\n\x04user\x18\x01 \x01(\x0b\x32\x0e.trueauth.UserB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0frpc-users.proto\x12\x08trueauth\x1a\nuser.proto\"/\n\x10ListUsersRequest\x12\r\n\x05limit\x18\x01 \x01(\x05\x12\x0c\n\x04page\x18\x02 \x01(\x05\"2\n\x11ListUsersResponse\x12\x1d\n\x05users\x18\x01 \x03(\x0b\x32\x0e.trueauth.User\"\"\n\x0eGetUserRequest\x12\x10\n\x08identity\x18\x01 \x01(\t\"/\n\x0fGetUserResponse\x12\x1c\n\x04user\x18\x01 \x01(\x0b\x32\x0e.trueauth.UserB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_users_pb2', globals())
@@ -22,12 +22,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z!github.com/sirjager/rpcs/trueauth'
-  _USERSREQUEST._serialized_start=41
-  _USERSREQUEST._serialized_end=84
-  _USERSRESPONSE._serialized_start=86
-  _USERSRESPONSE._serialized_end=132
-  _USERREQUEST._serialized_start=134
-  _USERREQUEST._serialized_end=165
-  _USERRESPONSE._serialized_start=167
-  _USERRESPONSE._serialized_end=211
+  _LISTUSERSREQUEST._serialized_start=41
+  _LISTUSERSREQUEST._serialized_end=88
+  _LISTUSERSRESPONSE._serialized_start=90
+  _LISTUSERSRESPONSE._serialized_end=140
+  _GETUSERREQUEST._serialized_start=142
+  _GETUSERREQUEST._serialized_end=176
+  _GETUSERRESPONSE._serialized_start=178
+  _GETUSERRESPONSE._serialized_end=225
 # @@protoc_insertion_point(module_scope)

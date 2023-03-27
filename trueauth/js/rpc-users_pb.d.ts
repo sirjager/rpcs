@@ -3,81 +3,81 @@ import * as jspb from 'google-protobuf'
 import * as user_pb from './user_pb';
 
 
-export class UsersRequest extends jspb.Message {
+export class ListUsersRequest extends jspb.Message {
   getLimit(): number;
-  setLimit(value: number): UsersRequest;
+  setLimit(value: number): ListUsersRequest;
 
   getPage(): number;
-  setPage(value: number): UsersRequest;
+  setPage(value: number): ListUsersRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UsersRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UsersRequest): UsersRequest.AsObject;
-  static serializeBinaryToWriter(message: UsersRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UsersRequest;
-  static deserializeBinaryFromReader(message: UsersRequest, reader: jspb.BinaryReader): UsersRequest;
+  toObject(includeInstance?: boolean): ListUsersRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ListUsersRequest): ListUsersRequest.AsObject;
+  static serializeBinaryToWriter(message: ListUsersRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListUsersRequest;
+  static deserializeBinaryFromReader(message: ListUsersRequest, reader: jspb.BinaryReader): ListUsersRequest;
 }
 
-export namespace UsersRequest {
+export namespace ListUsersRequest {
   export type AsObject = {
     limit: number,
     page: number,
   }
 }
 
-export class UsersResponse extends jspb.Message {
+export class ListUsersResponse extends jspb.Message {
   getUsersList(): Array<user_pb.User>;
-  setUsersList(value: Array<user_pb.User>): UsersResponse;
-  clearUsersList(): UsersResponse;
+  setUsersList(value: Array<user_pb.User>): ListUsersResponse;
+  clearUsersList(): ListUsersResponse;
   addUsers(value?: user_pb.User, index?: number): user_pb.User;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UsersResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UsersResponse): UsersResponse.AsObject;
-  static serializeBinaryToWriter(message: UsersResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UsersResponse;
-  static deserializeBinaryFromReader(message: UsersResponse, reader: jspb.BinaryReader): UsersResponse;
+  toObject(includeInstance?: boolean): ListUsersResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ListUsersResponse): ListUsersResponse.AsObject;
+  static serializeBinaryToWriter(message: ListUsersResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ListUsersResponse;
+  static deserializeBinaryFromReader(message: ListUsersResponse, reader: jspb.BinaryReader): ListUsersResponse;
 }
 
-export namespace UsersResponse {
+export namespace ListUsersResponse {
   export type AsObject = {
     usersList: Array<user_pb.User.AsObject>,
   }
 }
 
-export class UserRequest extends jspb.Message {
+export class GetUserRequest extends jspb.Message {
   getIdentity(): string;
-  setIdentity(value: string): UserRequest;
+  setIdentity(value: string): GetUserRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: UserRequest): UserRequest.AsObject;
-  static serializeBinaryToWriter(message: UserRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserRequest;
-  static deserializeBinaryFromReader(message: UserRequest, reader: jspb.BinaryReader): UserRequest;
+  toObject(includeInstance?: boolean): GetUserRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetUserRequest): GetUserRequest.AsObject;
+  static serializeBinaryToWriter(message: GetUserRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetUserRequest;
+  static deserializeBinaryFromReader(message: GetUserRequest, reader: jspb.BinaryReader): GetUserRequest;
 }
 
-export namespace UserRequest {
+export namespace GetUserRequest {
   export type AsObject = {
     identity: string,
   }
 }
 
-export class UserResponse extends jspb.Message {
+export class GetUserResponse extends jspb.Message {
   getUser(): user_pb.User | undefined;
-  setUser(value?: user_pb.User): UserResponse;
+  setUser(value?: user_pb.User): GetUserResponse;
   hasUser(): boolean;
-  clearUser(): UserResponse;
+  clearUser(): GetUserResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): UserResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: UserResponse): UserResponse.AsObject;
-  static serializeBinaryToWriter(message: UserResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): UserResponse;
-  static deserializeBinaryFromReader(message: UserResponse, reader: jspb.BinaryReader): UserResponse;
+  toObject(includeInstance?: boolean): GetUserResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetUserResponse): GetUserResponse.AsObject;
+  static serializeBinaryToWriter(message: GetUserResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetUserResponse;
+  static deserializeBinaryFromReader(message: GetUserResponse, reader: jspb.BinaryReader): GetUserResponse;
 }
 
-export namespace UserResponse {
+export namespace GetUserResponse {
   export type AsObject = {
     user?: user_pb.User.AsObject,
   }

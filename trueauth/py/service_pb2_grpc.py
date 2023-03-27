@@ -56,15 +56,15 @@ class TrueAuthStub(object):
                 request_serializer=rpc__reset__pb2.ResetRequest.SerializeToString,
                 response_deserializer=rpc__reset__pb2.ResetResponse.FromString,
                 )
-        self.Users = channel.unary_unary(
-                '/trueauth.TrueAuth/Users',
-                request_serializer=rpc__users__pb2.UsersRequest.SerializeToString,
-                response_deserializer=rpc__users__pb2.UsersResponse.FromString,
+        self.ListUsers = channel.unary_unary(
+                '/trueauth.TrueAuth/ListUsers',
+                request_serializer=rpc__users__pb2.ListUsersRequest.SerializeToString,
+                response_deserializer=rpc__users__pb2.ListUsersResponse.FromString,
                 )
-        self.User = channel.unary_unary(
-                '/trueauth.TrueAuth/User',
-                request_serializer=rpc__users__pb2.UserRequest.SerializeToString,
-                response_deserializer=rpc__users__pb2.UserResponse.FromString,
+        self.GetUser = channel.unary_unary(
+                '/trueauth.TrueAuth/GetUser',
+                request_serializer=rpc__users__pb2.GetUserRequest.SerializeToString,
+                response_deserializer=rpc__users__pb2.GetUserResponse.FromString,
                 )
 
 
@@ -113,13 +113,13 @@ class TrueAuthServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Users(self, request, context):
+    def ListUsers(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def User(self, request, context):
+    def GetUser(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -163,15 +163,15 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     request_deserializer=rpc__reset__pb2.ResetRequest.FromString,
                     response_serializer=rpc__reset__pb2.ResetResponse.SerializeToString,
             ),
-            'Users': grpc.unary_unary_rpc_method_handler(
-                    servicer.Users,
-                    request_deserializer=rpc__users__pb2.UsersRequest.FromString,
-                    response_serializer=rpc__users__pb2.UsersResponse.SerializeToString,
+            'ListUsers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUsers,
+                    request_deserializer=rpc__users__pb2.ListUsersRequest.FromString,
+                    response_serializer=rpc__users__pb2.ListUsersResponse.SerializeToString,
             ),
-            'User': grpc.unary_unary_rpc_method_handler(
-                    servicer.User,
-                    request_deserializer=rpc__users__pb2.UserRequest.FromString,
-                    response_serializer=rpc__users__pb2.UserResponse.SerializeToString,
+            'GetUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUser,
+                    request_deserializer=rpc__users__pb2.GetUserRequest.FromString,
+                    response_serializer=rpc__users__pb2.GetUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -303,7 +303,7 @@ class TrueAuth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Users(request,
+    def ListUsers(request,
             target,
             options=(),
             channel_credentials=None,
@@ -313,14 +313,14 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Users',
-            rpc__users__pb2.UsersRequest.SerializeToString,
-            rpc__users__pb2.UsersResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/ListUsers',
+            rpc__users__pb2.ListUsersRequest.SerializeToString,
+            rpc__users__pb2.ListUsersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def User(request,
+    def GetUser(request,
             target,
             options=(),
             channel_credentials=None,
@@ -330,8 +330,8 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/User',
-            rpc__users__pb2.UserRequest.SerializeToString,
-            rpc__users__pb2.UserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/GetUser',
+            rpc__users__pb2.GetUserRequest.SerializeToString,
+            rpc__users__pb2.GetUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -1,11 +1,11 @@
 import * as grpcWeb from 'grpc-web';
 
+import * as rpc$users_pb from './rpc-users_pb';
 import * as rpc$health_pb from './rpc-health_pb';
 import * as rpc$reset_pb from './rpc-reset_pb';
 import * as rpc$signin_pb from './rpc-signin_pb';
 import * as rpc$signout_pb from './rpc-signout_pb';
 import * as rpc$signup_pb from './rpc-signup_pb';
-import * as rpc$users_pb from './rpc-users_pb';
 import * as rpc$verify_pb from './rpc-verify_pb';
 import * as rpc$welcome_pb from './rpc-welcome_pb';
 
@@ -64,19 +64,19 @@ export class TrueAuthClient {
                response: rpc$reset_pb.ResetResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$reset_pb.ResetResponse>;
 
-  users(
-    request: rpc$users_pb.UsersRequest,
+  listUsers(
+    request: rpc$users_pb.ListUsersRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$users_pb.UsersResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$users_pb.UsersResponse>;
+               response: rpc$users_pb.ListUsersResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$users_pb.ListUsersResponse>;
 
-  user(
-    request: rpc$users_pb.UserRequest,
+  getUser(
+    request: rpc$users_pb.GetUserRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$users_pb.UserResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$users_pb.UserResponse>;
+               response: rpc$users_pb.GetUserResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$users_pb.GetUserResponse>;
 
 }
 
@@ -120,15 +120,15 @@ export class TrueAuthPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$reset_pb.ResetResponse>;
 
-  users(
-    request: rpc$users_pb.UsersRequest,
+  listUsers(
+    request: rpc$users_pb.ListUsersRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$users_pb.UsersResponse>;
+  ): Promise<rpc$users_pb.ListUsersResponse>;
 
-  user(
-    request: rpc$users_pb.UserRequest,
+  getUser(
+    request: rpc$users_pb.GetUserRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$users_pb.UserResponse>;
+  ): Promise<rpc$users_pb.GetUserResponse>;
 
 }
 

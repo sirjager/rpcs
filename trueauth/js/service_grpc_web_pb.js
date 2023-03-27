@@ -524,122 +524,122 @@ proto.trueauth.TrueAuthPromiseClient.prototype.reset =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.UsersRequest,
- *   !proto.trueauth.UsersResponse>}
+ *   !proto.trueauth.ListUsersRequest,
+ *   !proto.trueauth.ListUsersResponse>}
  */
-const methodDescriptor_TrueAuth_Users = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/Users',
+const methodDescriptor_TrueAuth_ListUsers = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/ListUsers',
   grpc.web.MethodType.UNARY,
-  rpc$users_pb.UsersRequest,
-  rpc$users_pb.UsersResponse,
+  rpc$users_pb.ListUsersRequest,
+  rpc$users_pb.ListUsersResponse,
   /**
-   * @param {!proto.trueauth.UsersRequest} request
+   * @param {!proto.trueauth.ListUsersRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$users_pb.UsersResponse.deserializeBinary
+  rpc$users_pb.ListUsersResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.UsersRequest} request The
+ * @param {!proto.trueauth.ListUsersRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.UsersResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.ListUsersResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.UsersResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.ListUsersResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.users =
+proto.trueauth.TrueAuthClient.prototype.listUsers =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/Users',
+      '/trueauth.TrueAuth/ListUsers',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Users,
+      methodDescriptor_TrueAuth_ListUsers,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.UsersRequest} request The
+ * @param {!proto.trueauth.ListUsersRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.UsersResponse>}
+ * @return {!Promise<!proto.trueauth.ListUsersResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.users =
+proto.trueauth.TrueAuthPromiseClient.prototype.listUsers =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/Users',
+      '/trueauth.TrueAuth/ListUsers',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Users);
+      methodDescriptor_TrueAuth_ListUsers);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.UserRequest,
- *   !proto.trueauth.UserResponse>}
+ *   !proto.trueauth.GetUserRequest,
+ *   !proto.trueauth.GetUserResponse>}
  */
-const methodDescriptor_TrueAuth_User = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/User',
+const methodDescriptor_TrueAuth_GetUser = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/GetUser',
   grpc.web.MethodType.UNARY,
-  rpc$users_pb.UserRequest,
-  rpc$users_pb.UserResponse,
+  rpc$users_pb.GetUserRequest,
+  rpc$users_pb.GetUserResponse,
   /**
-   * @param {!proto.trueauth.UserRequest} request
+   * @param {!proto.trueauth.GetUserRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$users_pb.UserResponse.deserializeBinary
+  rpc$users_pb.GetUserResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.UserRequest} request The
+ * @param {!proto.trueauth.GetUserRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.UserResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.GetUserResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.UserResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.GetUserResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.user =
+proto.trueauth.TrueAuthClient.prototype.getUser =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/User',
+      '/trueauth.TrueAuth/GetUser',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_User,
+      methodDescriptor_TrueAuth_GetUser,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.UserRequest} request The
+ * @param {!proto.trueauth.GetUserRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.UserResponse>}
+ * @return {!Promise<!proto.trueauth.GetUserResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.user =
+proto.trueauth.TrueAuthPromiseClient.prototype.getUser =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/User',
+      '/trueauth.TrueAuth/GetUser',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_User);
+      methodDescriptor_TrueAuth_GetUser);
 };
 
 
