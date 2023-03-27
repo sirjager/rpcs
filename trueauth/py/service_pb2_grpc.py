@@ -3,10 +3,10 @@
 import grpc
 
 import rpc_health_pb2 as rpc__health__pb2
+import rpc_login_pb2 as rpc__login__pb2
+import rpc_logout_pb2 as rpc__logout__pb2
+import rpc_register_pb2 as rpc__register__pb2
 import rpc_reset_pb2 as rpc__reset__pb2
-import rpc_signin_pb2 as rpc__signin__pb2
-import rpc_signout_pb2 as rpc__signout__pb2
-import rpc_signup_pb2 as rpc__signup__pb2
 import rpc_users_pb2 as rpc__users__pb2
 import rpc_verify_pb2 as rpc__verify__pb2
 import rpc_welcome_pb2 as rpc__welcome__pb2
@@ -31,20 +31,20 @@ class TrueAuthStub(object):
                 request_serializer=rpc__health__pb2.HealthRequest.SerializeToString,
                 response_deserializer=rpc__health__pb2.HealthResponse.FromString,
                 )
-        self.Signup = channel.unary_unary(
-                '/trueauth.TrueAuth/Signup',
-                request_serializer=rpc__signup__pb2.SignupRequest.SerializeToString,
-                response_deserializer=rpc__signup__pb2.SignupResponse.FromString,
+        self.Register = channel.unary_unary(
+                '/trueauth.TrueAuth/Register',
+                request_serializer=rpc__register__pb2.RegisterRequest.SerializeToString,
+                response_deserializer=rpc__register__pb2.RegisterResponse.FromString,
                 )
-        self.Signin = channel.unary_unary(
-                '/trueauth.TrueAuth/Signin',
-                request_serializer=rpc__signin__pb2.SigninRequest.SerializeToString,
-                response_deserializer=rpc__signin__pb2.SigninResponse.FromString,
+        self.Login = channel.unary_unary(
+                '/trueauth.TrueAuth/Login',
+                request_serializer=rpc__login__pb2.LoginRequest.SerializeToString,
+                response_deserializer=rpc__login__pb2.LoginResponse.FromString,
                 )
-        self.Signout = channel.unary_unary(
-                '/trueauth.TrueAuth/Signout',
-                request_serializer=rpc__signout__pb2.SignoutRequest.SerializeToString,
-                response_deserializer=rpc__signout__pb2.SignoutResponse.FromString,
+        self.Logout = channel.unary_unary(
+                '/trueauth.TrueAuth/Logout',
+                request_serializer=rpc__logout__pb2.LogoutRequest.SerializeToString,
+                response_deserializer=rpc__logout__pb2.LogoutResponse.FromString,
                 )
         self.Verify = channel.unary_unary(
                 '/trueauth.TrueAuth/Verify',
@@ -83,19 +83,19 @@ class TrueAuthServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Signup(self, request, context):
+    def Register(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Signin(self, request, context):
+    def Login(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Signout(self, request, context):
+    def Logout(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -138,20 +138,20 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     request_deserializer=rpc__health__pb2.HealthRequest.FromString,
                     response_serializer=rpc__health__pb2.HealthResponse.SerializeToString,
             ),
-            'Signup': grpc.unary_unary_rpc_method_handler(
-                    servicer.Signup,
-                    request_deserializer=rpc__signup__pb2.SignupRequest.FromString,
-                    response_serializer=rpc__signup__pb2.SignupResponse.SerializeToString,
+            'Register': grpc.unary_unary_rpc_method_handler(
+                    servicer.Register,
+                    request_deserializer=rpc__register__pb2.RegisterRequest.FromString,
+                    response_serializer=rpc__register__pb2.RegisterResponse.SerializeToString,
             ),
-            'Signin': grpc.unary_unary_rpc_method_handler(
-                    servicer.Signin,
-                    request_deserializer=rpc__signin__pb2.SigninRequest.FromString,
-                    response_serializer=rpc__signin__pb2.SigninResponse.SerializeToString,
+            'Login': grpc.unary_unary_rpc_method_handler(
+                    servicer.Login,
+                    request_deserializer=rpc__login__pb2.LoginRequest.FromString,
+                    response_serializer=rpc__login__pb2.LoginResponse.SerializeToString,
             ),
-            'Signout': grpc.unary_unary_rpc_method_handler(
-                    servicer.Signout,
-                    request_deserializer=rpc__signout__pb2.SignoutRequest.FromString,
-                    response_serializer=rpc__signout__pb2.SignoutResponse.SerializeToString,
+            'Logout': grpc.unary_unary_rpc_method_handler(
+                    servicer.Logout,
+                    request_deserializer=rpc__logout__pb2.LogoutRequest.FromString,
+                    response_serializer=rpc__logout__pb2.LogoutResponse.SerializeToString,
             ),
             'Verify': grpc.unary_unary_rpc_method_handler(
                     servicer.Verify,
@@ -218,7 +218,7 @@ class TrueAuth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Signup(request,
+    def Register(request,
             target,
             options=(),
             channel_credentials=None,
@@ -228,14 +228,14 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Signup',
-            rpc__signup__pb2.SignupRequest.SerializeToString,
-            rpc__signup__pb2.SignupResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Register',
+            rpc__register__pb2.RegisterRequest.SerializeToString,
+            rpc__register__pb2.RegisterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Signin(request,
+    def Login(request,
             target,
             options=(),
             channel_credentials=None,
@@ -245,14 +245,14 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Signin',
-            rpc__signin__pb2.SigninRequest.SerializeToString,
-            rpc__signin__pb2.SigninResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Login',
+            rpc__login__pb2.LoginRequest.SerializeToString,
+            rpc__login__pb2.LoginResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Signout(request,
+    def Logout(request,
             target,
             options=(),
             channel_credentials=None,
@@ -262,9 +262,9 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Signout',
-            rpc__signout__pb2.SignoutRequest.SerializeToString,
-            rpc__signout__pb2.SignoutResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Logout',
+            rpc__logout__pb2.LogoutRequest.SerializeToString,
+            rpc__logout__pb2.LogoutResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

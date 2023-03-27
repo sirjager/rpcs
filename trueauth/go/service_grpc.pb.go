@@ -21,9 +21,9 @@ const _ = grpc.SupportPackageIsVersion7
 const (
 	TrueAuth_Welcome_FullMethodName   = "/trueauth.TrueAuth/Welcome"
 	TrueAuth_Health_FullMethodName    = "/trueauth.TrueAuth/Health"
-	TrueAuth_Signup_FullMethodName    = "/trueauth.TrueAuth/Signup"
-	TrueAuth_Signin_FullMethodName    = "/trueauth.TrueAuth/Signin"
-	TrueAuth_Signout_FullMethodName   = "/trueauth.TrueAuth/Signout"
+	TrueAuth_Register_FullMethodName  = "/trueauth.TrueAuth/Register"
+	TrueAuth_Login_FullMethodName     = "/trueauth.TrueAuth/Login"
+	TrueAuth_Logout_FullMethodName    = "/trueauth.TrueAuth/Logout"
 	TrueAuth_Verify_FullMethodName    = "/trueauth.TrueAuth/Verify"
 	TrueAuth_Reset_FullMethodName     = "/trueauth.TrueAuth/Reset"
 	TrueAuth_ListUsers_FullMethodName = "/trueauth.TrueAuth/ListUsers"
@@ -36,9 +36,9 @@ const (
 type TrueAuthClient interface {
 	Welcome(ctx context.Context, in *WelcomeRequest, opts ...grpc.CallOption) (*WelcomeResponse, error)
 	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error)
-	Signup(ctx context.Context, in *SignupRequest, opts ...grpc.CallOption) (*SignupResponse, error)
-	Signin(ctx context.Context, in *SigninRequest, opts ...grpc.CallOption) (*SigninResponse, error)
-	Signout(ctx context.Context, in *SignoutRequest, opts ...grpc.CallOption) (*SignoutResponse, error)
+	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
 	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 	Reset(ctx context.Context, in *ResetRequest, opts ...grpc.CallOption) (*ResetResponse, error)
 	ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error)
@@ -71,27 +71,27 @@ func (c *trueAuthClient) Health(ctx context.Context, in *HealthRequest, opts ...
 	return out, nil
 }
 
-func (c *trueAuthClient) Signup(ctx context.Context, in *SignupRequest, opts ...grpc.CallOption) (*SignupResponse, error) {
-	out := new(SignupResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Signup_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
+	out := new(RegisterResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Register_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trueAuthClient) Signin(ctx context.Context, in *SigninRequest, opts ...grpc.CallOption) (*SigninResponse, error) {
-	out := new(SigninResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Signin_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
+	out := new(LoginResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Login_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trueAuthClient) Signout(ctx context.Context, in *SignoutRequest, opts ...grpc.CallOption) (*SignoutResponse, error) {
-	out := new(SignoutResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Signout_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error) {
+	out := new(LogoutResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Logout_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -140,9 +140,9 @@ func (c *trueAuthClient) GetUser(ctx context.Context, in *GetUserRequest, opts .
 type TrueAuthServer interface {
 	Welcome(context.Context, *WelcomeRequest) (*WelcomeResponse, error)
 	Health(context.Context, *HealthRequest) (*HealthResponse, error)
-	Signup(context.Context, *SignupRequest) (*SignupResponse, error)
-	Signin(context.Context, *SigninRequest) (*SigninResponse, error)
-	Signout(context.Context, *SignoutRequest) (*SignoutResponse, error)
+	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
 	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
 	Reset(context.Context, *ResetRequest) (*ResetResponse, error)
 	ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error)
@@ -160,14 +160,14 @@ func (UnimplementedTrueAuthServer) Welcome(context.Context, *WelcomeRequest) (*W
 func (UnimplementedTrueAuthServer) Health(context.Context, *HealthRequest) (*HealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Health not implemented")
 }
-func (UnimplementedTrueAuthServer) Signup(context.Context, *SignupRequest) (*SignupResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Signup not implemented")
+func (UnimplementedTrueAuthServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
 }
-func (UnimplementedTrueAuthServer) Signin(context.Context, *SigninRequest) (*SigninResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Signin not implemented")
+func (UnimplementedTrueAuthServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (UnimplementedTrueAuthServer) Signout(context.Context, *SignoutRequest) (*SignoutResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Signout not implemented")
+func (UnimplementedTrueAuthServer) Logout(context.Context, *LogoutRequest) (*LogoutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
 func (UnimplementedTrueAuthServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
@@ -230,56 +230,56 @@ func _TrueAuth_Health_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Signup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignupRequest)
+func _TrueAuth_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Signup(ctx, in)
+		return srv.(TrueAuthServer).Register(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Signup_FullMethodName,
+		FullMethod: TrueAuth_Register_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Signup(ctx, req.(*SignupRequest))
+		return srv.(TrueAuthServer).Register(ctx, req.(*RegisterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Signin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SigninRequest)
+func _TrueAuth_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Signin(ctx, in)
+		return srv.(TrueAuthServer).Login(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Signin_FullMethodName,
+		FullMethod: TrueAuth_Login_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Signin(ctx, req.(*SigninRequest))
+		return srv.(TrueAuthServer).Login(ctx, req.(*LoginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Signout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SignoutRequest)
+func _TrueAuth_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogoutRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Signout(ctx, in)
+		return srv.(TrueAuthServer).Logout(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Signout_FullMethodName,
+		FullMethod: TrueAuth_Logout_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Signout(ctx, req.(*SignoutRequest))
+		return srv.(TrueAuthServer).Logout(ctx, req.(*LogoutRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -372,16 +372,16 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Health_Handler,
 		},
 		{
-			MethodName: "Signup",
-			Handler:    _TrueAuth_Signup_Handler,
+			MethodName: "Register",
+			Handler:    _TrueAuth_Register_Handler,
 		},
 		{
-			MethodName: "Signin",
-			Handler:    _TrueAuth_Signin_Handler,
+			MethodName: "Login",
+			Handler:    _TrueAuth_Login_Handler,
 		},
 		{
-			MethodName: "Signout",
-			Handler:    _TrueAuth_Signout_Handler,
+			MethodName: "Logout",
+			Handler:    _TrueAuth_Logout_Handler,
 		},
 		{
 			MethodName: "Verify",

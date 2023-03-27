@@ -28,11 +28,11 @@ var rpc$welcome_pb = require('./rpc-welcome_pb.js')
 
 var rpc$health_pb = require('./rpc-health_pb.js')
 
-var rpc$signup_pb = require('./rpc-signup_pb.js')
+var rpc$register_pb = require('./rpc-register_pb.js')
 
-var rpc$signin_pb = require('./rpc-signin_pb.js')
+var rpc$login_pb = require('./rpc-login_pb.js')
 
-var rpc$signout_pb = require('./rpc-signout_pb.js')
+var rpc$logout_pb = require('./rpc-logout_pb.js')
 
 var rpc$verify_pb = require('./rpc-verify_pb.js')
 
@@ -219,183 +219,183 @@ proto.trueauth.TrueAuthPromiseClient.prototype.health =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.SignupRequest,
- *   !proto.trueauth.SignupResponse>}
+ *   !proto.trueauth.RegisterRequest,
+ *   !proto.trueauth.RegisterResponse>}
  */
-const methodDescriptor_TrueAuth_Signup = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/Signup',
+const methodDescriptor_TrueAuth_Register = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Register',
   grpc.web.MethodType.UNARY,
-  rpc$signup_pb.SignupRequest,
-  rpc$signup_pb.SignupResponse,
+  rpc$register_pb.RegisterRequest,
+  rpc$register_pb.RegisterResponse,
   /**
-   * @param {!proto.trueauth.SignupRequest} request
+   * @param {!proto.trueauth.RegisterRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$signup_pb.SignupResponse.deserializeBinary
+  rpc$register_pb.RegisterResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.SignupRequest} request The
+ * @param {!proto.trueauth.RegisterRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.SignupResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.RegisterResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.SignupResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.RegisterResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.signup =
+proto.trueauth.TrueAuthClient.prototype.register =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signup',
+      '/trueauth.TrueAuth/Register',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signup,
+      methodDescriptor_TrueAuth_Register,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.SignupRequest} request The
+ * @param {!proto.trueauth.RegisterRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.SignupResponse>}
+ * @return {!Promise<!proto.trueauth.RegisterResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.signup =
+proto.trueauth.TrueAuthPromiseClient.prototype.register =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signup',
+      '/trueauth.TrueAuth/Register',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signup);
+      methodDescriptor_TrueAuth_Register);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.SigninRequest,
- *   !proto.trueauth.SigninResponse>}
+ *   !proto.trueauth.LoginRequest,
+ *   !proto.trueauth.LoginResponse>}
  */
-const methodDescriptor_TrueAuth_Signin = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/Signin',
+const methodDescriptor_TrueAuth_Login = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Login',
   grpc.web.MethodType.UNARY,
-  rpc$signin_pb.SigninRequest,
-  rpc$signin_pb.SigninResponse,
+  rpc$login_pb.LoginRequest,
+  rpc$login_pb.LoginResponse,
   /**
-   * @param {!proto.trueauth.SigninRequest} request
+   * @param {!proto.trueauth.LoginRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$signin_pb.SigninResponse.deserializeBinary
+  rpc$login_pb.LoginResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.SigninRequest} request The
+ * @param {!proto.trueauth.LoginRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.SigninResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.LoginResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.SigninResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.LoginResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.signin =
+proto.trueauth.TrueAuthClient.prototype.login =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signin',
+      '/trueauth.TrueAuth/Login',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signin,
+      methodDescriptor_TrueAuth_Login,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.SigninRequest} request The
+ * @param {!proto.trueauth.LoginRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.SigninResponse>}
+ * @return {!Promise<!proto.trueauth.LoginResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.signin =
+proto.trueauth.TrueAuthPromiseClient.prototype.login =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signin',
+      '/trueauth.TrueAuth/Login',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signin);
+      methodDescriptor_TrueAuth_Login);
 };
 
 
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.SignoutRequest,
- *   !proto.trueauth.SignoutResponse>}
+ *   !proto.trueauth.LogoutRequest,
+ *   !proto.trueauth.LogoutResponse>}
  */
-const methodDescriptor_TrueAuth_Signout = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/Signout',
+const methodDescriptor_TrueAuth_Logout = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Logout',
   grpc.web.MethodType.UNARY,
-  rpc$signout_pb.SignoutRequest,
-  rpc$signout_pb.SignoutResponse,
+  rpc$logout_pb.LogoutRequest,
+  rpc$logout_pb.LogoutResponse,
   /**
-   * @param {!proto.trueauth.SignoutRequest} request
+   * @param {!proto.trueauth.LogoutRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$signout_pb.SignoutResponse.deserializeBinary
+  rpc$logout_pb.LogoutResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.SignoutRequest} request The
+ * @param {!proto.trueauth.LogoutRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.SignoutResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.LogoutResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.SignoutResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.LogoutResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.signout =
+proto.trueauth.TrueAuthClient.prototype.logout =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signout',
+      '/trueauth.TrueAuth/Logout',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signout,
+      methodDescriptor_TrueAuth_Logout,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.SignoutRequest} request The
+ * @param {!proto.trueauth.LogoutRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.SignoutResponse>}
+ * @return {!Promise<!proto.trueauth.LogoutResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.signout =
+proto.trueauth.TrueAuthPromiseClient.prototype.logout =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/Signout',
+      '/trueauth.TrueAuth/Logout',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Signout);
+      methodDescriptor_TrueAuth_Logout);
 };
 
 

@@ -2,10 +2,10 @@ import * as grpcWeb from 'grpc-web';
 
 import * as rpc$users_pb from './rpc-users_pb';
 import * as rpc$health_pb from './rpc-health_pb';
+import * as rpc$login_pb from './rpc-login_pb';
+import * as rpc$logout_pb from './rpc-logout_pb';
+import * as rpc$register_pb from './rpc-register_pb';
 import * as rpc$reset_pb from './rpc-reset_pb';
-import * as rpc$signin_pb from './rpc-signin_pb';
-import * as rpc$signout_pb from './rpc-signout_pb';
-import * as rpc$signup_pb from './rpc-signup_pb';
 import * as rpc$verify_pb from './rpc-verify_pb';
 import * as rpc$welcome_pb from './rpc-welcome_pb';
 
@@ -29,26 +29,26 @@ export class TrueAuthClient {
                response: rpc$health_pb.HealthResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$health_pb.HealthResponse>;
 
-  signup(
-    request: rpc$signup_pb.SignupRequest,
+  register(
+    request: rpc$register_pb.RegisterRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$signup_pb.SignupResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$signup_pb.SignupResponse>;
+               response: rpc$register_pb.RegisterResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$register_pb.RegisterResponse>;
 
-  signin(
-    request: rpc$signin_pb.SigninRequest,
+  login(
+    request: rpc$login_pb.LoginRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$signin_pb.SigninResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$signin_pb.SigninResponse>;
+               response: rpc$login_pb.LoginResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$login_pb.LoginResponse>;
 
-  signout(
-    request: rpc$signout_pb.SignoutRequest,
+  logout(
+    request: rpc$logout_pb.LogoutRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$signout_pb.SignoutResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$signout_pb.SignoutResponse>;
+               response: rpc$logout_pb.LogoutResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$logout_pb.LogoutResponse>;
 
   verify(
     request: rpc$verify_pb.VerifyRequest,
@@ -95,20 +95,20 @@ export class TrueAuthPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$health_pb.HealthResponse>;
 
-  signup(
-    request: rpc$signup_pb.SignupRequest,
+  register(
+    request: rpc$register_pb.RegisterRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$signup_pb.SignupResponse>;
+  ): Promise<rpc$register_pb.RegisterResponse>;
 
-  signin(
-    request: rpc$signin_pb.SigninRequest,
+  login(
+    request: rpc$login_pb.LoginRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$signin_pb.SigninResponse>;
+  ): Promise<rpc$login_pb.LoginResponse>;
 
-  signout(
-    request: rpc$signout_pb.SignoutRequest,
+  logout(
+    request: rpc$logout_pb.LogoutRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$signout_pb.SignoutResponse>;
+  ): Promise<rpc$logout_pb.LogoutResponse>;
 
   verify(
     request: rpc$verify_pb.VerifyRequest,
