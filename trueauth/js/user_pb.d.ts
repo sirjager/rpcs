@@ -16,9 +16,6 @@ export class User extends jspb.Message {
   getPassword(): string;
   setPassword(value: string): User;
 
-  getSalt(): string;
-  setSalt(value: string): User;
-
   getFirstname(): string;
   setFirstname(value: string): User;
 
@@ -87,7 +84,6 @@ export namespace User {
     email: string,
     username: string,
     password: string,
-    salt: string,
     firstname: string,
     lastname: string,
     verified: boolean,
