@@ -27,6 +27,9 @@ export namespace LoginRequest {
 }
 
 export class LoginResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): LoginResponse;
+
   getUser(): user_pb.User | undefined;
   setUser(value?: user_pb.User): LoginResponse;
   hasUser(): boolean;
@@ -61,6 +64,7 @@ export class LoginResponse extends jspb.Message {
 
 export namespace LoginResponse {
   export type AsObject = {
+    message: string,
     user?: user_pb.User.AsObject,
     sessionId: string,
     accessToken: string,
