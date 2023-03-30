@@ -27,6 +27,10 @@ var protoc$gen$openapiv2_options_annotations_pb = require('./protoc-gen-openapiv
 var rpc$welcome_pb = require('./rpc-welcome_pb.js')
 
 var rpc$health_pb = require('./rpc-health_pb.js')
+
+var rpc$register_pb = require('./rpc-register_pb.js')
+
+var rpc$login_pb = require('./rpc-login_pb.js')
 const proto = {};
 proto.trueauth = require('./service_pb.js');
 
@@ -201,6 +205,128 @@ proto.trueauth.TrueAuthPromiseClient.prototype.health =
       request,
       metadata || {},
       methodDescriptor_TrueAuth_Health);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.RegisterRequest,
+ *   !proto.trueauth.RegisterResponse>}
+ */
+const methodDescriptor_TrueAuth_Register = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Register',
+  grpc.web.MethodType.UNARY,
+  rpc$register_pb.RegisterRequest,
+  rpc$register_pb.RegisterResponse,
+  /**
+   * @param {!proto.trueauth.RegisterRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$register_pb.RegisterResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.RegisterRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.RegisterResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.RegisterResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.register =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/Register',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Register,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.RegisterRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.RegisterResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.register =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/Register',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Register);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.LoginRequest,
+ *   !proto.trueauth.LoginResponse>}
+ */
+const methodDescriptor_TrueAuth_Login = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Login',
+  grpc.web.MethodType.UNARY,
+  rpc$login_pb.LoginRequest,
+  rpc$login_pb.LoginResponse,
+  /**
+   * @param {!proto.trueauth.LoginRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$login_pb.LoginResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.LoginRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.LoginResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.LoginResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.login =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/Login',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Login,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.LoginRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.LoginResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.login =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/Login',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Login);
 };
 
 

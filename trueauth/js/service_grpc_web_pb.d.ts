@@ -1,6 +1,8 @@
 import * as grpcWeb from 'grpc-web';
 
 import * as rpc$health_pb from './rpc-health_pb';
+import * as rpc$login_pb from './rpc-login_pb';
+import * as rpc$register_pb from './rpc-register_pb';
 import * as rpc$welcome_pb from './rpc-welcome_pb';
 
 
@@ -23,6 +25,20 @@ export class TrueAuthClient {
                response: rpc$health_pb.HealthResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$health_pb.HealthResponse>;
 
+  register(
+    request: rpc$register_pb.RegisterRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$register_pb.RegisterResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$register_pb.RegisterResponse>;
+
+  login(
+    request: rpc$login_pb.LoginRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$login_pb.LoginResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$login_pb.LoginResponse>;
+
 }
 
 export class TrueAuthPromiseClient {
@@ -39,6 +55,16 @@ export class TrueAuthPromiseClient {
     request: rpc$health_pb.HealthRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$health_pb.HealthResponse>;
+
+  register(
+    request: rpc$register_pb.RegisterRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$register_pb.RegisterResponse>;
+
+  login(
+    request: rpc$login_pb.LoginRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$login_pb.LoginResponse>;
 
 }
 

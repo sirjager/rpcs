@@ -19,8 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TrueAuth_Welcome_FullMethodName = "/trueauth.TrueAuth/Welcome"
-	TrueAuth_Health_FullMethodName  = "/trueauth.TrueAuth/Health"
+	TrueAuth_Welcome_FullMethodName  = "/trueauth.TrueAuth/Welcome"
+	TrueAuth_Health_FullMethodName   = "/trueauth.TrueAuth/Health"
+	TrueAuth_Register_FullMethodName = "/trueauth.TrueAuth/Register"
+	TrueAuth_Login_FullMethodName    = "/trueauth.TrueAuth/Login"
 )
 
 // TrueAuthClient is the client API for TrueAuth service.
@@ -29,6 +31,8 @@ const (
 type TrueAuthClient interface {
 	Welcome(ctx context.Context, in *WelcomeRequest, opts ...grpc.CallOption) (*WelcomeResponse, error)
 	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error)
+	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 }
 
 type trueAuthClient struct {
@@ -57,12 +61,32 @@ func (c *trueAuthClient) Health(ctx context.Context, in *HealthRequest, opts ...
 	return out, nil
 }
 
+func (c *trueAuthClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error) {
+	out := new(RegisterResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Register_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error) {
+	out := new(LoginResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Login_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TrueAuthServer is the server API for TrueAuth service.
 // All implementations must embed UnimplementedTrueAuthServer
 // for forward compatibility
 type TrueAuthServer interface {
 	Welcome(context.Context, *WelcomeRequest) (*WelcomeResponse, error)
 	Health(context.Context, *HealthRequest) (*HealthResponse, error)
+	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
 
@@ -75,6 +99,12 @@ func (UnimplementedTrueAuthServer) Welcome(context.Context, *WelcomeRequest) (*W
 }
 func (UnimplementedTrueAuthServer) Health(context.Context, *HealthRequest) (*HealthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Health not implemented")
+}
+func (UnimplementedTrueAuthServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
+}
+func (UnimplementedTrueAuthServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
 func (UnimplementedTrueAuthServer) mustEmbedUnimplementedTrueAuthServer() {}
 
@@ -125,6 +155,42 @@ func _TrueAuth_Health_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TrueAuth_Register_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RegisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).Register(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_Register_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).Register(ctx, req.(*RegisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_Login_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).Login(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_Login_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).Login(ctx, req.(*LoginRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TrueAuth_ServiceDesc is the grpc.ServiceDesc for TrueAuth service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -139,6 +205,14 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Health",
 			Handler:    _TrueAuth_Health_Handler,
+		},
+		{
+			MethodName: "Register",
+			Handler:    _TrueAuth_Register_Handler,
+		},
+		{
+			MethodName: "Login",
+			Handler:    _TrueAuth_Login_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
