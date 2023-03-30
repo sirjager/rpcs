@@ -28,32 +28,6 @@ export class User extends jspb.Message {
   getBlocked(): boolean;
   setBlocked(value: boolean): User;
 
-  getVerifyToken(): string;
-  setVerifyToken(value: string): User;
-
-  getLastVerifySentAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setLastVerifySentAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
-  hasLastVerifySentAt(): boolean;
-  clearLastVerifySentAt(): User;
-
-  getVerifyExpiresAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setVerifyExpiresAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
-  hasVerifyExpiresAt(): boolean;
-  clearVerifyExpiresAt(): User;
-
-  getResetToken(): string;
-  setResetToken(value: string): User;
-
-  getLastResetSentAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setLastResetSentAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
-  hasLastResetSentAt(): boolean;
-  clearLastResetSentAt(): User;
-
-  getResetExpiresAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
-  setResetExpiresAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
-  hasResetExpiresAt(): boolean;
-  clearResetExpiresAt(): User;
-
   getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
   setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
   hasCreatedAt(): boolean;
@@ -63,12 +37,6 @@ export class User extends jspb.Message {
   setUpdatedAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
   hasUpdatedAt(): boolean;
   clearUpdatedAt(): User;
-
-  getCreatedBy(): string;
-  setCreatedBy(value: string): User;
-
-  getUpdatedBy(): string;
-  setUpdatedBy(value: string): User;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): User.AsObject;
@@ -88,16 +56,8 @@ export namespace User {
     lastname: string,
     verified: boolean,
     blocked: boolean,
-    verifyToken: string,
-    lastVerifySentAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    verifyExpiresAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    resetToken: string,
-    lastResetSentAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    resetExpiresAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
-    createdBy: string,
-    updatedBy: string,
   }
 }
 

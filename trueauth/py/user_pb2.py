@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nuser.proto\x12\x08trueauth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9e\x04\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\x12\x10\n\x08password\x18\x04 \x01(\t\x12\x11\n\tfirstname\x18\x05 \x01(\t\x12\x10\n\x08lastname\x18\x06 \x01(\t\x12\x10\n\x08verified\x18\x07 \x01(\x08\x12\x0f\n\x07\x62locked\x18\x08 \x01(\x08\x12\x14\n\x0cverify_token\x18\t \x01(\t\x12\x37\n\x13last_verify_sent_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11verify_expires_at\x18\x0b \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0breset_token\x18\x0c \x01(\t\x12\x36\n\x12last_reset_sent_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10reset_expires_at\x18\x0e \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\ncreated_at\x18\x0f \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\x10 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x12\n\ncreated_by\x18\x11 \x01(\t\x12\x12\n\nupdated_by\x18\x12 \x01(\tB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nuser.proto\x12\x08trueauth\x1a\x1fgoogle/protobuf/timestamp.proto\"\xed\x01\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x10\n\x08username\x18\x03 \x01(\t\x12\x10\n\x08password\x18\x04 \x01(\t\x12\x11\n\tfirstname\x18\x05 \x01(\t\x12\x10\n\x08lastname\x18\x06 \x01(\t\x12\x10\n\x08verified\x18\x07 \x01(\x08\x12\x0f\n\x07\x62locked\x18\x08 \x01(\x08\x12.\n\ncreated_at\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12.\n\nupdated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'user_pb2', globals())
@@ -23,5 +23,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z!github.com/sirjager/rpcs/trueauth'
   _USER._serialized_start=58
-  _USER._serialized_end=600
+  _USER._serialized_end=295
 # @@protoc_insertion_point(module_scope)
