@@ -1,6 +1,5 @@
 import * as jspb from 'google-protobuf'
 
-import * as user_pb from './user_pb';
 
 
 export class VerifyRequest extends jspb.Message {
@@ -26,10 +25,8 @@ export namespace VerifyRequest {
 }
 
 export class VerifyResponse extends jspb.Message {
-  getUser(): user_pb.User | undefined;
-  setUser(value?: user_pb.User): VerifyResponse;
-  hasUser(): boolean;
-  clearUser(): VerifyResponse;
+  getMessage(): string;
+  setMessage(value: string): VerifyResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): VerifyResponse.AsObject;
@@ -41,7 +38,7 @@ export class VerifyResponse extends jspb.Message {
 
 export namespace VerifyResponse {
   export type AsObject = {
-    user?: user_pb.User.AsObject,
+    message: string,
   }
 }
 

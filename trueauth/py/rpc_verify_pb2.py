@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import user_pb2 as user__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-verify.proto\x12\x08trueauth\x1a\nuser.proto\"S\n\rVerifyRequest\x12\x1f\n\x17\x65mail_verification_code\x18\x01 \x01(\t\x12!\n\x19\x61llowip_verification_code\x18\x02 \x01(\t\".\n\x0eVerifyResponse\x12\x1c\n\x04user\x18\x01 \x01(\x0b\x32\x0e.trueauth.UserB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-verify.proto\x12\x08trueauth\"S\n\rVerifyRequest\x12\x1f\n\x17\x65mail_verification_code\x18\x01 \x01(\t\x12!\n\x19\x61llowip_verification_code\x18\x02 \x01(\t\"!\n\x0eVerifyResponse\x12\x0f\n\x07message\x18\x01 \x01(\tB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_verify_pb2', globals())
@@ -22,8 +21,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z!github.com/sirjager/rpcs/trueauth'
-  _VERIFYREQUEST._serialized_start=42
-  _VERIFYREQUEST._serialized_end=125
-  _VERIFYRESPONSE._serialized_start=127
-  _VERIFYRESPONSE._serialized_end=173
+  _VERIFYREQUEST._serialized_start=30
+  _VERIFYREQUEST._serialized_end=113
+  _VERIFYRESPONSE._serialized_start=115
+  _VERIFYRESPONSE._serialized_end=148
 # @@protoc_insertion_point(module_scope)
