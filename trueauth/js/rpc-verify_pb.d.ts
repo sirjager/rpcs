@@ -4,8 +4,11 @@ import * as user_pb from './user_pb';
 
 
 export class VerifyRequest extends jspb.Message {
-  getCode(): string;
-  setCode(value: string): VerifyRequest;
+  getEmailVerificationCode(): string;
+  setEmailVerificationCode(value: string): VerifyRequest;
+
+  getAllowipVerificationCode(): string;
+  setAllowipVerificationCode(value: string): VerifyRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): VerifyRequest.AsObject;
@@ -17,7 +20,8 @@ export class VerifyRequest extends jspb.Message {
 
 export namespace VerifyRequest {
   export type AsObject = {
-    code: string,
+    emailVerificationCode: string,
+    allowipVerificationCode: string,
   }
 }
 
