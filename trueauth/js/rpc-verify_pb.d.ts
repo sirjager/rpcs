@@ -2,41 +2,73 @@ import * as jspb from 'google-protobuf'
 
 
 
-export class VerifyRequest extends jspb.Message {
-  getEmailVerificationCode(): string;
-  setEmailVerificationCode(value: string): VerifyRequest;
-
-  getAllowipVerificationCode(): string;
-  setAllowipVerificationCode(value: string): VerifyRequest;
+export class VerifyEmailRequest extends jspb.Message {
+  getCode(): string;
+  setCode(value: string): VerifyEmailRequest;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): VerifyRequest.AsObject;
-  static toObject(includeInstance: boolean, msg: VerifyRequest): VerifyRequest.AsObject;
-  static serializeBinaryToWriter(message: VerifyRequest, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): VerifyRequest;
-  static deserializeBinaryFromReader(message: VerifyRequest, reader: jspb.BinaryReader): VerifyRequest;
+  toObject(includeInstance?: boolean): VerifyEmailRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: VerifyEmailRequest): VerifyEmailRequest.AsObject;
+  static serializeBinaryToWriter(message: VerifyEmailRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): VerifyEmailRequest;
+  static deserializeBinaryFromReader(message: VerifyEmailRequest, reader: jspb.BinaryReader): VerifyEmailRequest;
 }
 
-export namespace VerifyRequest {
+export namespace VerifyEmailRequest {
   export type AsObject = {
-    emailVerificationCode: string,
-    allowipVerificationCode: string,
+    code: string,
   }
 }
 
-export class VerifyResponse extends jspb.Message {
+export class VerifyEmailResponse extends jspb.Message {
   getMessage(): string;
-  setMessage(value: string): VerifyResponse;
+  setMessage(value: string): VerifyEmailResponse;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): VerifyResponse.AsObject;
-  static toObject(includeInstance: boolean, msg: VerifyResponse): VerifyResponse.AsObject;
-  static serializeBinaryToWriter(message: VerifyResponse, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): VerifyResponse;
-  static deserializeBinaryFromReader(message: VerifyResponse, reader: jspb.BinaryReader): VerifyResponse;
+  toObject(includeInstance?: boolean): VerifyEmailResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: VerifyEmailResponse): VerifyEmailResponse.AsObject;
+  static serializeBinaryToWriter(message: VerifyEmailResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): VerifyEmailResponse;
+  static deserializeBinaryFromReader(message: VerifyEmailResponse, reader: jspb.BinaryReader): VerifyEmailResponse;
 }
 
-export namespace VerifyResponse {
+export namespace VerifyEmailResponse {
+  export type AsObject = {
+    message: string,
+  }
+}
+
+export class AllowIPAddressRequest extends jspb.Message {
+  getCode(): string;
+  setCode(value: string): AllowIPAddressRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AllowIPAddressRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: AllowIPAddressRequest): AllowIPAddressRequest.AsObject;
+  static serializeBinaryToWriter(message: AllowIPAddressRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AllowIPAddressRequest;
+  static deserializeBinaryFromReader(message: AllowIPAddressRequest, reader: jspb.BinaryReader): AllowIPAddressRequest;
+}
+
+export namespace AllowIPAddressRequest {
+  export type AsObject = {
+    code: string,
+  }
+}
+
+export class AllowIPAddressResponse extends jspb.Message {
+  getMessage(): string;
+  setMessage(value: string): AllowIPAddressResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AllowIPAddressResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: AllowIPAddressResponse): AllowIPAddressResponse.AsObject;
+  static serializeBinaryToWriter(message: AllowIPAddressResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AllowIPAddressResponse;
+  static deserializeBinaryFromReader(message: AllowIPAddressResponse, reader: jspb.BinaryReader): AllowIPAddressResponse;
+}
+
+export namespace AllowIPAddressResponse {
   export type AsObject = {
     message: string,
   }

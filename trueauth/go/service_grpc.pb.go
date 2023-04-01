@@ -19,11 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TrueAuth_Welcome_FullMethodName  = "/trueauth.TrueAuth/Welcome"
-	TrueAuth_Health_FullMethodName   = "/trueauth.TrueAuth/Health"
-	TrueAuth_Register_FullMethodName = "/trueauth.TrueAuth/Register"
-	TrueAuth_Login_FullMethodName    = "/trueauth.TrueAuth/Login"
-	TrueAuth_Verify_FullMethodName   = "/trueauth.TrueAuth/Verify"
+	TrueAuth_Welcome_FullMethodName        = "/trueauth.TrueAuth/Welcome"
+	TrueAuth_Health_FullMethodName         = "/trueauth.TrueAuth/Health"
+	TrueAuth_Register_FullMethodName       = "/trueauth.TrueAuth/Register"
+	TrueAuth_Login_FullMethodName          = "/trueauth.TrueAuth/Login"
+	TrueAuth_VerifyEmail_FullMethodName    = "/trueauth.TrueAuth/VerifyEmail"
+	TrueAuth_AllowIPAddress_FullMethodName = "/trueauth.TrueAuth/AllowIPAddress"
 )
 
 // TrueAuthClient is the client API for TrueAuth service.
@@ -34,7 +35,8 @@ type TrueAuthClient interface {
 	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
-	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
+	VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error)
+	AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error)
 }
 
 type trueAuthClient struct {
@@ -81,9 +83,18 @@ func (c *trueAuthClient) Login(ctx context.Context, in *LoginRequest, opts ...gr
 	return out, nil
 }
 
-func (c *trueAuthClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
-	out := new(VerifyResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Verify_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error) {
+	out := new(VerifyEmailResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_VerifyEmail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error) {
+	out := new(AllowIPAddressResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_AllowIPAddress_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +109,8 @@ type TrueAuthServer interface {
 	Health(context.Context, *HealthRequest) (*HealthResponse, error)
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
-	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
+	VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error)
+	AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
 
@@ -118,8 +130,11 @@ func (UnimplementedTrueAuthServer) Register(context.Context, *RegisterRequest) (
 func (UnimplementedTrueAuthServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (UnimplementedTrueAuthServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
+func (UnimplementedTrueAuthServer) VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmail not implemented")
+}
+func (UnimplementedTrueAuthServer) AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AllowIPAddress not implemented")
 }
 func (UnimplementedTrueAuthServer) mustEmbedUnimplementedTrueAuthServer() {}
 
@@ -206,20 +221,38 @@ func _TrueAuth_Login_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VerifyRequest)
+func _TrueAuth_VerifyEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VerifyEmailRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Verify(ctx, in)
+		return srv.(TrueAuthServer).VerifyEmail(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Verify_FullMethodName,
+		FullMethod: TrueAuth_VerifyEmail_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Verify(ctx, req.(*VerifyRequest))
+		return srv.(TrueAuthServer).VerifyEmail(ctx, req.(*VerifyEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_AllowIPAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllowIPAddressRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).AllowIPAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_AllowIPAddress_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).AllowIPAddress(ctx, req.(*AllowIPAddressRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -248,8 +281,12 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Login_Handler,
 		},
 		{
-			MethodName: "Verify",
-			Handler:    _TrueAuth_Verify_Handler,
+			MethodName: "VerifyEmail",
+			Handler:    _TrueAuth_VerifyEmail_Handler,
+		},
+		{
+			MethodName: "AllowIPAddress",
+			Handler:    _TrueAuth_AllowIPAddress_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

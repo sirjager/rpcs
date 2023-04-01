@@ -38,10 +38,15 @@ class TrueAuthStub(object):
                 request_serializer=rpc__login__pb2.LoginRequest.SerializeToString,
                 response_deserializer=rpc__login__pb2.LoginResponse.FromString,
                 )
-        self.Verify = channel.unary_unary(
-                '/trueauth.TrueAuth/Verify',
-                request_serializer=rpc__verify__pb2.VerifyRequest.SerializeToString,
-                response_deserializer=rpc__verify__pb2.VerifyResponse.FromString,
+        self.VerifyEmail = channel.unary_unary(
+                '/trueauth.TrueAuth/VerifyEmail',
+                request_serializer=rpc__verify__pb2.VerifyEmailRequest.SerializeToString,
+                response_deserializer=rpc__verify__pb2.VerifyEmailResponse.FromString,
+                )
+        self.AllowIPAddress = channel.unary_unary(
+                '/trueauth.TrueAuth/AllowIPAddress',
+                request_serializer=rpc__verify__pb2.AllowIPAddressRequest.SerializeToString,
+                response_deserializer=rpc__verify__pb2.AllowIPAddressResponse.FromString,
                 )
 
 
@@ -72,7 +77,13 @@ class TrueAuthServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Verify(self, request, context):
+    def VerifyEmail(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AllowIPAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -101,10 +112,15 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     request_deserializer=rpc__login__pb2.LoginRequest.FromString,
                     response_serializer=rpc__login__pb2.LoginResponse.SerializeToString,
             ),
-            'Verify': grpc.unary_unary_rpc_method_handler(
-                    servicer.Verify,
-                    request_deserializer=rpc__verify__pb2.VerifyRequest.FromString,
-                    response_serializer=rpc__verify__pb2.VerifyResponse.SerializeToString,
+            'VerifyEmail': grpc.unary_unary_rpc_method_handler(
+                    servicer.VerifyEmail,
+                    request_deserializer=rpc__verify__pb2.VerifyEmailRequest.FromString,
+                    response_serializer=rpc__verify__pb2.VerifyEmailResponse.SerializeToString,
+            ),
+            'AllowIPAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.AllowIPAddress,
+                    request_deserializer=rpc__verify__pb2.AllowIPAddressRequest.FromString,
+                    response_serializer=rpc__verify__pb2.AllowIPAddressResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -185,7 +201,7 @@ class TrueAuth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Verify(request,
+    def VerifyEmail(request,
             target,
             options=(),
             channel_credentials=None,
@@ -195,8 +211,25 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Verify',
-            rpc__verify__pb2.VerifyRequest.SerializeToString,
-            rpc__verify__pb2.VerifyResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/VerifyEmail',
+            rpc__verify__pb2.VerifyEmailRequest.SerializeToString,
+            rpc__verify__pb2.VerifyEmailResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AllowIPAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/AllowIPAddress',
+            rpc__verify__pb2.AllowIPAddressRequest.SerializeToString,
+            rpc__verify__pb2.AllowIPAddressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

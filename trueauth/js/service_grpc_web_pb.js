@@ -335,61 +335,122 @@ proto.trueauth.TrueAuthPromiseClient.prototype.login =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.VerifyRequest,
- *   !proto.trueauth.VerifyResponse>}
+ *   !proto.trueauth.VerifyEmailRequest,
+ *   !proto.trueauth.VerifyEmailResponse>}
  */
-const methodDescriptor_TrueAuth_Verify = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/Verify',
+const methodDescriptor_TrueAuth_VerifyEmail = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/VerifyEmail',
   grpc.web.MethodType.UNARY,
-  rpc$verify_pb.VerifyRequest,
-  rpc$verify_pb.VerifyResponse,
+  rpc$verify_pb.VerifyEmailRequest,
+  rpc$verify_pb.VerifyEmailResponse,
   /**
-   * @param {!proto.trueauth.VerifyRequest} request
+   * @param {!proto.trueauth.VerifyEmailRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$verify_pb.VerifyResponse.deserializeBinary
+  rpc$verify_pb.VerifyEmailResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.VerifyRequest} request The
+ * @param {!proto.trueauth.VerifyEmailRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.VerifyResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.VerifyEmailResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.VerifyResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.VerifyEmailResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.verify =
+proto.trueauth.TrueAuthClient.prototype.verifyEmail =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/Verify',
+      '/trueauth.TrueAuth/VerifyEmail',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Verify,
+      methodDescriptor_TrueAuth_VerifyEmail,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.VerifyRequest} request The
+ * @param {!proto.trueauth.VerifyEmailRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.VerifyResponse>}
+ * @return {!Promise<!proto.trueauth.VerifyEmailResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.verify =
+proto.trueauth.TrueAuthPromiseClient.prototype.verifyEmail =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/Verify',
+      '/trueauth.TrueAuth/VerifyEmail',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_Verify);
+      methodDescriptor_TrueAuth_VerifyEmail);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.AllowIPAddressRequest,
+ *   !proto.trueauth.AllowIPAddressResponse>}
+ */
+const methodDescriptor_TrueAuth_AllowIPAddress = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/AllowIPAddress',
+  grpc.web.MethodType.UNARY,
+  rpc$verify_pb.AllowIPAddressRequest,
+  rpc$verify_pb.AllowIPAddressResponse,
+  /**
+   * @param {!proto.trueauth.AllowIPAddressRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$verify_pb.AllowIPAddressResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.AllowIPAddressRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.AllowIPAddressResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.AllowIPAddressResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.allowIPAddress =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/AllowIPAddress',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_AllowIPAddress,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.AllowIPAddressRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.AllowIPAddressResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.allowIPAddress =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/AllowIPAddress',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_AllowIPAddress);
 };
 
 

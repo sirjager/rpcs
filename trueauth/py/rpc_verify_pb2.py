@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-verify.proto\x12\x08trueauth\"S\n\rVerifyRequest\x12\x1f\n\x17\x65mail_verification_code\x18\x01 \x01(\t\x12!\n\x19\x61llowip_verification_code\x18\x02 \x01(\t\"!\n\x0eVerifyResponse\x12\x0f\n\x07message\x18\x01 \x01(\tB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-verify.proto\x12\x08trueauth\"\"\n\x12VerifyEmailRequest\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\"&\n\x13VerifyEmailResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"%\n\x15\x41llowIPAddressRequest\x12\x0c\n\x04\x63ode\x18\x01 \x01(\t\")\n\x16\x41llowIPAddressResponse\x12\x0f\n\x07message\x18\x01 \x01(\tB#Z!github.com/sirjager/rpcs/trueauthb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_verify_pb2', globals())
@@ -21,8 +21,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z!github.com/sirjager/rpcs/trueauth'
-  _VERIFYREQUEST._serialized_start=30
-  _VERIFYREQUEST._serialized_end=113
-  _VERIFYRESPONSE._serialized_start=115
-  _VERIFYRESPONSE._serialized_end=148
+  _VERIFYEMAILREQUEST._serialized_start=30
+  _VERIFYEMAILREQUEST._serialized_end=64
+  _VERIFYEMAILRESPONSE._serialized_start=66
+  _VERIFYEMAILRESPONSE._serialized_end=104
+  _ALLOWIPADDRESSREQUEST._serialized_start=106
+  _ALLOWIPADDRESSREQUEST._serialized_end=143
+  _ALLOWIPADDRESSRESPONSE._serialized_start=145
+  _ALLOWIPADDRESSRESPONSE._serialized_end=186
 # @@protoc_insertion_point(module_scope)
