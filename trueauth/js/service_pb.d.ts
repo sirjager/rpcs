@@ -6,5 +6,6 @@ import * as rpc$welcome_pb from './rpc-welcome_pb';
 import * as rpc$health_pb from './rpc-health_pb';
 import * as rpc$register_pb from './rpc-register_pb';
 import * as rpc$login_pb from './rpc-login_pb';
+import * as rpc$verify_pb from './rpc-verify_pb';
 
 

@@ -3,6 +3,7 @@ import * as grpcWeb from 'grpc-web';
 import * as rpc$health_pb from './rpc-health_pb';
 import * as rpc$login_pb from './rpc-login_pb';
 import * as rpc$register_pb from './rpc-register_pb';
+import * as rpc$verify_pb from './rpc-verify_pb';
 import * as rpc$welcome_pb from './rpc-welcome_pb';
 
 
@@ -39,6 +40,13 @@ export class TrueAuthClient {
                response: rpc$login_pb.LoginResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$login_pb.LoginResponse>;
 
+  verify(
+    request: rpc$verify_pb.VerifyRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$verify_pb.VerifyResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$verify_pb.VerifyResponse>;
+
 }
 
 export class TrueAuthPromiseClient {
@@ -65,6 +73,11 @@ export class TrueAuthPromiseClient {
     request: rpc$login_pb.LoginRequest,
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$login_pb.LoginResponse>;
+
+  verify(
+    request: rpc$verify_pb.VerifyRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$verify_pb.VerifyResponse>;
 
 }
 

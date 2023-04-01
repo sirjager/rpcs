@@ -5,6 +5,7 @@ import grpc
 import rpc_health_pb2 as rpc__health__pb2
 import rpc_login_pb2 as rpc__login__pb2
 import rpc_register_pb2 as rpc__register__pb2
+import rpc_verify_pb2 as rpc__verify__pb2
 import rpc_welcome_pb2 as rpc__welcome__pb2
 
 
@@ -37,6 +38,11 @@ class TrueAuthStub(object):
                 request_serializer=rpc__login__pb2.LoginRequest.SerializeToString,
                 response_deserializer=rpc__login__pb2.LoginResponse.FromString,
                 )
+        self.Verify = channel.unary_unary(
+                '/trueauth.TrueAuth/Verify',
+                request_serializer=rpc__verify__pb2.VerifyRequest.SerializeToString,
+                response_deserializer=rpc__verify__pb2.VerifyResponse.FromString,
+                )
 
 
 class TrueAuthServicer(object):
@@ -66,6 +72,12 @@ class TrueAuthServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Verify(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TrueAuthServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -88,6 +100,11 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     servicer.Login,
                     request_deserializer=rpc__login__pb2.LoginRequest.FromString,
                     response_serializer=rpc__login__pb2.LoginResponse.SerializeToString,
+            ),
+            'Verify': grpc.unary_unary_rpc_method_handler(
+                    servicer.Verify,
+                    request_deserializer=rpc__verify__pb2.VerifyRequest.FromString,
+                    response_serializer=rpc__verify__pb2.VerifyResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -164,5 +181,22 @@ class TrueAuth(object):
         return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Login',
             rpc__login__pb2.LoginRequest.SerializeToString,
             rpc__login__pb2.LoginResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Verify(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Verify',
+            rpc__verify__pb2.VerifyRequest.SerializeToString,
+            rpc__verify__pb2.VerifyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

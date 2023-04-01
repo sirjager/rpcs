@@ -31,6 +31,8 @@ var rpc$health_pb = require('./rpc-health_pb.js')
 var rpc$register_pb = require('./rpc-register_pb.js')
 
 var rpc$login_pb = require('./rpc-login_pb.js')
+
+var rpc$verify_pb = require('./rpc-verify_pb.js')
 const proto = {};
 proto.trueauth = require('./service_pb.js');
 
@@ -327,6 +329,67 @@ proto.trueauth.TrueAuthPromiseClient.prototype.login =
       request,
       metadata || {},
       methodDescriptor_TrueAuth_Login);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.VerifyRequest,
+ *   !proto.trueauth.VerifyResponse>}
+ */
+const methodDescriptor_TrueAuth_Verify = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Verify',
+  grpc.web.MethodType.UNARY,
+  rpc$verify_pb.VerifyRequest,
+  rpc$verify_pb.VerifyResponse,
+  /**
+   * @param {!proto.trueauth.VerifyRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$verify_pb.VerifyResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.VerifyRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.VerifyResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.VerifyResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.verify =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/Verify',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Verify,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.VerifyRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.VerifyResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.verify =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/Verify',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Verify);
 };
 
 
