@@ -22,6 +22,9 @@ export class User extends jspb.Message {
   getLastname(): string;
   setLastname(value: string): User;
 
+  getVerified(): boolean;
+  setVerified(value: boolean): User;
+
   getCreatedAt(): google_protobuf_timestamp_pb.Timestamp | undefined;
   setCreatedAt(value?: google_protobuf_timestamp_pb.Timestamp): User;
   hasCreatedAt(): boolean;
@@ -48,6 +51,7 @@ export namespace User {
     password: string,
     firstname: string,
     lastname: string,
+    verified: boolean,
     createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     updatedAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
   }
