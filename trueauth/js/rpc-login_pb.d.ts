@@ -1,7 +1,7 @@
 import * as jspb from 'google-protobuf'
 
 import * as google_protobuf_timestamp_pb from 'google-protobuf/google/protobuf/timestamp_pb';
-import * as user_pb from './user_pb';
+import * as account_pb from './account_pb';
 
 
 export class LoginRequest extends jspb.Message {
@@ -27,10 +27,10 @@ export namespace LoginRequest {
 }
 
 export class LoginResponse extends jspb.Message {
-  getUser(): user_pb.User | undefined;
-  setUser(value?: user_pb.User): LoginResponse;
-  hasUser(): boolean;
-  clearUser(): LoginResponse;
+  getAccount(): account_pb.Account | undefined;
+  setAccount(value?: account_pb.Account): LoginResponse;
+  hasAccount(): boolean;
+  clearAccount(): LoginResponse;
 
   getSessionId(): string;
   setSessionId(value: string): LoginResponse;
@@ -61,7 +61,7 @@ export class LoginResponse extends jspb.Message {
 
 export namespace LoginResponse {
   export type AsObject = {
-    user?: user_pb.User.AsObject,
+    account?: account_pb.Account.AsObject,
     sessionId: string,
     accessToken: string,
     refreshToken: string,

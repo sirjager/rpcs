@@ -1,9 +1,14 @@
 import * as grpcWeb from 'grpc-web';
 
-import * as rpc$verify_pb from './rpc-verify_pb';
+import * as rpc$ip_pb from './rpc-ip_pb';
+import * as rpc$delete_pb from './rpc-delete_pb';
+import * as rpc$forgot_pb from './rpc-forgot_pb';
 import * as rpc$health_pb from './rpc-health_pb';
 import * as rpc$login_pb from './rpc-login_pb';
+import * as rpc$logout_pb from './rpc-logout_pb';
+import * as rpc$refresh_pb from './rpc-refresh_pb';
 import * as rpc$register_pb from './rpc-register_pb';
+import * as rpc$verify_pb from './rpc-verify_pb';
 import * as rpc$welcome_pb from './rpc-welcome_pb';
 
 
@@ -47,12 +52,47 @@ export class TrueAuthClient {
                response: rpc$verify_pb.VerifyEmailResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$verify_pb.VerifyEmailResponse>;
 
-  allowIPAddress(
-    request: rpc$verify_pb.AllowIPAddressRequest,
+  logout(
+    request: rpc$logout_pb.LogoutRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$verify_pb.AllowIPAddressResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$verify_pb.AllowIPAddressResponse>;
+               response: rpc$logout_pb.LogoutResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$logout_pb.LogoutResponse>;
+
+  refreshToken(
+    request: rpc$refresh_pb.RefreshTokenRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$refresh_pb.RefreshTokenResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$refresh_pb.RefreshTokenResponse>;
+
+  forgotPassword(
+    request: rpc$forgot_pb.ForgotPasswordRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$forgot_pb.ForgotPasswordResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$forgot_pb.ForgotPasswordResponse>;
+
+  resetPassword(
+    request: rpc$forgot_pb.ResetPasswordRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$forgot_pb.ResetPasswordResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$forgot_pb.ResetPasswordResponse>;
+
+  deleteAccount(
+    request: rpc$delete_pb.DeleteAccountRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$delete_pb.DeleteAccountResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$delete_pb.DeleteAccountResponse>;
+
+  allowIPAddress(
+    request: rpc$ip_pb.AllowIPAddressRequest,
+    metadata: grpcWeb.Metadata | undefined,
+    callback: (err: grpcWeb.RpcError,
+               response: rpc$ip_pb.AllowIPAddressResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$ip_pb.AllowIPAddressResponse>;
 
 }
 
@@ -86,10 +126,35 @@ export class TrueAuthPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$verify_pb.VerifyEmailResponse>;
 
-  allowIPAddress(
-    request: rpc$verify_pb.AllowIPAddressRequest,
+  logout(
+    request: rpc$logout_pb.LogoutRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$verify_pb.AllowIPAddressResponse>;
+  ): Promise<rpc$logout_pb.LogoutResponse>;
+
+  refreshToken(
+    request: rpc$refresh_pb.RefreshTokenRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$refresh_pb.RefreshTokenResponse>;
+
+  forgotPassword(
+    request: rpc$forgot_pb.ForgotPasswordRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$forgot_pb.ForgotPasswordResponse>;
+
+  resetPassword(
+    request: rpc$forgot_pb.ResetPasswordRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$forgot_pb.ResetPasswordResponse>;
+
+  deleteAccount(
+    request: rpc$delete_pb.DeleteAccountRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$delete_pb.DeleteAccountResponse>;
+
+  allowIPAddress(
+    request: rpc$ip_pb.AllowIPAddressRequest,
+    metadata?: grpcWeb.Metadata
+  ): Promise<rpc$ip_pb.AllowIPAddressResponse>;
 
 }
 

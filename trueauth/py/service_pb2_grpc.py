@@ -2,8 +2,13 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+import rpc_delete_pb2 as rpc__delete__pb2
+import rpc_forgot_pb2 as rpc__forgot__pb2
 import rpc_health_pb2 as rpc__health__pb2
+import rpc_ip_pb2 as rpc__ip__pb2
 import rpc_login_pb2 as rpc__login__pb2
+import rpc_logout_pb2 as rpc__logout__pb2
+import rpc_refresh_pb2 as rpc__refresh__pb2
 import rpc_register_pb2 as rpc__register__pb2
 import rpc_verify_pb2 as rpc__verify__pb2
 import rpc_welcome_pb2 as rpc__welcome__pb2
@@ -43,10 +48,35 @@ class TrueAuthStub(object):
                 request_serializer=rpc__verify__pb2.VerifyEmailRequest.SerializeToString,
                 response_deserializer=rpc__verify__pb2.VerifyEmailResponse.FromString,
                 )
+        self.Logout = channel.unary_unary(
+                '/trueauth.TrueAuth/Logout',
+                request_serializer=rpc__logout__pb2.LogoutRequest.SerializeToString,
+                response_deserializer=rpc__logout__pb2.LogoutResponse.FromString,
+                )
+        self.RefreshToken = channel.unary_unary(
+                '/trueauth.TrueAuth/RefreshToken',
+                request_serializer=rpc__refresh__pb2.RefreshTokenRequest.SerializeToString,
+                response_deserializer=rpc__refresh__pb2.RefreshTokenResponse.FromString,
+                )
+        self.ForgotPassword = channel.unary_unary(
+                '/trueauth.TrueAuth/ForgotPassword',
+                request_serializer=rpc__forgot__pb2.ForgotPasswordRequest.SerializeToString,
+                response_deserializer=rpc__forgot__pb2.ForgotPasswordResponse.FromString,
+                )
+        self.ResetPassword = channel.unary_unary(
+                '/trueauth.TrueAuth/ResetPassword',
+                request_serializer=rpc__forgot__pb2.ResetPasswordRequest.SerializeToString,
+                response_deserializer=rpc__forgot__pb2.ResetPasswordResponse.FromString,
+                )
+        self.DeleteAccount = channel.unary_unary(
+                '/trueauth.TrueAuth/DeleteAccount',
+                request_serializer=rpc__delete__pb2.DeleteAccountRequest.SerializeToString,
+                response_deserializer=rpc__delete__pb2.DeleteAccountResponse.FromString,
+                )
         self.AllowIPAddress = channel.unary_unary(
                 '/trueauth.TrueAuth/AllowIPAddress',
-                request_serializer=rpc__verify__pb2.AllowIPAddressRequest.SerializeToString,
-                response_deserializer=rpc__verify__pb2.AllowIPAddressResponse.FromString,
+                request_serializer=rpc__ip__pb2.AllowIPAddressRequest.SerializeToString,
+                response_deserializer=rpc__ip__pb2.AllowIPAddressResponse.FromString,
                 )
 
 
@@ -78,6 +108,36 @@ class TrueAuthServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def VerifyEmail(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Logout(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RefreshToken(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ForgotPassword(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResetPassword(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAccount(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -117,10 +177,35 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     request_deserializer=rpc__verify__pb2.VerifyEmailRequest.FromString,
                     response_serializer=rpc__verify__pb2.VerifyEmailResponse.SerializeToString,
             ),
+            'Logout': grpc.unary_unary_rpc_method_handler(
+                    servicer.Logout,
+                    request_deserializer=rpc__logout__pb2.LogoutRequest.FromString,
+                    response_serializer=rpc__logout__pb2.LogoutResponse.SerializeToString,
+            ),
+            'RefreshToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.RefreshToken,
+                    request_deserializer=rpc__refresh__pb2.RefreshTokenRequest.FromString,
+                    response_serializer=rpc__refresh__pb2.RefreshTokenResponse.SerializeToString,
+            ),
+            'ForgotPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.ForgotPassword,
+                    request_deserializer=rpc__forgot__pb2.ForgotPasswordRequest.FromString,
+                    response_serializer=rpc__forgot__pb2.ForgotPasswordResponse.SerializeToString,
+            ),
+            'ResetPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetPassword,
+                    request_deserializer=rpc__forgot__pb2.ResetPasswordRequest.FromString,
+                    response_serializer=rpc__forgot__pb2.ResetPasswordResponse.SerializeToString,
+            ),
+            'DeleteAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAccount,
+                    request_deserializer=rpc__delete__pb2.DeleteAccountRequest.FromString,
+                    response_serializer=rpc__delete__pb2.DeleteAccountResponse.SerializeToString,
+            ),
             'AllowIPAddress': grpc.unary_unary_rpc_method_handler(
                     servicer.AllowIPAddress,
-                    request_deserializer=rpc__verify__pb2.AllowIPAddressRequest.FromString,
-                    response_serializer=rpc__verify__pb2.AllowIPAddressResponse.SerializeToString,
+                    request_deserializer=rpc__ip__pb2.AllowIPAddressRequest.FromString,
+                    response_serializer=rpc__ip__pb2.AllowIPAddressResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -218,6 +303,91 @@ class TrueAuth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def Logout(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Logout',
+            rpc__logout__pb2.LogoutRequest.SerializeToString,
+            rpc__logout__pb2.LogoutResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RefreshToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/RefreshToken',
+            rpc__refresh__pb2.RefreshTokenRequest.SerializeToString,
+            rpc__refresh__pb2.RefreshTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ForgotPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/ForgotPassword',
+            rpc__forgot__pb2.ForgotPasswordRequest.SerializeToString,
+            rpc__forgot__pb2.ForgotPasswordResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ResetPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/ResetPassword',
+            rpc__forgot__pb2.ResetPasswordRequest.SerializeToString,
+            rpc__forgot__pb2.ResetPasswordResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/DeleteAccount',
+            rpc__delete__pb2.DeleteAccountRequest.SerializeToString,
+            rpc__delete__pb2.DeleteAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def AllowIPAddress(request,
             target,
             options=(),
@@ -229,7 +399,7 @@ class TrueAuth(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/AllowIPAddress',
-            rpc__verify__pb2.AllowIPAddressRequest.SerializeToString,
-            rpc__verify__pb2.AllowIPAddressResponse.FromString,
+            rpc__ip__pb2.AllowIPAddressRequest.SerializeToString,
+            rpc__ip__pb2.AllowIPAddressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

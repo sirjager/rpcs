@@ -33,6 +33,16 @@ var rpc$register_pb = require('./rpc-register_pb.js')
 var rpc$login_pb = require('./rpc-login_pb.js')
 
 var rpc$verify_pb = require('./rpc-verify_pb.js')
+
+var rpc$logout_pb = require('./rpc-logout_pb.js')
+
+var rpc$refresh_pb = require('./rpc-refresh_pb.js')
+
+var rpc$delete_pb = require('./rpc-delete_pb.js')
+
+var rpc$forgot_pb = require('./rpc-forgot_pb.js')
+
+var rpc$ip_pb = require('./rpc-ip_pb.js')
 const proto = {};
 proto.trueauth = require('./service_pb.js');
 
@@ -396,14 +406,319 @@ proto.trueauth.TrueAuthPromiseClient.prototype.verifyEmail =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.LogoutRequest,
+ *   !proto.trueauth.LogoutResponse>}
+ */
+const methodDescriptor_TrueAuth_Logout = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Logout',
+  grpc.web.MethodType.UNARY,
+  rpc$logout_pb.LogoutRequest,
+  rpc$logout_pb.LogoutResponse,
+  /**
+   * @param {!proto.trueauth.LogoutRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$logout_pb.LogoutResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.LogoutRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.LogoutResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.LogoutResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.logout =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/Logout',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Logout,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.LogoutRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.LogoutResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.logout =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/Logout',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_Logout);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.RefreshTokenRequest,
+ *   !proto.trueauth.RefreshTokenResponse>}
+ */
+const methodDescriptor_TrueAuth_RefreshToken = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/RefreshToken',
+  grpc.web.MethodType.UNARY,
+  rpc$refresh_pb.RefreshTokenRequest,
+  rpc$refresh_pb.RefreshTokenResponse,
+  /**
+   * @param {!proto.trueauth.RefreshTokenRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$refresh_pb.RefreshTokenResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.RefreshTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.RefreshTokenResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.RefreshTokenResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.refreshToken =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/RefreshToken',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_RefreshToken,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.RefreshTokenRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.RefreshTokenResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.refreshToken =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/RefreshToken',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_RefreshToken);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.ForgotPasswordRequest,
+ *   !proto.trueauth.ForgotPasswordResponse>}
+ */
+const methodDescriptor_TrueAuth_ForgotPassword = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/ForgotPassword',
+  grpc.web.MethodType.UNARY,
+  rpc$forgot_pb.ForgotPasswordRequest,
+  rpc$forgot_pb.ForgotPasswordResponse,
+  /**
+   * @param {!proto.trueauth.ForgotPasswordRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$forgot_pb.ForgotPasswordResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.ForgotPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.ForgotPasswordResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.ForgotPasswordResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.forgotPassword =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/ForgotPassword',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_ForgotPassword,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.ForgotPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.ForgotPasswordResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.forgotPassword =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/ForgotPassword',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_ForgotPassword);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.ResetPasswordRequest,
+ *   !proto.trueauth.ResetPasswordResponse>}
+ */
+const methodDescriptor_TrueAuth_ResetPassword = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/ResetPassword',
+  grpc.web.MethodType.UNARY,
+  rpc$forgot_pb.ResetPasswordRequest,
+  rpc$forgot_pb.ResetPasswordResponse,
+  /**
+   * @param {!proto.trueauth.ResetPasswordRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$forgot_pb.ResetPasswordResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.ResetPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.ResetPasswordResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.ResetPasswordResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.resetPassword =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/ResetPassword',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_ResetPassword,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.ResetPasswordRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.ResetPasswordResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.resetPassword =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/ResetPassword',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_ResetPassword);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.trueauth.DeleteAccountRequest,
+ *   !proto.trueauth.DeleteAccountResponse>}
+ */
+const methodDescriptor_TrueAuth_DeleteAccount = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/DeleteAccount',
+  grpc.web.MethodType.UNARY,
+  rpc$delete_pb.DeleteAccountRequest,
+  rpc$delete_pb.DeleteAccountResponse,
+  /**
+   * @param {!proto.trueauth.DeleteAccountRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  rpc$delete_pb.DeleteAccountResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.trueauth.DeleteAccountRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.DeleteAccountResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.DeleteAccountResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.trueauth.TrueAuthClient.prototype.deleteAccount =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/trueauth.TrueAuth/DeleteAccount',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_DeleteAccount,
+      callback);
+};
+
+
+/**
+ * @param {!proto.trueauth.DeleteAccountRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.trueauth.DeleteAccountResponse>}
+ *     Promise that resolves to the response
+ */
+proto.trueauth.TrueAuthPromiseClient.prototype.deleteAccount =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/trueauth.TrueAuth/DeleteAccount',
+      request,
+      metadata || {},
+      methodDescriptor_TrueAuth_DeleteAccount);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.trueauth.AllowIPAddressRequest,
  *   !proto.trueauth.AllowIPAddressResponse>}
  */
 const methodDescriptor_TrueAuth_AllowIPAddress = new grpc.web.MethodDescriptor(
   '/trueauth.TrueAuth/AllowIPAddress',
   grpc.web.MethodType.UNARY,
-  rpc$verify_pb.AllowIPAddressRequest,
-  rpc$verify_pb.AllowIPAddressResponse,
+  rpc$ip_pb.AllowIPAddressRequest,
+  rpc$ip_pb.AllowIPAddressResponse,
   /**
    * @param {!proto.trueauth.AllowIPAddressRequest} request
    * @return {!Uint8Array}
@@ -411,7 +726,7 @@ const methodDescriptor_TrueAuth_AllowIPAddress = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  rpc$verify_pb.AllowIPAddressResponse.deserializeBinary
+  rpc$ip_pb.AllowIPAddressResponse.deserializeBinary
 );
 
 

@@ -1,6 +1,6 @@
 import * as jspb from 'google-protobuf'
 
-import * as user_pb from './user_pb';
+import * as account_pb from './account_pb';
 
 
 export class RegisterRequest extends jspb.Message {
@@ -38,10 +38,10 @@ export namespace RegisterRequest {
 }
 
 export class RegisterResponse extends jspb.Message {
-  getUser(): user_pb.User | undefined;
-  setUser(value?: user_pb.User): RegisterResponse;
-  hasUser(): boolean;
-  clearUser(): RegisterResponse;
+  getAccount(): account_pb.Account | undefined;
+  setAccount(value?: account_pb.Account): RegisterResponse;
+  hasAccount(): boolean;
+  clearAccount(): RegisterResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RegisterResponse.AsObject;
@@ -53,7 +53,7 @@ export class RegisterResponse extends jspb.Message {
 
 export namespace RegisterResponse {
   export type AsObject = {
-    user?: user_pb.User.AsObject,
+    account?: account_pb.Account.AsObject,
   }
 }
 

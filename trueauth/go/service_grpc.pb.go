@@ -24,6 +24,11 @@ const (
 	TrueAuth_Register_FullMethodName       = "/trueauth.TrueAuth/Register"
 	TrueAuth_Login_FullMethodName          = "/trueauth.TrueAuth/Login"
 	TrueAuth_VerifyEmail_FullMethodName    = "/trueauth.TrueAuth/VerifyEmail"
+	TrueAuth_Logout_FullMethodName         = "/trueauth.TrueAuth/Logout"
+	TrueAuth_RefreshToken_FullMethodName   = "/trueauth.TrueAuth/RefreshToken"
+	TrueAuth_ForgotPassword_FullMethodName = "/trueauth.TrueAuth/ForgotPassword"
+	TrueAuth_ResetPassword_FullMethodName  = "/trueauth.TrueAuth/ResetPassword"
+	TrueAuth_DeleteAccount_FullMethodName  = "/trueauth.TrueAuth/DeleteAccount"
 	TrueAuth_AllowIPAddress_FullMethodName = "/trueauth.TrueAuth/AllowIPAddress"
 )
 
@@ -36,6 +41,11 @@ type TrueAuthClient interface {
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error)
+	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
+	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
+	ForgotPassword(ctx context.Context, in *ForgotPasswordRequest, opts ...grpc.CallOption) (*ForgotPasswordResponse, error)
+	ResetPassword(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error)
+	DeleteAccount(ctx context.Context, in *DeleteAccountRequest, opts ...grpc.CallOption) (*DeleteAccountResponse, error)
 	AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error)
 }
 
@@ -92,6 +102,51 @@ func (c *trueAuthClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequest
 	return out, nil
 }
 
+func (c *trueAuthClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error) {
+	out := new(LogoutResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Logout_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error) {
+	out := new(RefreshTokenResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_RefreshToken_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) ForgotPassword(ctx context.Context, in *ForgotPasswordRequest, opts ...grpc.CallOption) (*ForgotPasswordResponse, error) {
+	out := new(ForgotPasswordResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_ForgotPassword_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) ResetPassword(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*ResetPasswordResponse, error) {
+	out := new(ResetPasswordResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_ResetPassword_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) DeleteAccount(ctx context.Context, in *DeleteAccountRequest, opts ...grpc.CallOption) (*DeleteAccountResponse, error) {
+	out := new(DeleteAccountResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_DeleteAccount_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *trueAuthClient) AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error) {
 	out := new(AllowIPAddressResponse)
 	err := c.cc.Invoke(ctx, TrueAuth_AllowIPAddress_FullMethodName, in, out, opts...)
@@ -110,6 +165,11 @@ type TrueAuthServer interface {
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error)
+	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
+	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
+	ForgotPassword(context.Context, *ForgotPasswordRequest) (*ForgotPasswordResponse, error)
+	ResetPassword(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error)
+	DeleteAccount(context.Context, *DeleteAccountRequest) (*DeleteAccountResponse, error)
 	AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
@@ -132,6 +192,21 @@ func (UnimplementedTrueAuthServer) Login(context.Context, *LoginRequest) (*Login
 }
 func (UnimplementedTrueAuthServer) VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmail not implemented")
+}
+func (UnimplementedTrueAuthServer) Logout(context.Context, *LogoutRequest) (*LogoutResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
+}
+func (UnimplementedTrueAuthServer) RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
+}
+func (UnimplementedTrueAuthServer) ForgotPassword(context.Context, *ForgotPasswordRequest) (*ForgotPasswordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ForgotPassword not implemented")
+}
+func (UnimplementedTrueAuthServer) ResetPassword(context.Context, *ResetPasswordRequest) (*ResetPasswordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ResetPassword not implemented")
+}
+func (UnimplementedTrueAuthServer) DeleteAccount(context.Context, *DeleteAccountRequest) (*DeleteAccountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccount not implemented")
 }
 func (UnimplementedTrueAuthServer) AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AllowIPAddress not implemented")
@@ -239,6 +314,96 @@ func _TrueAuth_VerifyEmail_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TrueAuth_Logout_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogoutRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).Logout(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_Logout_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).Logout(ctx, req.(*LogoutRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).RefreshToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_RefreshToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_ForgotPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ForgotPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).ForgotPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_ForgotPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).ForgotPassword(ctx, req.(*ForgotPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_ResetPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResetPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).ResetPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_ResetPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).ResetPassword(ctx, req.(*ResetPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_DeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).DeleteAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_DeleteAccount_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).DeleteAccount(ctx, req.(*DeleteAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _TrueAuth_AllowIPAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(AllowIPAddressRequest)
 	if err := dec(in); err != nil {
@@ -283,6 +448,26 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "VerifyEmail",
 			Handler:    _TrueAuth_VerifyEmail_Handler,
+		},
+		{
+			MethodName: "Logout",
+			Handler:    _TrueAuth_Logout_Handler,
+		},
+		{
+			MethodName: "RefreshToken",
+			Handler:    _TrueAuth_RefreshToken_Handler,
+		},
+		{
+			MethodName: "ForgotPassword",
+			Handler:    _TrueAuth_ForgotPassword_Handler,
+		},
+		{
+			MethodName: "ResetPassword",
+			Handler:    _TrueAuth_ResetPassword_Handler,
+		},
+		{
+			MethodName: "DeleteAccount",
+			Handler:    _TrueAuth_DeleteAccount_Handler,
 		},
 		{
 			MethodName: "AllowIPAddress",
