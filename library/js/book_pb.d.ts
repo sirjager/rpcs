@@ -15,8 +15,10 @@ export class Book extends jspb.Message {
   getAuthor(): string;
   setAuthor(value: string): Book;
 
-  getYear(): number;
-  setYear(value: number): Book;
+  getYearList(): Array<number>;
+  setYearList(value: Array<number>): Book;
+  clearYearList(): Book;
+  addYear(value: number, index?: number): Book;
 
   getEdition(): string;
   setEdition(value: string): Book;
@@ -70,7 +72,7 @@ export namespace Book {
     title: string,
     series: string,
     author: string,
-    year: number,
+    yearList: Array<number>,
     edition: string,
     publisher: string,
     pages: number,
