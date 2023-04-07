@@ -3,9 +3,6 @@ import * as jspb from 'google-protobuf'
 
 
 export class Book extends jspb.Message {
-  getId(): string;
-  setId(value: string): Book;
-
   getTitle(): string;
   setTitle(value: string): Book;
 
@@ -17,10 +14,8 @@ export class Book extends jspb.Message {
   clearAuthorsList(): Book;
   addAuthors(value: string, index?: number): Book;
 
-  getYearsList(): Array<number>;
-  setYearsList(value: Array<number>): Book;
-  clearYearsList(): Book;
-  addYears(value: number, index?: number): Book;
+  getYear(): string;
+  setYear(value: string): Book;
 
   getEdition(): string;
   setEdition(value: string): Book;
@@ -28,26 +23,11 @@ export class Book extends jspb.Message {
   getPublisher(): string;
   setPublisher(value: string): Book;
 
-  getPages(): number;
-  setPages(value: number): Book;
+  getPages(): string;
+  setPages(value: string): Book;
 
   getLanguage(): string;
   setLanguage(value: string): Book;
-
-  getGooglebookId(): string;
-  setGooglebookId(value: string): Book;
-
-  getOpenlibraryId(): string;
-  setOpenlibraryId(value: string): Book;
-
-  getFilesize(): number;
-  setFilesize(value: number): Book;
-
-  getExtension(): string;
-  setExtension(value: string): Book;
-
-  getMd5(): string;
-  setMd5(value: string): Book;
 
   getCoverurl(): string;
   setCoverurl(value: string): Book;
@@ -70,20 +50,14 @@ export class Book extends jspb.Message {
 
 export namespace Book {
   export type AsObject = {
-    id: string,
     title: string,
     series: string,
     authorsList: Array<string>,
-    yearsList: Array<number>,
+    year: string,
     edition: string,
     publisher: string,
-    pages: number,
+    pages: string,
     language: string,
-    googlebookId: string,
-    openlibraryId: string,
-    filesize: number,
-    extension: string,
-    md5: string,
     coverurl: string,
     tagsList: Array<string>,
     description: string,
