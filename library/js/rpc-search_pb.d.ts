@@ -7,9 +7,6 @@ export class SearchRequest extends jspb.Message {
   getQuery(): string;
   setQuery(value: string): SearchRequest;
 
-  getPerpage(): number;
-  setPerpage(value: number): SearchRequest;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): SearchRequest.AsObject;
   static toObject(includeInstance: boolean, msg: SearchRequest): SearchRequest.AsObject;
@@ -21,7 +18,6 @@ export class SearchRequest extends jspb.Message {
 export namespace SearchRequest {
   export type AsObject = {
     query: string,
-    perpage: number,
   }
 }
 

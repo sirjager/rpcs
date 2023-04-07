@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import book_pb2 as book__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-search.proto\x12\x07library\x1a\nbook.proto\"/\n\rSearchRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\x0f\n\x07perpage\x18\x02 \x01(\x05\".\n\x0eSearchResponse\x12\x1c\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\r.library.BookB\"Z github.com/sirjager/rpcs/libraryb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10rpc-search.proto\x12\x07library\x1a\nbook.proto\"\x1e\n\rSearchRequest\x12\r\n\x05query\x18\x01 \x01(\t\".\n\x0eSearchResponse\x12\x1c\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\r.library.BookB\"Z github.com/sirjager/rpcs/libraryb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'rpc_search_pb2', globals())
@@ -23,7 +23,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'Z github.com/sirjager/rpcs/library'
   _SEARCHREQUEST._serialized_start=41
-  _SEARCHREQUEST._serialized_end=88
-  _SEARCHRESPONSE._serialized_start=90
-  _SEARCHRESPONSE._serialized_end=136
+  _SEARCHREQUEST._serialized_end=71
+  _SEARCHRESPONSE._serialized_start=73
+  _SEARCHRESPONSE._serialized_end=119
 # @@protoc_insertion_point(module_scope)
