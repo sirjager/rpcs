@@ -19,17 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TrueAuth_Welcome_FullMethodName      = "/trueauth.TrueAuth/Welcome"
-	TrueAuth_Health_FullMethodName       = "/trueauth.TrueAuth/Health"
-	TrueAuth_Register_FullMethodName     = "/trueauth.TrueAuth/Register"
-	TrueAuth_Login_FullMethodName        = "/trueauth.TrueAuth/Login"
-	TrueAuth_Verify_FullMethodName       = "/trueauth.TrueAuth/Verify"
-	TrueAuth_Logout_FullMethodName       = "/trueauth.TrueAuth/Logout"
-	TrueAuth_RefreshToken_FullMethodName = "/trueauth.TrueAuth/RefreshToken"
-	TrueAuth_Recover_FullMethodName      = "/trueauth.TrueAuth/Recover"
-	TrueAuth_Update_FullMethodName       = "/trueauth.TrueAuth/Update"
-	TrueAuth_Delete_FullMethodName       = "/trueauth.TrueAuth/Delete"
-	TrueAuth_AllowIP_FullMethodName      = "/trueauth.TrueAuth/AllowIP"
+	TrueAuth_Welcome_FullMethodName  = "/trueauth.TrueAuth/Welcome"
+	TrueAuth_Health_FullMethodName   = "/trueauth.TrueAuth/Health"
+	TrueAuth_Register_FullMethodName = "/trueauth.TrueAuth/Register"
+	TrueAuth_Login_FullMethodName    = "/trueauth.TrueAuth/Login"
+	TrueAuth_Verify_FullMethodName   = "/trueauth.TrueAuth/Verify"
+	TrueAuth_Logout_FullMethodName   = "/trueauth.TrueAuth/Logout"
+	TrueAuth_Refresh_FullMethodName  = "/trueauth.TrueAuth/Refresh"
+	TrueAuth_Recovery_FullMethodName = "/trueauth.TrueAuth/Recovery"
+	TrueAuth_Update_FullMethodName   = "/trueauth.TrueAuth/Update"
+	TrueAuth_Delete_FullMethodName   = "/trueauth.TrueAuth/Delete"
+	TrueAuth_AllowIP_FullMethodName  = "/trueauth.TrueAuth/AllowIP"
 )
 
 // TrueAuthClient is the client API for TrueAuth service.
@@ -42,8 +42,8 @@ type TrueAuthClient interface {
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
 	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
-	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
-	Recover(ctx context.Context, in *RecoverRequest, opts ...grpc.CallOption) (*RecoverResponse, error)
+	Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error)
+	Recovery(ctx context.Context, in *RecoveryRequest, opts ...grpc.CallOption) (*RecoveryResponse, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	AllowIP(ctx context.Context, in *AllowIPRequest, opts ...grpc.CallOption) (*AllowIPResponse, error)
@@ -111,18 +111,18 @@ func (c *trueAuthClient) Logout(ctx context.Context, in *LogoutRequest, opts ...
 	return out, nil
 }
 
-func (c *trueAuthClient) RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error) {
-	out := new(RefreshTokenResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_RefreshToken_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Refresh(ctx context.Context, in *RefreshRequest, opts ...grpc.CallOption) (*RefreshResponse, error) {
+	out := new(RefreshResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Refresh_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trueAuthClient) Recover(ctx context.Context, in *RecoverRequest, opts ...grpc.CallOption) (*RecoverResponse, error) {
-	out := new(RecoverResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Recover_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Recovery(ctx context.Context, in *RecoveryRequest, opts ...grpc.CallOption) (*RecoveryResponse, error) {
+	out := new(RecoveryResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Recovery_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,8 +166,8 @@ type TrueAuthServer interface {
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
 	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
-	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
-	Recover(context.Context, *RecoverRequest) (*RecoverResponse, error)
+	Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error)
+	Recovery(context.Context, *RecoveryRequest) (*RecoveryResponse, error)
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	AllowIP(context.Context, *AllowIPRequest) (*AllowIPResponse, error)
@@ -196,11 +196,11 @@ func (UnimplementedTrueAuthServer) Verify(context.Context, *VerifyRequest) (*Ver
 func (UnimplementedTrueAuthServer) Logout(context.Context, *LogoutRequest) (*LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
 }
-func (UnimplementedTrueAuthServer) RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RefreshToken not implemented")
+func (UnimplementedTrueAuthServer) Refresh(context.Context, *RefreshRequest) (*RefreshResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Refresh not implemented")
 }
-func (UnimplementedTrueAuthServer) Recover(context.Context, *RecoverRequest) (*RecoverResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Recover not implemented")
+func (UnimplementedTrueAuthServer) Recovery(context.Context, *RecoveryRequest) (*RecoveryResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Recovery not implemented")
 }
 func (UnimplementedTrueAuthServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
@@ -332,38 +332,38 @@ func _TrueAuth_Logout_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_RefreshToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RefreshTokenRequest)
+func _TrueAuth_Refresh_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RefreshRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).RefreshToken(ctx, in)
+		return srv.(TrueAuthServer).Refresh(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_RefreshToken_FullMethodName,
+		FullMethod: TrueAuth_Refresh_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).RefreshToken(ctx, req.(*RefreshTokenRequest))
+		return srv.(TrueAuthServer).Refresh(ctx, req.(*RefreshRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Recover_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RecoverRequest)
+func _TrueAuth_Recovery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RecoveryRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).Recover(ctx, in)
+		return srv.(TrueAuthServer).Recovery(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_Recover_FullMethodName,
+		FullMethod: TrueAuth_Recovery_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Recover(ctx, req.(*RecoverRequest))
+		return srv.(TrueAuthServer).Recovery(ctx, req.(*RecoveryRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -454,12 +454,12 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Logout_Handler,
 		},
 		{
-			MethodName: "RefreshToken",
-			Handler:    _TrueAuth_RefreshToken_Handler,
+			MethodName: "Refresh",
+			Handler:    _TrueAuth_Refresh_Handler,
 		},
 		{
-			MethodName: "Recover",
-			Handler:    _TrueAuth_Recover_Handler,
+			MethodName: "Recovery",
+			Handler:    _TrueAuth_Recovery_Handler,
 		},
 		{
 			MethodName: "Update",

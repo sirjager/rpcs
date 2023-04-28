@@ -207,8 +207,8 @@ func local_request_TrueAuth_Logout_0(ctx context.Context, marshaler runtime.Mars
 
 }
 
-func request_TrueAuth_RefreshToken_0(ctx context.Context, marshaler runtime.Marshaler, client TrueAuthClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RefreshTokenRequest
+func request_TrueAuth_Refresh_0(ctx context.Context, marshaler runtime.Marshaler, client TrueAuthClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RefreshRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -219,13 +219,13 @@ func request_TrueAuth_RefreshToken_0(ctx context.Context, marshaler runtime.Mars
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.RefreshToken(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.Refresh(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_TrueAuth_RefreshToken_0(ctx context.Context, marshaler runtime.Marshaler, server TrueAuthServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RefreshTokenRequest
+func local_request_TrueAuth_Refresh_0(ctx context.Context, marshaler runtime.Marshaler, server TrueAuthServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RefreshRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -236,13 +236,13 @@ func local_request_TrueAuth_RefreshToken_0(ctx context.Context, marshaler runtim
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.RefreshToken(ctx, &protoReq)
+	msg, err := server.Refresh(ctx, &protoReq)
 	return msg, metadata, err
 
 }
 
-func request_TrueAuth_Recover_0(ctx context.Context, marshaler runtime.Marshaler, client TrueAuthClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RecoverRequest
+func request_TrueAuth_Recovery_0(ctx context.Context, marshaler runtime.Marshaler, client TrueAuthClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RecoveryRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -253,13 +253,13 @@ func request_TrueAuth_Recover_0(ctx context.Context, marshaler runtime.Marshaler
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := client.Recover(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	msg, err := client.Recovery(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
 
 }
 
-func local_request_TrueAuth_Recover_0(ctx context.Context, marshaler runtime.Marshaler, server TrueAuthServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RecoverRequest
+func local_request_TrueAuth_Recovery_0(ctx context.Context, marshaler runtime.Marshaler, server TrueAuthServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq RecoveryRequest
 	var metadata runtime.ServerMetadata
 
 	newReader, berr := utilities.IOReaderFactory(req.Body)
@@ -270,7 +270,7 @@ func local_request_TrueAuth_Recover_0(ctx context.Context, marshaler runtime.Mar
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
-	msg, err := server.Recover(ctx, &protoReq)
+	msg, err := server.Recovery(ctx, &protoReq)
 	return msg, metadata, err
 
 }
@@ -537,7 +537,7 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 
 	})
 
-	mux.Handle("POST", pattern_TrueAuth_RefreshToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TrueAuth_Refresh_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -545,12 +545,12 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/RefreshToken", runtime.WithHTTPPathPattern("/v1/refresh"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Refresh", runtime.WithHTTPPathPattern("/v1/refresh"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_TrueAuth_RefreshToken_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_TrueAuth_Refresh_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -558,11 +558,11 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_TrueAuth_RefreshToken_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TrueAuth_Refresh_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_TrueAuth_Recover_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TrueAuth_Recovery_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -570,12 +570,12 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Recover", runtime.WithHTTPPathPattern("/v1/recover"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recover"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_TrueAuth_Recover_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_TrueAuth_Recovery_0(annotatedContext, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
@@ -583,7 +583,7 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_TrueAuth_Recover_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TrueAuth_Recovery_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -835,47 +835,47 @@ func RegisterTrueAuthHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 
 	})
 
-	mux.Handle("POST", pattern_TrueAuth_RefreshToken_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TrueAuth_Refresh_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/RefreshToken", runtime.WithHTTPPathPattern("/v1/refresh"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Refresh", runtime.WithHTTPPathPattern("/v1/refresh"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TrueAuth_RefreshToken_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TrueAuth_Refresh_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TrueAuth_RefreshToken_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TrueAuth_Refresh_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_TrueAuth_Recover_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_TrueAuth_Recovery_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Recover", runtime.WithHTTPPathPattern("/v1/recover"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recover"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_TrueAuth_Recover_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_TrueAuth_Recovery_0(annotatedContext, inboundMarshaler, client, req, pathParams)
 		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
 		if err != nil {
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_TrueAuth_Recover_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_TrueAuth_Recovery_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -961,9 +961,9 @@ var (
 
 	pattern_TrueAuth_Logout_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "logout"}, ""))
 
-	pattern_TrueAuth_RefreshToken_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "refresh"}, ""))
+	pattern_TrueAuth_Refresh_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "refresh"}, ""))
 
-	pattern_TrueAuth_Recover_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "recover"}, ""))
+	pattern_TrueAuth_Recovery_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "recover"}, ""))
 
 	pattern_TrueAuth_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "account"}, ""))
 
@@ -985,9 +985,9 @@ var (
 
 	forward_TrueAuth_Logout_0 = runtime.ForwardResponseMessage
 
-	forward_TrueAuth_RefreshToken_0 = runtime.ForwardResponseMessage
+	forward_TrueAuth_Refresh_0 = runtime.ForwardResponseMessage
 
-	forward_TrueAuth_Recover_0 = runtime.ForwardResponseMessage
+	forward_TrueAuth_Recovery_0 = runtime.ForwardResponseMessage
 
 	forward_TrueAuth_Update_0 = runtime.ForwardResponseMessage
 
