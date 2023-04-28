@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type VerifyEmailRequest struct {
+type VerifyRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -30,8 +30,8 @@ type VerifyEmailRequest struct {
 	Code string `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`
 }
 
-func (x *VerifyEmailRequest) Reset() {
-	*x = VerifyEmailRequest{}
+func (x *VerifyRequest) Reset() {
+	*x = VerifyRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_verify_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -39,13 +39,13 @@ func (x *VerifyEmailRequest) Reset() {
 	}
 }
 
-func (x *VerifyEmailRequest) String() string {
+func (x *VerifyRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*VerifyEmailRequest) ProtoMessage() {}
+func (*VerifyRequest) ProtoMessage() {}
 
-func (x *VerifyEmailRequest) ProtoReflect() protoreflect.Message {
+func (x *VerifyRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_verify_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,19 +57,19 @@ func (x *VerifyEmailRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use VerifyEmailRequest.ProtoReflect.Descriptor instead.
-func (*VerifyEmailRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use VerifyRequest.ProtoReflect.Descriptor instead.
+func (*VerifyRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_verify_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *VerifyEmailRequest) GetCode() string {
+func (x *VerifyRequest) GetCode() string {
 	if x != nil {
 		return x.Code
 	}
 	return ""
 }
 
-type VerifyEmailResponse struct {
+type VerifyResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -77,8 +77,8 @@ type VerifyEmailResponse struct {
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"` // successful response
 }
 
-func (x *VerifyEmailResponse) Reset() {
-	*x = VerifyEmailResponse{}
+func (x *VerifyResponse) Reset() {
+	*x = VerifyResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_verify_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -86,13 +86,13 @@ func (x *VerifyEmailResponse) Reset() {
 	}
 }
 
-func (x *VerifyEmailResponse) String() string {
+func (x *VerifyResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*VerifyEmailResponse) ProtoMessage() {}
+func (*VerifyResponse) ProtoMessage() {}
 
-func (x *VerifyEmailResponse) ProtoReflect() protoreflect.Message {
+func (x *VerifyResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_verify_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -104,12 +104,12 @@ func (x *VerifyEmailResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use VerifyEmailResponse.ProtoReflect.Descriptor instead.
-func (*VerifyEmailResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use VerifyResponse.ProtoReflect.Descriptor instead.
+func (*VerifyResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_verify_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *VerifyEmailResponse) GetMessage() string {
+func (x *VerifyResponse) GetMessage() string {
 	if x != nil {
 		return x.Message
 	}
@@ -120,16 +120,15 @@ var File_rpc_verify_proto protoreflect.FileDescriptor
 
 var file_rpc_verify_proto_rawDesc = []byte{
 	0x0a, 0x10, 0x72, 0x70, 0x63, 0x2d, 0x76, 0x65, 0x72, 0x69, 0x66, 0x79, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x12, 0x08, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x22, 0x28, 0x0a, 0x12,
-	0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x2f, 0x0a, 0x13, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79,
-	0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
-	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x23, 0x5a, 0x21, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72,
-	0x70, 0x63, 0x73, 0x2f, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x6f, 0x12, 0x08, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x22, 0x23, 0x0a, 0x0d,
+	0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x63, 0x6f, 0x64, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x63, 0x6f, 0x64,
+	0x65, 0x22, 0x2a, 0x0a, 0x0e, 0x56, 0x65, 0x72, 0x69, 0x66, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x23, 0x5a,
+	0x21, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a,
+	0x61, 0x67, 0x65, 0x72, 0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75,
+	0x74, 0x68, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -146,8 +145,8 @@ func file_rpc_verify_proto_rawDescGZIP() []byte {
 
 var file_rpc_verify_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_rpc_verify_proto_goTypes = []interface{}{
-	(*VerifyEmailRequest)(nil),  // 0: trueauth.VerifyEmailRequest
-	(*VerifyEmailResponse)(nil), // 1: trueauth.VerifyEmailResponse
+	(*VerifyRequest)(nil),  // 0: trueauth.VerifyRequest
+	(*VerifyResponse)(nil), // 1: trueauth.VerifyResponse
 }
 var file_rpc_verify_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -164,7 +163,7 @@ func file_rpc_verify_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_rpc_verify_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VerifyEmailRequest); i {
+			switch v := v.(*VerifyRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -176,7 +175,7 @@ func file_rpc_verify_proto_init() {
 			}
 		}
 		file_rpc_verify_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VerifyEmailResponse); i {
+			switch v := v.(*VerifyResponse); i {
 			case 0:
 				return &v.state
 			case 1:

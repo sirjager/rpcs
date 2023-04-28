@@ -23,7 +23,7 @@ const (
 	TrueAuth_Health_FullMethodName       = "/trueauth.TrueAuth/Health"
 	TrueAuth_Register_FullMethodName     = "/trueauth.TrueAuth/Register"
 	TrueAuth_Login_FullMethodName        = "/trueauth.TrueAuth/Login"
-	TrueAuth_VerifyEmail_FullMethodName  = "/trueauth.TrueAuth/VerifyEmail"
+	TrueAuth_Verify_FullMethodName       = "/trueauth.TrueAuth/Verify"
 	TrueAuth_Logout_FullMethodName       = "/trueauth.TrueAuth/Logout"
 	TrueAuth_RefreshToken_FullMethodName = "/trueauth.TrueAuth/RefreshToken"
 	TrueAuth_Recover_FullMethodName      = "/trueauth.TrueAuth/Recover"
@@ -40,7 +40,7 @@ type TrueAuthClient interface {
 	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthResponse, error)
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
-	VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error)
+	Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error)
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
 	Recover(ctx context.Context, in *RecoverRequest, opts ...grpc.CallOption) (*RecoverResponse, error)
@@ -93,9 +93,9 @@ func (c *trueAuthClient) Login(ctx context.Context, in *LoginRequest, opts ...gr
 	return out, nil
 }
 
-func (c *trueAuthClient) VerifyEmail(ctx context.Context, in *VerifyEmailRequest, opts ...grpc.CallOption) (*VerifyEmailResponse, error) {
-	out := new(VerifyEmailResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_VerifyEmail_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Verify(ctx context.Context, in *VerifyRequest, opts ...grpc.CallOption) (*VerifyResponse, error) {
+	out := new(VerifyResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Verify_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -164,7 +164,7 @@ type TrueAuthServer interface {
 	Health(context.Context, *HealthRequest) (*HealthResponse, error)
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
-	VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error)
+	Verify(context.Context, *VerifyRequest) (*VerifyResponse, error)
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
 	Recover(context.Context, *RecoverRequest) (*RecoverResponse, error)
@@ -190,8 +190,8 @@ func (UnimplementedTrueAuthServer) Register(context.Context, *RegisterRequest) (
 func (UnimplementedTrueAuthServer) Login(context.Context, *LoginRequest) (*LoginResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Login not implemented")
 }
-func (UnimplementedTrueAuthServer) VerifyEmail(context.Context, *VerifyEmailRequest) (*VerifyEmailResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method VerifyEmail not implemented")
+func (UnimplementedTrueAuthServer) Verify(context.Context, *VerifyRequest) (*VerifyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Verify not implemented")
 }
 func (UnimplementedTrueAuthServer) Logout(context.Context, *LogoutRequest) (*LogoutResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Logout not implemented")
@@ -296,20 +296,20 @@ func _TrueAuth_Login_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_VerifyEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(VerifyEmailRequest)
+func _TrueAuth_Verify_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VerifyRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).VerifyEmail(ctx, in)
+		return srv.(TrueAuthServer).Verify(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_VerifyEmail_FullMethodName,
+		FullMethod: TrueAuth_Verify_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).VerifyEmail(ctx, req.(*VerifyEmailRequest))
+		return srv.(TrueAuthServer).Verify(ctx, req.(*VerifyRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -446,8 +446,8 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Login_Handler,
 		},
 		{
-			MethodName: "VerifyEmail",
-			Handler:    _TrueAuth_VerifyEmail_Handler,
+			MethodName: "Verify",
+			Handler:    _TrueAuth_Verify_Handler,
 		},
 		{
 			MethodName: "Logout",
