@@ -20,14 +20,14 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DeleteAccountRequest struct {
+type DeleteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 }
 
-func (x *DeleteAccountRequest) Reset() {
-	*x = DeleteAccountRequest{}
+func (x *DeleteRequest) Reset() {
+	*x = DeleteRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_delete_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -35,13 +35,13 @@ func (x *DeleteAccountRequest) Reset() {
 	}
 }
 
-func (x *DeleteAccountRequest) String() string {
+func (x *DeleteRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteAccountRequest) ProtoMessage() {}
+func (*DeleteRequest) ProtoMessage() {}
 
-func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
+func (x *DeleteRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_delete_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,12 +53,12 @@ func (x *DeleteAccountRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteAccountRequest.ProtoReflect.Descriptor instead.
-func (*DeleteAccountRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteRequest.ProtoReflect.Descriptor instead.
+func (*DeleteRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_delete_proto_rawDescGZIP(), []int{0}
 }
 
-type DeleteAccountResponse struct {
+type DeleteResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -66,8 +66,8 @@ type DeleteAccountResponse struct {
 	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
 }
 
-func (x *DeleteAccountResponse) Reset() {
-	*x = DeleteAccountResponse{}
+func (x *DeleteResponse) Reset() {
+	*x = DeleteResponse{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_rpc_delete_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -75,13 +75,13 @@ func (x *DeleteAccountResponse) Reset() {
 	}
 }
 
-func (x *DeleteAccountResponse) String() string {
+func (x *DeleteResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteAccountResponse) ProtoMessage() {}
+func (*DeleteResponse) ProtoMessage() {}
 
-func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
+func (x *DeleteResponse) ProtoReflect() protoreflect.Message {
 	mi := &file_rpc_delete_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -93,12 +93,12 @@ func (x *DeleteAccountResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteAccountResponse.ProtoReflect.Descriptor instead.
-func (*DeleteAccountResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteResponse.ProtoReflect.Descriptor instead.
+func (*DeleteResponse) Descriptor() ([]byte, []int) {
 	return file_rpc_delete_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *DeleteAccountResponse) GetMessage() string {
+func (x *DeleteResponse) GetMessage() string {
 	if x != nil {
 		return x.Message
 	}
@@ -109,15 +109,14 @@ var File_rpc_delete_proto protoreflect.FileDescriptor
 
 var file_rpc_delete_proto_rawDesc = []byte{
 	0x0a, 0x10, 0x72, 0x70, 0x63, 0x2d, 0x64, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x12, 0x08, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x22, 0x16, 0x0a, 0x14,
-	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x22, 0x31, 0x0a, 0x15, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x41, 0x63,
-	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
-	0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
-	0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x23, 0x5a, 0x21, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72, 0x2f, 0x72,
-	0x70, 0x63, 0x73, 0x2f, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x74, 0x6f, 0x12, 0x08, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x22, 0x0f, 0x0a, 0x0d,
+	0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x2a, 0x0a,
+	0x0e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x42, 0x23, 0x5a, 0x21, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x73, 0x69, 0x72, 0x6a, 0x61, 0x67, 0x65, 0x72,
+	0x2f, 0x72, 0x70, 0x63, 0x73, 0x2f, 0x74, 0x72, 0x75, 0x65, 0x61, 0x75, 0x74, 0x68, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -134,8 +133,8 @@ func file_rpc_delete_proto_rawDescGZIP() []byte {
 
 var file_rpc_delete_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_rpc_delete_proto_goTypes = []interface{}{
-	(*DeleteAccountRequest)(nil),  // 0: trueauth.DeleteAccountRequest
-	(*DeleteAccountResponse)(nil), // 1: trueauth.DeleteAccountResponse
+	(*DeleteRequest)(nil),  // 0: trueauth.DeleteRequest
+	(*DeleteResponse)(nil), // 1: trueauth.DeleteResponse
 }
 var file_rpc_delete_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -152,7 +151,7 @@ func file_rpc_delete_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_rpc_delete_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteAccountRequest); i {
+			switch v := v.(*DeleteRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -164,7 +163,7 @@ func file_rpc_delete_proto_init() {
 			}
 		}
 		file_rpc_delete_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteAccountResponse); i {
+			switch v := v.(*DeleteResponse); i {
 			case 0:
 				return &v.state
 			case 1:

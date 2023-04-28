@@ -19,16 +19,17 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	TrueAuth_Welcome_FullMethodName        = "/trueauth.TrueAuth/Welcome"
-	TrueAuth_Health_FullMethodName         = "/trueauth.TrueAuth/Health"
-	TrueAuth_Register_FullMethodName       = "/trueauth.TrueAuth/Register"
-	TrueAuth_Login_FullMethodName          = "/trueauth.TrueAuth/Login"
-	TrueAuth_VerifyEmail_FullMethodName    = "/trueauth.TrueAuth/VerifyEmail"
-	TrueAuth_Logout_FullMethodName         = "/trueauth.TrueAuth/Logout"
-	TrueAuth_RefreshToken_FullMethodName   = "/trueauth.TrueAuth/RefreshToken"
-	TrueAuth_Recover_FullMethodName        = "/trueauth.TrueAuth/Recover"
-	TrueAuth_DeleteAccount_FullMethodName  = "/trueauth.TrueAuth/DeleteAccount"
-	TrueAuth_AllowIPAddress_FullMethodName = "/trueauth.TrueAuth/AllowIPAddress"
+	TrueAuth_Welcome_FullMethodName      = "/trueauth.TrueAuth/Welcome"
+	TrueAuth_Health_FullMethodName       = "/trueauth.TrueAuth/Health"
+	TrueAuth_Register_FullMethodName     = "/trueauth.TrueAuth/Register"
+	TrueAuth_Login_FullMethodName        = "/trueauth.TrueAuth/Login"
+	TrueAuth_VerifyEmail_FullMethodName  = "/trueauth.TrueAuth/VerifyEmail"
+	TrueAuth_Logout_FullMethodName       = "/trueauth.TrueAuth/Logout"
+	TrueAuth_RefreshToken_FullMethodName = "/trueauth.TrueAuth/RefreshToken"
+	TrueAuth_Recover_FullMethodName      = "/trueauth.TrueAuth/Recover"
+	TrueAuth_Update_FullMethodName       = "/trueauth.TrueAuth/Update"
+	TrueAuth_Delete_FullMethodName       = "/trueauth.TrueAuth/Delete"
+	TrueAuth_AllowIP_FullMethodName      = "/trueauth.TrueAuth/AllowIP"
 )
 
 // TrueAuthClient is the client API for TrueAuth service.
@@ -43,8 +44,9 @@ type TrueAuthClient interface {
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
 	Recover(ctx context.Context, in *RecoverRequest, opts ...grpc.CallOption) (*RecoverResponse, error)
-	DeleteAccount(ctx context.Context, in *DeleteAccountRequest, opts ...grpc.CallOption) (*DeleteAccountResponse, error)
-	AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error)
+	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
+	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
+	AllowIP(ctx context.Context, in *AllowIPRequest, opts ...grpc.CallOption) (*AllowIPResponse, error)
 }
 
 type trueAuthClient struct {
@@ -127,18 +129,27 @@ func (c *trueAuthClient) Recover(ctx context.Context, in *RecoverRequest, opts .
 	return out, nil
 }
 
-func (c *trueAuthClient) DeleteAccount(ctx context.Context, in *DeleteAccountRequest, opts ...grpc.CallOption) (*DeleteAccountResponse, error) {
-	out := new(DeleteAccountResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_DeleteAccount_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
+	out := new(UpdateResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Update_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *trueAuthClient) AllowIPAddress(ctx context.Context, in *AllowIPAddressRequest, opts ...grpc.CallOption) (*AllowIPAddressResponse, error) {
-	out := new(AllowIPAddressResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_AllowIPAddress_FullMethodName, in, out, opts...)
+func (c *trueAuthClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
+	out := new(DeleteResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_Delete_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *trueAuthClient) AllowIP(ctx context.Context, in *AllowIPRequest, opts ...grpc.CallOption) (*AllowIPResponse, error) {
+	out := new(AllowIPResponse)
+	err := c.cc.Invoke(ctx, TrueAuth_AllowIP_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -157,8 +168,9 @@ type TrueAuthServer interface {
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
 	Recover(context.Context, *RecoverRequest) (*RecoverResponse, error)
-	DeleteAccount(context.Context, *DeleteAccountRequest) (*DeleteAccountResponse, error)
-	AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error)
+	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
+	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
+	AllowIP(context.Context, *AllowIPRequest) (*AllowIPResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
 
@@ -190,11 +202,14 @@ func (UnimplementedTrueAuthServer) RefreshToken(context.Context, *RefreshTokenRe
 func (UnimplementedTrueAuthServer) Recover(context.Context, *RecoverRequest) (*RecoverResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Recover not implemented")
 }
-func (UnimplementedTrueAuthServer) DeleteAccount(context.Context, *DeleteAccountRequest) (*DeleteAccountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccount not implemented")
+func (UnimplementedTrueAuthServer) Update(context.Context, *UpdateRequest) (*UpdateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
-func (UnimplementedTrueAuthServer) AllowIPAddress(context.Context, *AllowIPAddressRequest) (*AllowIPAddressResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AllowIPAddress not implemented")
+func (UnimplementedTrueAuthServer) Delete(context.Context, *DeleteRequest) (*DeleteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
+}
+func (UnimplementedTrueAuthServer) AllowIP(context.Context, *AllowIPRequest) (*AllowIPResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AllowIP not implemented")
 }
 func (UnimplementedTrueAuthServer) mustEmbedUnimplementedTrueAuthServer() {}
 
@@ -353,38 +368,56 @@ func _TrueAuth_Recover_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_DeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteAccountRequest)
+func _TrueAuth_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).DeleteAccount(ctx, in)
+		return srv.(TrueAuthServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_DeleteAccount_FullMethodName,
+		FullMethod: TrueAuth_Update_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).DeleteAccount(ctx, req.(*DeleteAccountRequest))
+		return srv.(TrueAuthServer).Update(ctx, req.(*UpdateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_AllowIPAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AllowIPAddressRequest)
+func _TrueAuth_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(TrueAuthServer).AllowIPAddress(ctx, in)
+		return srv.(TrueAuthServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: TrueAuth_AllowIPAddress_FullMethodName,
+		FullMethod: TrueAuth_Delete_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).AllowIPAddress(ctx, req.(*AllowIPAddressRequest))
+		return srv.(TrueAuthServer).Delete(ctx, req.(*DeleteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TrueAuth_AllowIP_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AllowIPRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TrueAuthServer).AllowIP(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TrueAuth_AllowIP_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TrueAuthServer).AllowIP(ctx, req.(*AllowIPRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -429,12 +462,16 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _TrueAuth_Recover_Handler,
 		},
 		{
-			MethodName: "DeleteAccount",
-			Handler:    _TrueAuth_DeleteAccount_Handler,
+			MethodName: "Update",
+			Handler:    _TrueAuth_Update_Handler,
 		},
 		{
-			MethodName: "AllowIPAddress",
-			Handler:    _TrueAuth_AllowIPAddress_Handler,
+			MethodName: "Delete",
+			Handler:    _TrueAuth_Delete_Handler,
+		},
+		{
+			MethodName: "AllowIP",
+			Handler:    _TrueAuth_AllowIP_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
