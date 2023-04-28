@@ -2,10 +2,10 @@ import * as grpcWeb from 'grpc-web';
 
 import * as rpc$ip_pb from './rpc-ip_pb';
 import * as rpc$delete_pb from './rpc-delete_pb';
-import * as rpc$forgot_pb from './rpc-forgot_pb';
 import * as rpc$health_pb from './rpc-health_pb';
 import * as rpc$login_pb from './rpc-login_pb';
 import * as rpc$logout_pb from './rpc-logout_pb';
+import * as rpc$recover_pb from './rpc-recover_pb';
 import * as rpc$refresh_pb from './rpc-refresh_pb';
 import * as rpc$register_pb from './rpc-register_pb';
 import * as rpc$verify_pb from './rpc-verify_pb';
@@ -66,19 +66,12 @@ export class TrueAuthClient {
                response: rpc$refresh_pb.RefreshTokenResponse) => void
   ): grpcWeb.ClientReadableStream<rpc$refresh_pb.RefreshTokenResponse>;
 
-  forgotPassword(
-    request: rpc$forgot_pb.ForgotPasswordRequest,
+  recover(
+    request: rpc$recover_pb.RecoverRequest,
     metadata: grpcWeb.Metadata | undefined,
     callback: (err: grpcWeb.RpcError,
-               response: rpc$forgot_pb.ForgotPasswordResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$forgot_pb.ForgotPasswordResponse>;
-
-  resetPassword(
-    request: rpc$forgot_pb.ResetPasswordRequest,
-    metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.RpcError,
-               response: rpc$forgot_pb.ResetPasswordResponse) => void
-  ): grpcWeb.ClientReadableStream<rpc$forgot_pb.ResetPasswordResponse>;
+               response: rpc$recover_pb.RecoverResponse) => void
+  ): grpcWeb.ClientReadableStream<rpc$recover_pb.RecoverResponse>;
 
   deleteAccount(
     request: rpc$delete_pb.DeleteAccountRequest,
@@ -136,15 +129,10 @@ export class TrueAuthPromiseClient {
     metadata?: grpcWeb.Metadata
   ): Promise<rpc$refresh_pb.RefreshTokenResponse>;
 
-  forgotPassword(
-    request: rpc$forgot_pb.ForgotPasswordRequest,
+  recover(
+    request: rpc$recover_pb.RecoverRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<rpc$forgot_pb.ForgotPasswordResponse>;
-
-  resetPassword(
-    request: rpc$forgot_pb.ResetPasswordRequest,
-    metadata?: grpcWeb.Metadata
-  ): Promise<rpc$forgot_pb.ResetPasswordResponse>;
+  ): Promise<rpc$recover_pb.RecoverResponse>;
 
   deleteAccount(
     request: rpc$delete_pb.DeleteAccountRequest,

@@ -8,9 +8,9 @@ import * as rpc$register_pb from './rpc-register_pb';
 import * as rpc$login_pb from './rpc-login_pb';
 import * as rpc$verify_pb from './rpc-verify_pb';
 import * as rpc$logout_pb from './rpc-logout_pb';
+import * as rpc$recover_pb from './rpc-recover_pb';
 import * as rpc$refresh_pb from './rpc-refresh_pb';
 import * as rpc$delete_pb from './rpc-delete_pb';
-import * as rpc$forgot_pb from './rpc-forgot_pb';
 import * as rpc$ip_pb from './rpc-ip_pb';
 
 

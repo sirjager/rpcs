@@ -3,11 +3,11 @@
 import grpc
 
 import rpc_delete_pb2 as rpc__delete__pb2
-import rpc_forgot_pb2 as rpc__forgot__pb2
 import rpc_health_pb2 as rpc__health__pb2
 import rpc_ip_pb2 as rpc__ip__pb2
 import rpc_login_pb2 as rpc__login__pb2
 import rpc_logout_pb2 as rpc__logout__pb2
+import rpc_recover_pb2 as rpc__recover__pb2
 import rpc_refresh_pb2 as rpc__refresh__pb2
 import rpc_register_pb2 as rpc__register__pb2
 import rpc_verify_pb2 as rpc__verify__pb2
@@ -58,15 +58,10 @@ class TrueAuthStub(object):
                 request_serializer=rpc__refresh__pb2.RefreshTokenRequest.SerializeToString,
                 response_deserializer=rpc__refresh__pb2.RefreshTokenResponse.FromString,
                 )
-        self.ForgotPassword = channel.unary_unary(
-                '/trueauth.TrueAuth/ForgotPassword',
-                request_serializer=rpc__forgot__pb2.ForgotPasswordRequest.SerializeToString,
-                response_deserializer=rpc__forgot__pb2.ForgotPasswordResponse.FromString,
-                )
-        self.ResetPassword = channel.unary_unary(
-                '/trueauth.TrueAuth/ResetPassword',
-                request_serializer=rpc__forgot__pb2.ResetPasswordRequest.SerializeToString,
-                response_deserializer=rpc__forgot__pb2.ResetPasswordResponse.FromString,
+        self.Recover = channel.unary_unary(
+                '/trueauth.TrueAuth/Recover',
+                request_serializer=rpc__recover__pb2.RecoverRequest.SerializeToString,
+                response_deserializer=rpc__recover__pb2.RecoverResponse.FromString,
                 )
         self.DeleteAccount = channel.unary_unary(
                 '/trueauth.TrueAuth/DeleteAccount',
@@ -125,13 +120,7 @@ class TrueAuthServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ForgotPassword(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ResetPassword(self, request, context):
+    def Recover(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -187,15 +176,10 @@ def add_TrueAuthServicer_to_server(servicer, server):
                     request_deserializer=rpc__refresh__pb2.RefreshTokenRequest.FromString,
                     response_serializer=rpc__refresh__pb2.RefreshTokenResponse.SerializeToString,
             ),
-            'ForgotPassword': grpc.unary_unary_rpc_method_handler(
-                    servicer.ForgotPassword,
-                    request_deserializer=rpc__forgot__pb2.ForgotPasswordRequest.FromString,
-                    response_serializer=rpc__forgot__pb2.ForgotPasswordResponse.SerializeToString,
-            ),
-            'ResetPassword': grpc.unary_unary_rpc_method_handler(
-                    servicer.ResetPassword,
-                    request_deserializer=rpc__forgot__pb2.ResetPasswordRequest.FromString,
-                    response_serializer=rpc__forgot__pb2.ResetPasswordResponse.SerializeToString,
+            'Recover': grpc.unary_unary_rpc_method_handler(
+                    servicer.Recover,
+                    request_deserializer=rpc__recover__pb2.RecoverRequest.FromString,
+                    response_serializer=rpc__recover__pb2.RecoverResponse.SerializeToString,
             ),
             'DeleteAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteAccount,
@@ -337,7 +321,7 @@ class TrueAuth(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ForgotPassword(request,
+    def Recover(request,
             target,
             options=(),
             channel_credentials=None,
@@ -347,26 +331,9 @@ class TrueAuth(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/ForgotPassword',
-            rpc__forgot__pb2.ForgotPasswordRequest.SerializeToString,
-            rpc__forgot__pb2.ForgotPasswordResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ResetPassword(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/ResetPassword',
-            rpc__forgot__pb2.ResetPasswordRequest.SerializeToString,
-            rpc__forgot__pb2.ResetPasswordResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/trueauth.TrueAuth/Recover',
+            rpc__recover__pb2.RecoverRequest.SerializeToString,
+            rpc__recover__pb2.RecoverResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -36,11 +36,11 @@ var rpc$verify_pb = require('./rpc-verify_pb.js')
 
 var rpc$logout_pb = require('./rpc-logout_pb.js')
 
+var rpc$recover_pb = require('./rpc-recover_pb.js')
+
 var rpc$refresh_pb = require('./rpc-refresh_pb.js')
 
 var rpc$delete_pb = require('./rpc-delete_pb.js')
-
-var rpc$forgot_pb = require('./rpc-forgot_pb.js')
 
 var rpc$ip_pb = require('./rpc-ip_pb.js')
 const proto = {};
@@ -528,122 +528,61 @@ proto.trueauth.TrueAuthPromiseClient.prototype.refreshToken =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.ForgotPasswordRequest,
- *   !proto.trueauth.ForgotPasswordResponse>}
+ *   !proto.trueauth.RecoverRequest,
+ *   !proto.trueauth.RecoverResponse>}
  */
-const methodDescriptor_TrueAuth_ForgotPassword = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/ForgotPassword',
+const methodDescriptor_TrueAuth_Recover = new grpc.web.MethodDescriptor(
+  '/trueauth.TrueAuth/Recover',
   grpc.web.MethodType.UNARY,
-  rpc$forgot_pb.ForgotPasswordRequest,
-  rpc$forgot_pb.ForgotPasswordResponse,
+  rpc$recover_pb.RecoverRequest,
+  rpc$recover_pb.RecoverResponse,
   /**
-   * @param {!proto.trueauth.ForgotPasswordRequest} request
+   * @param {!proto.trueauth.RecoverRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  rpc$forgot_pb.ForgotPasswordResponse.deserializeBinary
+  rpc$recover_pb.RecoverResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.trueauth.ForgotPasswordRequest} request The
+ * @param {!proto.trueauth.RecoverRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.ForgotPasswordResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.trueauth.RecoverResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.ForgotPasswordResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.trueauth.RecoverResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.trueauth.TrueAuthClient.prototype.forgotPassword =
+proto.trueauth.TrueAuthClient.prototype.recover =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/ForgotPassword',
+      '/trueauth.TrueAuth/Recover',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_ForgotPassword,
+      methodDescriptor_TrueAuth_Recover,
       callback);
 };
 
 
 /**
- * @param {!proto.trueauth.ForgotPasswordRequest} request The
+ * @param {!proto.trueauth.RecoverRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.trueauth.ForgotPasswordResponse>}
+ * @return {!Promise<!proto.trueauth.RecoverResponse>}
  *     Promise that resolves to the response
  */
-proto.trueauth.TrueAuthPromiseClient.prototype.forgotPassword =
+proto.trueauth.TrueAuthPromiseClient.prototype.recover =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/ForgotPassword',
+      '/trueauth.TrueAuth/Recover',
       request,
       metadata || {},
-      methodDescriptor_TrueAuth_ForgotPassword);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.trueauth.ResetPasswordRequest,
- *   !proto.trueauth.ResetPasswordResponse>}
- */
-const methodDescriptor_TrueAuth_ResetPassword = new grpc.web.MethodDescriptor(
-  '/trueauth.TrueAuth/ResetPassword',
-  grpc.web.MethodType.UNARY,
-  rpc$forgot_pb.ResetPasswordRequest,
-  rpc$forgot_pb.ResetPasswordResponse,
-  /**
-   * @param {!proto.trueauth.ResetPasswordRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  rpc$forgot_pb.ResetPasswordResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.trueauth.ResetPasswordRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.trueauth.ResetPasswordResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.trueauth.ResetPasswordResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.trueauth.TrueAuthClient.prototype.resetPassword =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/trueauth.TrueAuth/ResetPassword',
-      request,
-      metadata || {},
-      methodDescriptor_TrueAuth_ResetPassword,
-      callback);
-};
-
-
-/**
- * @param {!proto.trueauth.ResetPasswordRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.trueauth.ResetPasswordResponse>}
- *     Promise that resolves to the response
- */
-proto.trueauth.TrueAuthPromiseClient.prototype.resetPassword =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/trueauth.TrueAuth/ResetPassword',
-      request,
-      metadata || {},
-      methodDescriptor_TrueAuth_ResetPassword);
+      methodDescriptor_TrueAuth_Recover);
 };
 
 
