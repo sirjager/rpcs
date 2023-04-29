@@ -570,7 +570,7 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recover"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recovery"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -595,7 +595,7 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Update", runtime.WithHTTPPathPattern("/v1/account"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Update", runtime.WithHTTPPathPattern("/v1/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -620,7 +620,7 @@ func RegisterTrueAuthHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Delete", runtime.WithHTTPPathPattern("/v1/account"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/trueauth.TrueAuth/Delete", runtime.WithHTTPPathPattern("/v1/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -863,7 +863,7 @@ func RegisterTrueAuthHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recover"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Recovery", runtime.WithHTTPPathPattern("/v1/recovery"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -885,7 +885,7 @@ func RegisterTrueAuthHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Update", runtime.WithHTTPPathPattern("/v1/account"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Update", runtime.WithHTTPPathPattern("/v1/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -907,7 +907,7 @@ func RegisterTrueAuthHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Delete", runtime.WithHTTPPathPattern("/v1/account"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/trueauth.TrueAuth/Delete", runtime.WithHTTPPathPattern("/v1/users"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -963,11 +963,11 @@ var (
 
 	pattern_TrueAuth_Refresh_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "refresh"}, ""))
 
-	pattern_TrueAuth_Recovery_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "recover"}, ""))
+	pattern_TrueAuth_Recovery_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "recovery"}, ""))
 
-	pattern_TrueAuth_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "account"}, ""))
+	pattern_TrueAuth_Update_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "users"}, ""))
 
-	pattern_TrueAuth_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "account"}, ""))
+	pattern_TrueAuth_Delete_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "users"}, ""))
 
 	pattern_TrueAuth_AllowIP_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "allowip"}, ""))
 )
