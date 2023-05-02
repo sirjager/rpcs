@@ -30,7 +30,6 @@ const (
 	TrueAuth_Update_FullMethodName   = "/trueauth.TrueAuth/Update"
 	TrueAuth_Delete_FullMethodName   = "/trueauth.TrueAuth/Delete"
 	TrueAuth_AllowIP_FullMethodName  = "/trueauth.TrueAuth/AllowIP"
-	TrueAuth_Users_FullMethodName    = "/trueauth.TrueAuth/Users"
 	TrueAuth_User_FullMethodName     = "/trueauth.TrueAuth/User"
 )
 
@@ -49,9 +48,6 @@ type TrueAuthClient interface {
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error)
 	AllowIP(ctx context.Context, in *AllowIPRequest, opts ...grpc.CallOption) (*AllowIPResponse, error)
-	// ------------------------------------------------------------ Users
-	Users(ctx context.Context, in *UsersRequest, opts ...grpc.CallOption) (*UsersResponse, error)
-	// ------------------------------------------------------------ User
 	User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error)
 }
 
@@ -162,15 +158,6 @@ func (c *trueAuthClient) AllowIP(ctx context.Context, in *AllowIPRequest, opts .
 	return out, nil
 }
 
-func (c *trueAuthClient) Users(ctx context.Context, in *UsersRequest, opts ...grpc.CallOption) (*UsersResponse, error) {
-	out := new(UsersResponse)
-	err := c.cc.Invoke(ctx, TrueAuth_Users_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *trueAuthClient) User(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*UserResponse, error) {
 	out := new(UserResponse)
 	err := c.cc.Invoke(ctx, TrueAuth_User_FullMethodName, in, out, opts...)
@@ -195,9 +182,6 @@ type TrueAuthServer interface {
 	Update(context.Context, *UpdateRequest) (*UpdateResponse, error)
 	Delete(context.Context, *DeleteRequest) (*DeleteResponse, error)
 	AllowIP(context.Context, *AllowIPRequest) (*AllowIPResponse, error)
-	// ------------------------------------------------------------ Users
-	Users(context.Context, *UsersRequest) (*UsersResponse, error)
-	// ------------------------------------------------------------ User
 	User(context.Context, *UserRequest) (*UserResponse, error)
 	mustEmbedUnimplementedTrueAuthServer()
 }
@@ -238,9 +222,6 @@ func (UnimplementedTrueAuthServer) Delete(context.Context, *DeleteRequest) (*Del
 }
 func (UnimplementedTrueAuthServer) AllowIP(context.Context, *AllowIPRequest) (*AllowIPResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AllowIP not implemented")
-}
-func (UnimplementedTrueAuthServer) Users(context.Context, *UsersRequest) (*UsersResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Users not implemented")
 }
 func (UnimplementedTrueAuthServer) User(context.Context, *UserRequest) (*UserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method User not implemented")
@@ -456,24 +437,6 @@ func _TrueAuth_AllowIP_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _TrueAuth_Users_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UsersRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(TrueAuthServer).Users(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: TrueAuth_Users_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(TrueAuthServer).Users(ctx, req.(*UsersRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _TrueAuth_User_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRequest)
 	if err := dec(in); err != nil {
@@ -542,10 +505,6 @@ var TrueAuth_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AllowIP",
 			Handler:    _TrueAuth_AllowIP_Handler,
-		},
-		{
-			MethodName: "Users",
-			Handler:    _TrueAuth_Users_Handler,
 		},
 		{
 			MethodName: "User",
